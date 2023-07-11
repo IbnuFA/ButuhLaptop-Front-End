@@ -1,10 +1,10 @@
 import React from "react";
 import NavLink from "react-bootstrap";
 
-import ListKeranjang from "./components/user/ListKeranjang";
-import ListCheckout from "./components/user/ListCheckout";
-import DetailKeranjang from "./components/user/DetailKeranjang";
-import DetailCheckout from "./components/user/DetailCheckout";
+import ListKeranjang from "../components/user/ListKeranjang";
+import ListCheckout from "../components/user/ListCheckout";
+import DetailKeranjang from "../components/user/DetailKeranjang";
+import DetailCheckout from "../components/user/DetailCheckout";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, Row, Col, Button } from "react-bootstrap";

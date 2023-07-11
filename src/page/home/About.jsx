@@ -1,5 +1,5 @@
 import React from "react";
-import NavHome from "../components/navBar/NavHome";
+import NavHome from "../../components/navBar/NavHome";
 
 export default function About() {
     return(

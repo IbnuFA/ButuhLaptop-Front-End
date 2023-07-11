@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Button, Card, Table, Row, Col } from "react-bootstrap";
-import Laptop from '../../asset/img/laptopPlaceholder.png'
+import { Container, Button, Card, Table } from "react-bootstrap";
+
+// import Laptop from '../../asset/img/laptopPlaceholder.png'
 
 
 export default function AdminListProduct (){

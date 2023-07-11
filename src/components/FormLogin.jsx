@@ -2,13 +2,11 @@ import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { LoginUser, reset } from "../features/authSlice";
-// import { LoginUser, reset } from "../../features/authSlice"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Card, Container, Image } from "react-bootstrap";
 
 import IlustLogin from '../asset/img/login.jpg'
-import Login from "../page/home/Login";
 
 export default function FormLogin (){
     const [email, setEmail] = useState("");

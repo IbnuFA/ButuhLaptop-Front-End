@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar, Row, Col, Form, Table,Button, Card, Container, Image } from "react-bootstrap";
+import { Row, Table,Button, Card, Container, Image } from "react-bootstrap";
 
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 

@@ -1,8 +1,8 @@
 import React from "react";
 
 import {Row, Col} from "react-bootstrap";
-import SidebarAdmin from "../components/admin/SidebarAdmin";
-import DetailProduct from "../components/product/DetailProduct";
+import SidebarAdmin from "../../components/admin/SidebarAdmin";
+import DetailProduct from "../../components/product/DetailProduct";
 
 export default function AdminDetailProduct(){
     return(

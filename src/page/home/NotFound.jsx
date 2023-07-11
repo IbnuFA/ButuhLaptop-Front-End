@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Container, Image } from "react-bootstrap";
 
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 
 import IlustError from '../../asset/img/ilust404.png'
 

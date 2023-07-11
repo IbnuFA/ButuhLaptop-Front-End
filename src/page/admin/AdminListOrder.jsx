@@ -1,8 +1,8 @@
 import React from "react";
 
 import {Row, Col} from "react-bootstrap";
-import SidebarAdmin from "../components/admin/SidebarAdmin";
-import ListAllOrder from "../components/admin/ListAllOrder";
+import SidebarAdmin from "../../components/admin/SidebarAdmin";
+import ListAllOrder from "../../components/admin/ListAllOrder";
 
 export default function AdminListOrder(){
     return(

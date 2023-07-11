@@ -1,8 +1,8 @@
 import React from "react";
 
 import {Row, Col} from "react-bootstrap";
-import SidebarAdmin from "../components/admin/SidebarAdmin";
-import FormEditProduct from "../components/product/FormEditProduct";
+import SidebarAdmin from "../../components/admin/SidebarAdmin";
+import FormEditProduct from "../../components/product/FormEditProduct";
 
 export default function AdminEditProduct(){
     return(

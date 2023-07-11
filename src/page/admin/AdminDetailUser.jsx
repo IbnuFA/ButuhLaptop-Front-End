@@ -1,8 +1,8 @@
 import React from "react";
 
 import {Row, Col} from "react-bootstrap";
-import SidebarAdmin from "../components/admin/SidebarAdmin";
-import DetailUser from "../components/user/DetailUser";
+import SidebarAdmin from "../../components/admin/SidebarAdmin";
+import DetailUser from "../../components/user/DetailUser";
 
 export default function AdminDetaiUser(){
     return(

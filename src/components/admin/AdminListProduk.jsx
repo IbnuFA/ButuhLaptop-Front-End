@@ -50,7 +50,7 @@ export default function AdminListProduct (){
                                             <tr key={product.uuid}>
                                                 <td>{index + 1}</td>
                                                 <td>Table cell</td>
-                                                <td>{product.product_name}</td>
+                                                <td>{product.name}</td>
                                                 <td>{product.price}</td>
                                                 <td>{product.stock}</td>
                                                 <td>{product.category}</td>

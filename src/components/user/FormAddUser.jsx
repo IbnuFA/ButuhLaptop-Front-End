@@ -7,83 +7,91 @@ import {Row, Col, Form, Button, Card} from "react-bootstrap";
 export default function AddUser (){
     return(
         <>
-            <Card className="col-md-10 mx-auto mt-4">
-                <Card.Body>   
+            <Card className="col-md-11 mx-auto mt-4">
+                <Card.Body>
                         <Row>
-                            <Col md={10} sm={12} className="mx-auto">
+                            <Col md={11} sm={12} className="mx-auto">
                                 <div class="row align-items-center">
                                     <div class="header-text mb-4">
-                                        <h2>Add User</h2>
+                                        <h2>Tambah User</h2>
                                     </div>
                                     <Form>
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                            <Form.Label>Nama Produk</Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder=""
-                                                className="form-control bg-light fs-6"
-                                                required
-                                            />
-                                        </Form.Group>
+                                        <Row className="mb-3">
+                                            <Form.Group as={Col} md="6" controlId="exampleForm.ControlInput1">
+                                                <Form.Label>Nama Depan</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder=""
+                                                    className="form-control bg-light fs-6"
+                                                    required
+                                                />
+                                            </Form.Group>
+                                            <Form.Group as={Col} md="6" controlId="exampleForm.ControlInput1">
+                                                <Form.Label>Nama Belakang</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder=""
+                                                    className="form-control bg-light fs-6"
+                                                    required
+                                                />
+                                            </Form.Group>
+                                        </Row>
 
-                                        <Form.Group className="mb-3">
-                                            <Form.Label>Kategori Produk</Form.Label>
-                                            <Form.Select aria-label="Default select example" className="form-control bg-light">
-                                                <option>Plilih Kategori</option>
-                                                <option value="kerja">Kerja</option>
-                                                <option value="gaming">Gaming</option>
-                                                <option value="daily">Daily Use</option>
-                                            </Form.Select>
-                                        </Form.Group>
+                                        <Row className="mb-3">
+                                            <Form.Group as={Col} md="8" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>Email</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder=""
+                                                    className="form-control bg-light fs-6"
+                                                    required
+                                                />
+                                            </Form.Group>
 
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                            <Form.Label>Harga Produk</Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder=""
-                                                className="form-control bg-light fs-6"
-                                                required
-                                            />
-                                        </Form.Group>
+                                            <Form.Group as={Col} md="4" controlId="exampleForm.ControlInput1">
+                                                <Form.Label>Pilih Role User</Form.Label>
+                                                <Form.Select aria-label="Default select example" className="form-control bg-light">
+                                                    <option>Plilih Role</option>
+                                                    <option value="pas">User</option>
+                                                    <option value="modal_dikit">Admin</option>
+                                                </Form.Select>
+                                            </Form.Group>
+                                        </Row>
 
-                                        <Form.Group className="mb-3">
-                                            <Form.Label>Kategori Harga</Form.Label>
-                                            <Form.Select aria-label="Default select example" className="form-control bg-light">
-                                                <option>Plilih Kategori</option>
-                                                <option value="pas">Duit Pas</option>
-                                                <option value="modal_dikit">Ada Modal Dikit</option>
-                                                <option value="modal_banyak">Modal Banyak</option>
-                                                <option value="sultan">Sultan</option>    
-                                            </Form.Select>
-                                        </Form.Group>
+                                       
 
-                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                            <Form.Label>Stock Produk</Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder=""
-                                                className="form-control bg-light"
-                                                required
-                                            />
-                                        </Form.Group>
-
-                                        <Form.Group controlId="formFile" className="mb-3">
-                                            <Form.Label>Gambar Produk</Form.Label>
-                                            <Form.Control type="file" />
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                           <Form.Label>Password</Form.Label>
+                                           <Form.Control
+                                            type="password"
+                                            placeholder="Password"
+                                            className="form-control form-control-lg bg-light fs-6 mb-3"
+                                            // value={password}
+                                            // onChange={(e) => setPassword(e.target.value)}
+                                            required
+                                        />
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>Deskripsi Produk</Form.Label>
-                                            <Form.Control as="textarea" rows={3} />
+                                           <Form.Label>Confirm Password</Form.Label>
+                                           <Form.Control
+                                            type="password"
+                                            placeholder="Password"
+                                            className="form-control form-control-lg bg-light fs-6 mb-3"
+                                            // value={password}
+                                            // onChange={(e) => setPassword(e.target.value)}
+                                            required
+                                        />
                                         </Form.Group>
+                                        
                                         <Row>
                                             <Col className="d-flex flex-row-reverse">
-                                                <Button type="" variant="outline-danger" className="mb-3 ms-3 btn-lg ">
-                                                    Cancel
+                                                <Button type="" variant="outline-danger" className="mb-3 ms-3 btn-md ">
+                                                    Batal
                                                 </Button>
 
-                                                <Button type="submit" variant="primary" className="mb-3 btn-lg ">
-                                                    Submit
+                                                <Button type="submit" variant="primary" className="mb-3 btn-md ">
+                                                    Tambah
                                                 </Button>    
                                             </Col>
                                         </Row>                       

@@ -1,0 +1,68 @@
+import React from "react";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Button, Card, Row, Col } from "react-bootstrap";
+import Laptop from '../../asset/img/laptopPlaceholder.png'
+
+
+export default function KategoriProduct (){
+    return(
+        <Container className="mt-3 mb-3">
+            <Row className="justify-content-between">
+
+                <Col md={4} sm={6}>
+                    <Card className="col-sm-12 mb-4">
+                        <Card.Img variant="top" src={Laptop} />
+                        <Card.Body>
+                            <Card.Title>Kerja</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                        </Card.Body>
+                    </Card>
+                </Col>
+
+                <Col md={4} sm={6}>
+                    <Card className="col-sm-12 mb-4">
+                        <Card.Img variant="top" src={Laptop} />
+                        <Card.Body>
+                            <Card.Title>Gaming</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                        </Card.Body>
+                    </Card>
+                </Col>
+
+                <Col md={4} sm={6}>
+                    <Card className="col-sm-12 mb-4">
+                        <Card.Img variant="top" src={Laptop} />
+                        <Card.Body>
+                            <Card.Title>Daily Use</Card.Title>
+                            <Card.Text>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </Card.Text>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                
+            </Row>
+           
+        </Container>
+    )
+}

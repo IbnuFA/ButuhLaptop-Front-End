@@ -6,6 +6,11 @@ import { LogOut, reset } from "../../features/authSlice";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Card, Container, Image } from "react-bootstrap";
 
+//import icon
+import { BiLogOut, BiCart } from "react-icons/bi";
+import { IoBagHandleOutline } from "react-icons/io5";
+import { RiLockPasswordLine } from "react-icons/ri";
+
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
 export default function DetailUser (){
@@ -43,19 +48,19 @@ export default function DetailUser (){
                                     </div>
                                     <Form>
                                         <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6">
-                                            Ganti Password
+                                            <RiLockPasswordLine size={20} className="me-2"/> Ganti Password
                                         </Button>
 
                                         <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/listkeranjang')}>
-                                            Keranjangmu
+                                            <BiCart size={20} className="me-2"/> Keranjangmu
                                         </Button>
 
-                                        <Button type="submit" variant="light" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/listcheckout')}>
-                                            Pesananmu
+                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/listcheckout')}>
+                                            <IoBagHandleOutline size={20} className="me-2"/> Pesananmu
                                         </Button>
 
                                         <Button type="submit" variant="outline-danger" className="mb-3 btn-lg w-100 fs-6" onClick={logout}>
-                                            Logout
+                                            <BiLogOut size={20} className="me-2"/>Logout
                                         </Button>
                                     </Form>
                                 </div>

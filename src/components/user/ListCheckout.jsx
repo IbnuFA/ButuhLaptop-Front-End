@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Table,Button, Card, Container, Image } from "react-bootstrap";
 
+//import icon
+import { BsInfoCircle, BsTrash3 } from "react-icons/bs";
+import { RiEdit2Line } from "react-icons/ri";
+
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
 export default function ListCheckout(){
@@ -39,10 +43,9 @@ export default function ListCheckout(){
                                             <td>Table cell</td>
                                             <td>Table cell</td>
                                             <td>
-                                                
-                                            <Button variant="outline-primary success" size="sm" className="me-1" onClick={() => Navigate('/user/detailcheckout')}>Detail</Button>
-                                                <Button variant="success me-1" size="sm">Beli</Button>
-                                                <Button variant="outline-danger" size="sm">Delete</Button>
+                                                <Button variant="success" size="sm" className="me-1" onClick={() => Navigate('/user/detailcheckout')}><BsInfoCircle size={20}/></Button>
+                                                <Button variant="primary" size="sm" className="me-1"><RiEdit2Line size={20}/></Button>
+                                                <Button variant="outline-danger" size="sm"><BsTrash3 size={20}/></Button>
                                             </td>
                                         </tr>
                                         <tr>

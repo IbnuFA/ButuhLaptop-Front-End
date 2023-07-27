@@ -3,6 +3,10 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Card} from "react-bootstrap";
 
+//import icon
+import { GiCancel } from "react-icons/gi";
+import { RiAddBoxLine } from "react-icons/ri";
+
 
 export default function AddUser (){
     return(
@@ -87,11 +91,11 @@ export default function AddUser (){
                                         <Row>
                                             <Col className="d-flex flex-row-reverse">
                                                 <Button type="" variant="outline-danger" className="mb-3 ms-3 btn-md ">
-                                                    Batal
+                                                    <GiCancel size={20}/> Batal
                                                 </Button>
 
                                                 <Button type="submit" variant="primary" className="mb-3 btn-md ">
-                                                    Tambah
+                                                    <RiAddBoxLine size={20}/> Edit
                                                 </Button>    
                                             </Col>
                                         </Row>                       

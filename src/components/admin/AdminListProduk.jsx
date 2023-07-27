@@ -5,6 +5,10 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Table } from "react-bootstrap";
 
+//import icon
+import { BsInfoCircle, BsTrash3 } from "react-icons/bs";
+import { RiEdit2Line } from "react-icons/ri";
+
 // import Laptop from '../../asset/img/laptopPlaceholder.png'
 
 
@@ -55,8 +59,9 @@ export default function AdminListProduct (){
                                                 <td>{product.stock}</td>
                                                 <td>{product.category}</td>
                                                 <td>
-                                                    <Button variant="success" size="sm" className="me-1">Edit</Button>
-                                                    <Button variant="outline-danger" size="sm">Delete</Button>
+                                                    <Button variant="success" size="sm" className="me-1"><BsInfoCircle size={20}/></Button>
+                                                    <Button variant="primary" size="sm" className="me-1"><RiEdit2Line size={20}/></Button>
+                                                    <Button variant="outline-danger" size="sm"><BsTrash3 size={20}/></Button>
                                                 </td>
                                             </tr>
                                         </>

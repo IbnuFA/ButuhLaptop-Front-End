@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col } from "react-bootstrap";
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
+//import icon
+import { BsInfoCircle } from "react-icons/bs";
+
 
 export default function ListAllProduct (){
     const Navigate = useNavigate()
@@ -37,7 +40,7 @@ export default function ListAllProduct (){
                                         <Card.Text className="text-left">Sisa Stok : {product.stock}</Card.Text>
                                         <Card.Text className="text-left">Sisa Stok : {product.category}</Card.Text>
                                         <Card.Text className="text-left">{product.description}</Card.Text>
-                                        <Button variant="primary">Detail</Button>
+                                        <Button variant="primary"><BsInfoCircle size={20}/> Detail</Button>
                                     </Card.Body>
                                 </Card>
                             </Col>

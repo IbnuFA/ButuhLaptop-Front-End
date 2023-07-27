@@ -1,12 +1,12 @@
 import React from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, InputGroup, Button, Form, Card, Nav, Row, Col } from "react-bootstrap";
+import { Container, Button, Card, Row, Col } from "react-bootstrap";
 import Laptop from '../../../asset/img/laptopPlaceholder.png'
 
 const imagePlacdeholder = Laptop
 
-export default function ListAllProduct (){
+export default function ListAllProductUser (){
     return(
         <Container className="mt-3 mb-3">
             <Row className="justify-content-between">

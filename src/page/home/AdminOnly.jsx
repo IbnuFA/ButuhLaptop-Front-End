@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 
 import IlustError from '../../asset/img/ilust404.png'
 
-export default function NotFound() {
+export default function AdminOnly() {
     const Navigate = useNavigate()
 
     return(
@@ -23,8 +23,8 @@ export default function NotFound() {
                     <Col md={6} sm={12} className="right-box d-flex align-items-center">
                         <div class="row">
                             <div class="header-text mb-4">
-                                <h1>Page Not Found</h1>
-                                <p>Apa yang kamu cari tidak ditemukan.</p>
+                                <h1>Admin Only</h1>
+                                <p>Kamu tidak punya akses ke page ini.</p>
                             </div>
                             <Form>
                                 <Button 

@@ -6,6 +6,7 @@ import Login from './page/home/Login';
 import Register from './page/home/Register';
 import About from './page/home/About';
 import NotFound from './page/home/NotFound';
+import AdminOnly from './page/home/AdminOnly';
 
 // import user
 import UserMain from './page/user/UserMain';
@@ -58,8 +59,9 @@ function App() {
         <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
         <Route path='/admin/editproduct' element={<AdminEditProduct/>}/>
         <Route path='/admin/listorder' element={<AdminListOrder/>} />
-        <Route path='/tes' element={<TesPage />} />
+        <Route path='/adminOnly' element={<AdminOnly />} />
         <Route path='*' element={<NotFound />} />
+        <Route path='/tes' element={<TesPage />} />
       </Routes>
     </Router>
     

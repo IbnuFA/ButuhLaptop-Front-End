@@ -11,13 +11,14 @@ export default function UserMain(){
     const navigate = useNavigate();
     const {isError} = useSelector((state => state.auth));
 
+    //cek user login
     // useEffect(() => {
     //     dispatch(getUserLogin())
     // }, [dispatch]);
 
     // useEffect(() => {
     //     if(isError){
-    //         navigate("/");
+    //         navigate("*");
     //     }
     // }, [isError, navigate])
 

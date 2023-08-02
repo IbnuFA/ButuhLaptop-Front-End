@@ -11,7 +11,6 @@ import { RiEdit2Line } from "react-icons/ri";
 
 // import Laptop from '../../asset/img/laptopPlaceholder.png'
 
-
 export default function AdminListProduct (){
     const Navigate = useNavigate()
     const [products, setProducts] = useState([]);
@@ -34,6 +33,7 @@ export default function AdminListProduct (){
                             <div class="header-text">
                                 <h3>List Order</h3>
                             </div>
+                            <Button className="primary me-1" onClick={() => Navigate('/admin/addproduct')}>Add Product</Button>
                         </div>
                         <Table responsive>
                             <thead>

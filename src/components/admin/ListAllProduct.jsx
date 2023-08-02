@@ -13,20 +13,31 @@ import { RiEdit2Line } from "react-icons/ri";
 export default function ListAllProduct (){
     const Navigate = useNavigate()
     const [products, setProducts] = useState([]);
+    const [msg, setMsg] = useState("");
 
     useEffect(()=>{
         getProducts();
     },[])
 
     const getProducts = async() => {
-        const response = await axios.get(`http://localhost:5000/products`)
-        setProducts(response.data);
+        try {
+            const response = await axios.get(`http://localhost:5000/products`)
+            setProducts(response.data);
+        } catch (error) {
+            if (error.response) {
+                setMsg(error.response.data.msg);
+            }
+        }
     }
     
     const deleteProduct = async(id) => {
-        console.log(id)
-        await axios.delete(`http://localhost:5000/products/${id}`);
-        getProducts();
+        try {
+            await axios.delete(`http://localhost:5000/products/${id}`);
+            getProducts();
+        } catch (error) {
+            const message = error.message
+            console.error('There was an error!', message)
+        }
     }
 
     return(
@@ -36,7 +47,7 @@ export default function ListAllProduct (){
                     <Container fluid className="mt-3 mb-3">
                         <div class="row align-items-center">
                             <div class="header-text">
-                                <h3>List Order</h3>
+                                <h3>List Product</h3>
                             </div>
                         </div>
                             <Button className="primary me-1" onClick={() => Navigate('/admin/addproduct')}>Add Product</Button>
@@ -58,7 +69,7 @@ export default function ListAllProduct (){
                                         <>
                                             <tr key={product.id}>
                                                 <td>{index + 1}</td>
-                                                <td>Table cell</td>
+                                                <td>Gambar</td>
                                                 <td>{product.name}</td>
                                                 <td>{product.price}</td>
                                                 <td>{product.stock}</td>

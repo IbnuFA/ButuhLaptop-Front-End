@@ -85,7 +85,7 @@ export default function ListAllProduct (){
                                                     <Button 
                                                         variant="primary" 
                                                         size="sm" className="me-1" 
-                                                        onClick={() => Navigate('/admin/editproduct')}
+                                                        onClick={() => Navigate(`/admin/editproduct/${product.id}`)}
                                                     >
                                                             <RiEdit2Line size={20}/>
                                                     </Button>

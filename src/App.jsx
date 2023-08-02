@@ -57,7 +57,7 @@ function App() {
         <Route path='/admin/listproduct' element={<AdminListProduct/>}/>
         <Route path='/admin/detailproduct' element={<AdminDetailProduct/>}/>
         <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
-        <Route path='/admin/editproduct' element={<AdminEditProduct/>}/>
+        <Route path='/admin/editproduct/:id' element={<AdminEditProduct/>}/>
         <Route path='/admin/listorder' element={<AdminListOrder/>} />
         <Route path='/adminOnly' element={<AdminOnly />} />
         <Route path='*' element={<NotFound />} />

@@ -10,6 +10,10 @@ import { GiCancel } from "react-icons/gi";
 import { RiAddBoxLine } from "react-icons/ri";
 
 export default function FormAddProduct(){
+    //function
+    const navigate = useNavigate()
+    
+    //variable
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
     const [price,setPrice] = useState("");
@@ -17,7 +21,6 @@ export default function FormAddProduct(){
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [msg, setMsg] = useState("");
-    const navigate = useNavigate()
 
     const addProduct = async (e) => {
         e.preventDefault();

@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col, Table } from "react-bootstrap";
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
+import Swal from "sweetalert2";
+
 //import icon
 import { BsInfoCircle, BsTrash3 } from "react-icons/bs";
 import { RiEdit2Line } from "react-icons/ri";
@@ -29,6 +31,7 @@ export default function ListAllProduct (){
             }
         }
     }
+
     
     const deleteProduct = async(id) => {
         try {
@@ -39,9 +42,29 @@ export default function ListAllProduct (){
             console.error('There was an error!', message)
         }
     }
-
+    
+    const handleDelete = async(id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteProduct(id)
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
     return(
-       <>
+        <>
             <Card className="col-md-12 mx-auto mt-4">
                 <Card.Body>
                     <Container fluid className="mt-3 mb-3">
@@ -92,7 +115,7 @@ export default function ListAllProduct (){
                                                     <Button 
                                                         variant="outline-danger" 
                                                         size="sm" 
-                                                        onClick={() => deleteProduct(product.id)}
+                                                        onClick={() => handleDelete(product.id)}
                                                     >
                                                             <BsTrash3 size={20}/>
                                                     </Button>

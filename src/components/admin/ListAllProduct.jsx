@@ -45,19 +45,20 @@ export default function ListAllProduct (){
     
     const handleDelete = async(id) => {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Apakah anda yakin?',
+            text: "Produk yang dipilih akan dihapus",
             icon: 'warning',
             showCancelButton: true,
+            cancelButtonText: 'Batal',
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Hapus'
         }).then((result) => {
             if (result.isConfirmed) {
                 deleteProduct(id)
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Terhapus!',
+                    'Produk telah dihapus.',
                     'success'
                 )
             }

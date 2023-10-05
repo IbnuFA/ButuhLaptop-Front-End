@@ -64,6 +64,7 @@ export default function ListAllProduct (){
             }
         })
     }
+    
     return(
         <>
             <Card className="col-md-12 mx-auto mt-4">

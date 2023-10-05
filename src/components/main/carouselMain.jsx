@@ -1,47 +1,51 @@
 import React from "react";
 
-import Carousel from 'react-bootstrap/Carousel';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Laptop from '../../asset/img/laptopPlaceholder.png'
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import './styles.css';
+
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
+
+//import tes carousel
+import imgcarol1 from '../../asset/carousel/1123013.jpg'
+import imgcarol2 from '../../asset/carousel/1123014.jpg'
+import imgcarol3 from '../../asset/carousel/1129497.jpg'
+
 
 export default function CarouselMain() {
   return (
-    <Carousel>
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-50"
-          src={Laptop}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-50"
-          src={Laptop}
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-50"
-          src={Laptop}
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src={imgcarol1}/>
+
+          {/* <img src={'./logo.jpeg'}/> */}
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={imgcarol2}/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={imgcarol3}/>
+        </SwiperSlide>
+      </Swiper>
+
+    </>
   );
 }

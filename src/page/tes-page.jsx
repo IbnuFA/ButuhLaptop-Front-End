@@ -7,6 +7,7 @@ import DetailCheckout from "../components/user/DetailCheckout";
 import KategoriHarga from "../components/main/kategoriHarga";
 import KategoriProduct from "../components/main/kategoriProduct";
 import CarouselMain from "../components/main/carouselMain";
+import CarouselProduk from "../components/main/carouselProduk";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,6 +17,7 @@ export default function TesPage() {
             <CarouselMain className="mb-4"/>
             <KategoriProduct className="mb-4"/>
             <KategoriHarga className="mb-4"/>
+            <CarouselProduk className="mb-4"/>
             <DetailKeranjang className="mb-4"/>
             <DetailCheckout className="mb-4"/>
             <ListKeranjang className="mb-4"/>

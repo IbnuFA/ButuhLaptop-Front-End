@@ -1,5 +1,6 @@
 import React from "react";
 
+import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Table, Button} from "react-bootstrap";
 
@@ -11,13 +12,9 @@ export default function ListAllOrder (){
     return(
         <>
             <Card className="col-md-11 mx-auto mt-4">
+                <Card.Header className="cardHeader">List Order Masuk</Card.Header>
                 <Card.Body>
                     <Container fluid className="mt-3 mb-3">
-                        <div class="row align-items-center">
-                            <div class="header-text">
-                                <h3>List Order</h3>
-                            </div>
-                        </div>
                         <Table responsive>
                             <thead>
                                 <tr>
@@ -45,27 +42,29 @@ export default function ListAllOrder (){
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Table cell</td>
+                                    <td>1</td>
+                                    <td>Table Cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>
-                                        <Button variant="success" size="sm" className="me-1">Detail</Button>
-                                        <Button variant="outline-danger" size="sm">Delete</Button>
+                                        <Button variant="success" size="sm" className="me-1"><BsInfoCircle size={20}/></Button>
+                                        <Button variant="primary" size="sm" className="me-1"><RiEdit2Line size={20}/></Button>
+                                        <Button variant="outline-danger" size="sm"><BsTrash3 size={20}/></Button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td>Table cell</td>
+                                    <td>1</td>
+                                    <td>Table Cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>Table cell</td>
                                     <td>
-                                        <Button variant="success" size="sm" className="me-1">Detail</Button>
-                                        <Button variant="outline-danger" size="sm">Delete</Button>
+                                        <Button variant="success" size="sm" className="me-1"><BsInfoCircle size={20}/></Button>
+                                        <Button variant="primary" size="sm" className="me-1"><RiEdit2Line size={20}/></Button>
+                                        <Button variant="outline-danger" size="sm"><BsTrash3 size={20}/></Button>
                                     </td>
                                 </tr>
                             </tbody>

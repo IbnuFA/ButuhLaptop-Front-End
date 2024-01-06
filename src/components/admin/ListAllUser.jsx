@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Table, Button, Image } from "react-bootstrap";
 
@@ -17,14 +18,10 @@ export default function ListAllUser(){
     return(
             <>
                 <Card className="col-md-11 mx-auto mt-4">
+                    <Card.Header className="cardHeader">List User</Card.Header>
                     <Card.Body>
-                        <Container fluid className="mt-3 mb-3">
-                            <div class="row align-items-center">
-                                <div class="header-text">
-                                    <h3>List User</h3>
-                                    <Button className="primary" onClick={() => Navigate('/admin/adduser')}><BsPersonAdd size={23}/></Button>
-                                </div>
-                            </div>
+                        <Container fluid className="mb-3">
+                            <Button className="primary" onClick={() => Navigate('/admin/adduser')}><BsPersonAdd size={23}/> Tambah User</Button>
                             <Table responsive>
                                 <thead>
                                     <tr>

@@ -2,6 +2,7 @@ import React , {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col, Table } from "react-bootstrap";
 import Laptop from '../../asset/img/laptopPlaceholder.png'
@@ -67,15 +68,11 @@ export default function ListAllProduct (){
     
     return(
         <>
-            <Card className="col-md-12 mx-auto mt-4">
+            <Card className="col-md-11 col-md-11 mx-auto mt-4">
+                <Card.Header className="cardHeader">List Semua Produk</Card.Header>
                 <Card.Body>
-                    <Container fluid className="mt-3 mb-3">
-                        <div class="row align-items-center">
-                            <div class="header-text">
-                                <h3>List Product</h3>
-                            </div>
-                        </div>
-                            <Button className="primary me-1" onClick={() => Navigate('/admin/addproduct')}>Add Product</Button>
+                    <Container fluid className="mb-3">
+                        <Button className="primary me-1" onClick={() => Navigate('/admin/addproduct')}>Add Product</Button>
                         <Table responsive>
                             <thead>
                                 <tr>

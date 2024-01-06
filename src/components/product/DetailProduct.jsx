@@ -1,5 +1,6 @@
 import React from "react";
 
+import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Card, Container, Image } from "react-bootstrap";
 
@@ -9,12 +10,10 @@ export default function DetailProduct(){
     return(
         <>
             <Card className="col-md-11 mx-auto mt-4">
+                <Card.Header className="cardHeader">Detail Produk</Card.Header>
                 <Card.Body>
                     <Container fluid border="primary" className="d-flex justify-content-center align-items-center ">
                         <Row>
-                            <div class="header-text d-flex justify-content-center mb-4">
-                                <h2>Detail Produk</h2>
-                            </div>
                             <Col md={6} sm={12} className="rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                                 <div class="featured-image mb-3">
                                     <Image src={Laptop} width={400} height={400} fluid/>

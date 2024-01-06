@@ -1,0 +1,23 @@
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    height: 100vh;
+  }
+  
+  .main-content {
+    padding-top: 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .main-content {
+      padding-top: 60px;
+      width: 100%;
+    }
+  
+    .sidebar {
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+  

@@ -2,6 +2,7 @@ import React , {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Card, InputGroup} from "react-bootstrap";
 
@@ -43,14 +44,12 @@ export default function FormAddProduct(){
 
     return(
         <>
-            <Card className="col-md-11 mx-auto mt-4">
+            <Card className="col-md-11 col-sm-11 mx-auto mt-4">
+                <Card.Header className="cardHeader">Tambah Produk</Card.Header>
                 <Card.Body>
                         <Row>
                             <Col md={11} sm={12} className="mx-auto">
                                 <div class="row align-items-center">
-                                    <div class="header-text mb-4">
-                                        <h2>Tambah Produk</h2>
-                                    </div>
                                     <Form onSubmit={addProduct}>
                                         <Row className="mb-3">
                                             <Form.Group as={Col} md="8" controlId="exampleForm.ControlInput1">
@@ -60,7 +59,6 @@ export default function FormAddProduct(){
                                                     className="form-control input bg-light fs-6"
                                                     value={name}
                                                     onChange={(e) => setName(e.target.value)}
-                                                    required
                                                 />
                                             </Form.Group>
                                             
@@ -89,7 +87,6 @@ export default function FormAddProduct(){
                                                     className="form-control input bg-light fs-6"
                                                     value={price}
                                                     onChange={(e) => setPrice(e.target.value)}
-                                                    required
                                             />
                                             </Form.Group>
                                             

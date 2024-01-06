@@ -8,6 +8,7 @@ import KategoriHarga from "../components/main/kategoriHarga";
 import KategoriProduct from "../components/main/kategoriProduct";
 import CarouselMain from "../components/main/carouselMain";
 import CarouselProduk from "../components/main/carouselProduk";
+import NavAdmin from "../components/admin/NavAdmin";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,6 +16,7 @@ export default function TesPage() {
     return(
         <>
             <CarouselMain className="mb-4"/>
+            <NavAdmin className="mb-4"/>
             <KategoriProduct className="mb-4"/>
             <KategoriHarga className="mb-4"/>
             <CarouselProduk className="mb-4"/>

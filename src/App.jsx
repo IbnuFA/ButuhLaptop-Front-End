@@ -7,6 +7,7 @@ import Register from './page/home/Register';
 import About from './page/home/About';
 import NotFound from './page/home/NotFound';
 import AdminOnly from './page/home/AdminOnly';
+import TesSidebar2 from './components/admin/TesSidebar2';
 
 // import user
 import UserMain from './page/user/UserMain';
@@ -40,9 +41,9 @@ function App() {
         <Route path='/about' element={<About />} />
         {/* User */}
         <Route path='/user' element={<UserMain />} />
-        <Route path='/user/listkeranjang' element={<UserListKeranjang />} />
+        <Route path='/user/keranjang' element={<UserListKeranjang />} />
         <Route path='/user/detailkeranjang' element={<UserDetailKeranjang />} />
-        <Route path='/user/listcheckout' element={<UserListCheckout />} />
+        <Route path='/user/checkout' element={<UserListCheckout />} />
         <Route path='/user/detailcheckout' element={<UserDetailCheckout />} />
         {/* Produk */}
         <Route path='produk' element={<ProductMain/>} /> 
@@ -62,6 +63,7 @@ function App() {
         <Route path='/adminOnly' element={<AdminOnly />} />
         <Route path='*' element={<NotFound />} />
         <Route path='/tes' element={<TesPage />} />
+        <Route path='/tes2' element={<TesSidebar2 />} />
       </Routes>
     </Router>
     

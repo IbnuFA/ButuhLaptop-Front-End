@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getUserLogin } from "../../features/authSlice";
 
 import {Row, Col} from "react-bootstrap";
-import SidebarAdmin from "../../components/admin/SidebarAdmin";
+import NavbarAdmin from "../../components/navBar/NavbarAdmin";
 import ListAllProduct from "../../components/admin/ListAllProduct";
 
 export default function AdminMain(){
@@ -28,18 +28,8 @@ export default function AdminMain(){
 
     return(
         <>
-            <div class="m-0">
-                <Row>
-                    <Col md={3} sm={12} className="left-box">
-                        <SidebarAdmin/>
-                    </Col>
-                    <Col md={9} sm={12} className="right-box">              
-                        <div className="overflow-auto" style={{height : '100vh'}}>
-                            <ListAllProduct/>
-                        </div>          
-                    </Col>
-                </Row>
-            </div>
+            <NavbarAdmin/>
+            <ListAllProduct/>
         </>
     )
 }

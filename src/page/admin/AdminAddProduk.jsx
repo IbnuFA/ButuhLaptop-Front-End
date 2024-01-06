@@ -4,8 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { getUserLogin } from "../../features/authSlice";
 
 import {Row, Col} from "react-bootstrap";
-import SidebarAdmin from "../../components/admin/SidebarAdmin";
+
+//import komponen
+import NavHome from "../../components/navBar/NavHome";
+import NavAdmin from "../../components/admin/NavAdmin";
 import FormAddProduct from "../../components/product/FormAddProduct";
+
 
 export default function AdminAddProduk(){
     const dispatch = useDispatch();
@@ -28,15 +32,16 @@ export default function AdminAddProduk(){
     
     return(
         <>
-            <div class="m-0">
+            <NavHome/>
+            <div>
                 <Row>
                     <Col md={3} sm={12} className="left-box">
-                        <SidebarAdmin/>
+                        <NavAdmin/>    
                     </Col>
                     <Col md={9} sm={12} className="right-box">              
-                        <div className="overflow-auto" style={{height : '100vh'}}>
-                            <FormAddProduct/>
-                        </div>          
+                        
+                        <FormAddProduct/>
+                                  
                     </Col>
                 </Row>
             </div>

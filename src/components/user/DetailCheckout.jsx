@@ -1,58 +1,97 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import '../../App.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Form, Button, Card, Container, Image } from "react-bootstrap";
+import { Row, Col, Form, Button, Table, Card, Container, Image } from "react-bootstrap";
 
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
-export default function DetailCheckout(){
+export default function DetailKeranjang(){
     const Navigate = useNavigate()
 
     return(
-        <>
-            <Card className="col-md-10 mx-auto mt-4">
-                <Card.Body>
-                    <Container fluid border="primary" className="d-flex justify-content-center align-items-center ">
-                        <Row>
-                            <div class="header-text d-flex justify-content-center mb-4">
-                                <h2>Detail Checkout</h2>
-                            </div>
-                            <Col md={6} sm={12} className="rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-                                <div class="featured-image mb-3">
-                                    <Image src={Laptop} width={400} height={400} fluid/>
-                                </div>
-                            </Col>
-                            <Col md={6} sm={12} className="rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-                                <div class="row align-items-center">
-                                    <div class="header-text mb-3">
-                                        <h5>Tanggal Beli : 21-06-2023</h5>
-                                    </div>
-                                     <div class="header-text mb-3">
-                                        <h5>Nama Produk : Acer Dimakan</h5>
-                                    </div>
-                                    <div class="header-text mb-3">
-                                        <h5>Harga : Rp 5.000.000</h5>
-                                    </div>
-                                    <div class="header-text mb-3">
-                                        <h5>Deskripsi : RAM 16 GB</h5>
-                                    </div>
-                                    <div class="header-text mb-3">
-                                        <h5>Jumlah Pembelian : 1</h5>
-                                    </div>
-                                    <Form>
-                                        <Button type="submit" variant="outline-danger" className="mb-3 btn-lg w-100 fs-6">
-                                            Hapus
-                                        </Button>
+        <> 
+            <Card className="col-md-10 col-sm-11 mx-auto mt-4 mb-4">
+                <Card.Header className="cardHeader">Detail Checkout</Card.Header>
+                    <Card.Body>
+                        <div class="header-text d-flex justify-content-center mb-1">
+                                <h5>Detail Checkout</h5>
+                        </div>
+                        <Table>
+                            <tbody>
+                                <tr>
+                                    <td>Nomor Invoice</td>
+                                    <td> : </td>
+                                    <td>dsadaasfa</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Pesan</td>
+                                    <td> : </td>
+                                    <td>21-06-2023</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat Pengiriman</td>
+                                    <td> : </td>
+                                    <td>Sorong</td>
+                                </tr>
+                                <tr>
+                                    <td>Kurir</td>
+                                    <td> : </td>
+                                    <td>Si Lambat</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Harga Produk</td>
+                                    <td> : </td>
+                                    <td>3.000.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Ongkir</td>
+                                    <td> : </td>
+                                    <td>50.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Harga Produk</td>
+                                    <td> : </td>
+                                    <td>3.050.000</td>
+                                </tr>
+                            </tbody>
+                        </Table>
 
-                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> Navigate('/user/listcheckout')}>
-                                            Kembali
-                                        </Button>
-                                    </Form>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+            </Card>
+
+            <Card className="col-md-10 col-sm-11 mx-auto">
+            <Card.Header className="cardHeader">Detail Produk</Card.Header>
+                <Card.Body>
+                    <Table responsive>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Gambar</th>
+                                <th>Nama Barang</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><Image src={Laptop} fluid width={100} height={100}/></td>
+                                <td>HP Butuh Garansi</td>
+                                <td>1</td>
+                                <td>Rp 1.000.000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><Image src={Laptop} fluid width={100} height={100}/></td>
+                                <td>21-06-2023</td>
+                                <td>Table cell</td>
+                                <td>Table cell</td>
+                            </tr>
+                        </tbody>
+                    </Table>
                 </Card.Body>
             </Card>
         </>

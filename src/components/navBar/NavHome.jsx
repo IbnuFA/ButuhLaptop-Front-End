@@ -3,13 +3,11 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Nav, Navbar, Form, NavDropdown, Offcanvas, Col, Row } from "react-bootstrap";
 
-
-
 export default function NavHome () {
     return(
         <>
         {['xl'].map((expand) => (
-            <Navbar key={expand} bg="light" expand={expand} className="bg-body-tertiary mb-3">
+          <Navbar key={expand} bg="light" expand={expand} className="bg-body-tertiary mb-3">
               <Container fluid>
                 <Navbar.Brand href="#">ButuhLaptop Logo</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -29,9 +27,10 @@ export default function NavHome () {
                         <Nav.Link href="#action2">About</Nav.Link>
                         <Nav.Link href="#action2">Feedback</Nav.Link>
                     </Nav>
-                    <Form className="d-flex">
-                      <Button variant="outline-success">Search</Button>
-                    </Form>
+                    <Nav className="d-flex">
+                        <Nav.Link href="#action1">Login</Nav.Link>
+                        <Nav.Link href="#action2">Register</Nav.Link>
+                    </Nav>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
               </Container>

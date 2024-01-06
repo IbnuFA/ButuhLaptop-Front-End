@@ -6,6 +6,7 @@ import { getUserLogin } from "../../features/authSlice";
 import {Row, Col} from "react-bootstrap";
 import SidebarAdmin from "../../components/admin/SidebarAdmin";
 import DetailProduct from "../../components/product/DetailProduct";
+import NavbarAdmin from "../../components/navBar/NavbarAdmin";
 
 export default function AdminDetailProduct(){
     const dispatch = useDispatch();
@@ -28,18 +29,8 @@ export default function AdminDetailProduct(){
     
     return(
         <>
-            <div class="m-0">
-                <Row>
-                    <Col md={3} sm={12} className="left-box">
-                        <SidebarAdmin/>
-                    </Col>
-                    <Col md={9} sm={12} className="right-box">              
-                        <div className="overflow-auto" style={{height : '100vh'}}>
-                            <DetailProduct/>
-                        </div>          
-                    </Col>
-                </Row>
-            </div>
+            <NavbarAdmin/>
+            <DetailProduct/>
         </>
     )
 }

@@ -27,58 +27,110 @@ export default function CarouselProduk (){
             <h3 style={{textAlignVertical: 'center',textAlign: 'center',}}>SEGMEN 1</h3>
             <Swiper
             
-                slidesPerView={1}
+                slidesPerView={3}
                 centeredSlides={true}
-                spaceBetween={30}
+                spaceBetween={10}
                 loop={true}
                 pagination={{
                 clickable: true,
                 }}
                 navigation={true}
                 modules={[Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper1"
             >
                 <SwiperSlide>
-                        <Col md={3} sm={6}>
-                            <Card className="col-sm-12 mt-4 mb-4">
-                                <Card.Img variant="top" src={Laptop} />
-                                <Card.Body>
-                                    <Card.Title>Kerja</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
+                    <div className="d-flex flex-column py-4">
+                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Kerja</h5>
+                            <h6>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </h6>
 
-                                    <Container className="d-flex justify-content-center">
-                                        <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                    </Container>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                    </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                        <Col md={3} sm={6}>
-                            <Card className="col-sm-12 mt-4 mb-4">
-                                <Card.Img variant="top" src={Laptop} />
-                                <Card.Body>
-                                    <Card.Title>Kerja</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
+                    <div className="d-flex flex-column py-4">
+                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Kerja</h5>
+                            <h6>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </h6>
 
-                                    <Container className="d-flex justify-content-center">
-                                        <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                    </Container>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                    </div>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                        <Col md={3} sm={6}>
-                            <Card className="col-sm-12 mt-4 mb-4">
+                    <div className="d-flex flex-column py-4">
+                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Kerja</h5>
+                            <h6>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </h6>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="d-flex flex-column py-4">
+                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Kerja</h5>
+                            <h6>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </h6>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="d-flex flex-column py-4">
+                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Kerja</h5>
+                            <h6>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </h6>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="d-flex flex-column py-4">
+                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Kerja</h5>
+                            <h6>
+                                Some quick example text to build on the card title and make up the
+                                bulk of the card's content.
+                            </h6>
+
+                            <Container className="d-flex justify-content-center">
+                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                            </Container>
+                    </div>
+                </SwiperSlide>
+
+
+                {/* <SwiperSlide>
+                            <Card>
                                 <Card.Img variant="top" src={Laptop} />
                                 <Card.Body>
                                     <Card.Title>Kerja</Card.Title>
@@ -92,15 +144,14 @@ export default function CarouselProduk (){
                                     </Container>
                                 </Card.Body>
                             </Card>
-                        </Col>
-                </SwiperSlide>
+                </SwiperSlide> */}
             </Swiper>
 
             {/* Segmen 2 */}
             <h3 style={{textAlignVertical: 'center',textAlign: 'center',}} className="mt-4">SEGMEN 2</h3>
             <Swiper
             
-                slidesPerView={1}
+                slidesPerView={3}
                 centeredSlides={true}
                 spaceBetween={30}
                 loop={true}
@@ -113,7 +164,7 @@ export default function CarouselProduk (){
             >
                 <SwiperSlide>
                         <Col md={3} sm={6}>
-                            <Card className="col-sm-12 mt-4 mb-4">
+                            <Card>
                                 <Card.Img variant="top" src={Laptop} />
                                 <Card.Body>
                                     <Card.Title>Kerja</Card.Title>
@@ -132,7 +183,7 @@ export default function CarouselProduk (){
 
                 <SwiperSlide>
                         <Col md={3} sm={6}>
-                            <Card className="col-sm-12 mt-4 mb-4">
+                            <Card>
                                 <Card.Img variant="top" src={Laptop} />
                                 <Card.Body>
                                     <Card.Title>Kerja</Card.Title>
@@ -151,7 +202,7 @@ export default function CarouselProduk (){
 
                 <SwiperSlide>
                         <Col md={3} sm={6}>
-                            <Card className="col-sm-12 mt-4 mb-4">
+                            <Card>
                                 <Card.Img variant="top" src={Laptop} />
                                 <Card.Body>
                                     <Card.Title>Kerja</Card.Title>

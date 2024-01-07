@@ -41,7 +41,7 @@ export default function DetailUser (){
                             <Col md={6} sm={12} className="rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
                                 <div class="row align-items-center">
                                     <div class="header-text mb-3">
-                                        <h4>Ibnu Fauzan Affifudin</h4>
+                                        <h4>{user?.first_name} {user?.last_name}</h4>
                                     </div>
                                     <div class="header-text mb-3">
                                         <h5>Level : Emas</h5>

@@ -1,4 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { getUserLogin } from "./features/authSlice";
+
+import ProtectedRoutes from './components/ProtectedRoutes';
+
 
 // import TesPage from './page/tes-page';
 import Home from './page/home/Home';
@@ -30,8 +35,15 @@ import AdminListOrder from './page/admin/AdminListOrder';
 import ProductMain from './page/product/ProductMain' 
 
 import TesPage from './page/tes-page';
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserLogin());
+  }, [dispatch]);
+
   return (
     <Router>
       <Routes>
@@ -39,31 +51,37 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
-        {/* User */}
-        <Route path='/user' element={<UserMain />} />
-        <Route path='/user/keranjang' element={<UserListKeranjang />} />
-        <Route path='/user/detailkeranjang' element={<UserDetailKeranjang />} />
-        <Route path='/user/checkout' element={<UserListCheckout />} />
-        <Route path='/user/detailcheckout' element={<UserDetailCheckout />} />
-        {/* Produk */}
-        <Route path='produk' element={<ProductMain/>} /> 
-        {/* Admin */}
-        <Route path='/admin' element={<AdminMain />} />
-        {/* Admin User */}
-        <Route path='/admin/listuser' element={<AdminListUser/>} />
-        <Route path='/admin/detailuser' element={<AdminDetaiUser/>} />
-        <Route path='/admin/adduser' element={<AdminAddUser/>} />
-        <Route path='/admin/edituser' element={<AdminEditUser/>} />
-        {/* Admin Product */}
-        <Route path='/admin/listproduct' element={<AdminListProduct/>}/>
-        <Route path='/admin/detailproduct' element={<AdminDetailProduct/>}/>
-        <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
-        <Route path='/admin/editproduct/:id' element={<AdminEditProduct/>}/>
-        <Route path='/admin/listorder' element={<AdminListOrder/>} />
-        <Route path='/adminOnly' element={<AdminOnly />} />
-        <Route path='*' element={<NotFound />} />
-        <Route path='/tes' element={<TesPage />} />
-        <Route path='/tes2' element={<TesSidebar2 />} />
+
+        {/* Required Login */}
+        <Route
+          element={<ProtectedRoutes />}
+        >
+          {/* User */}
+          <Route path='/user' element={<UserMain />} />
+          <Route path='/user/keranjang' element={<UserListKeranjang />} />
+          <Route path='/user/detailkeranjang' element={<UserDetailKeranjang />} />
+          <Route path='/user/checkout' element={<UserListCheckout />} />
+          <Route path='/user/detailcheckout' element={<UserDetailCheckout />} />
+          {/* Produk */}
+          <Route path='produk' element={<ProductMain/>} /> 
+          {/* Admin */}
+          <Route path='/admin' element={<AdminMain />} />
+          {/* Admin User */}
+          <Route path='/admin/listuser' element={<AdminListUser/>} />
+          <Route path='/admin/detailuser' element={<AdminDetaiUser/>} />
+          <Route path='/admin/adduser' element={<AdminAddUser/>} />
+          <Route path='/admin/edituser' element={<AdminEditUser/>} />
+          {/* Admin Product */}
+          <Route path='/admin/listproduct' element={<AdminListProduct/>}/>
+          <Route path='/admin/detailproduct' element={<AdminDetailProduct/>}/>
+          <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
+          <Route path='/admin/editproduct/:id' element={<AdminEditProduct/>}/>
+          <Route path='/admin/listorder' element={<AdminListOrder/>} />
+          <Route path='/adminOnly' element={<AdminOnly />} />
+          <Route path='*' element={<NotFound />} />
+          <Route path='/tes' element={<TesPage />} />
+          <Route path='/tes2' element={<TesSidebar2 />} />
+        </Route>
       </Routes>
     </Router>
     

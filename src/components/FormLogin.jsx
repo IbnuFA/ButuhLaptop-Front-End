@@ -18,10 +18,11 @@ export default function FormLogin (){
     );
   
     useEffect(() => {
-      if (user || isSuccess) {
+      if (user) {
         navigate("/user");
+      } else {
+        dispatch(reset());
       }
-      dispatch(reset());
     }, [user, isSuccess, dispatch, navigate]);
   
     const Auth = (e) => {
@@ -78,9 +79,9 @@ export default function FormLogin (){
                                             Login
                                         </Button>
 
-                                        <Button type="submit" variant="light" className="mb-3 btn-lg w-100 fs-6">
+                                        {/* <Button type="submit" variant="light" className="mb-3 btn-lg w-100 fs-6">
                                             Google
-                                        </Button>
+                                        </Button> */}
                                     </Form>
                                     <div class="input-group mb-5 d-flex justify-content-between">
                                         {/* <div class="row">

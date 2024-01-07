@@ -1,8 +1,22 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import { Container, Button, Nav, Navbar} from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../../features/authSlice";
 
 export default function NavUser () {
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const {user} = useSelector((state => state.auth));
+    const logout = () => {
+        dispatch(LogOut());
+        dispatch(reset());
+        navigate("/login")
+    }
+
     return(
         <>
             <Navbar bg="light" expand="lg">
@@ -21,8 +35,17 @@ export default function NavUser () {
                         <Nav.Link href="#action2" style={{ color: 'white' }}>About Us</Nav.Link>
                     </Nav>
                     <Nav className="d-flex">
-                        <Button className="mx-2" variant="outline-success">Login</Button>
-                        <Button variant="outline-success">Register</Button>
+                        {user ? (
+                            <>
+                                <Button className="mx-2" variant="outline-success"><Link to="/user">Profil</Link></Button>
+                                <Button variant="outline-success" onClick={logout}>Logout</Button>
+                            </>
+                        ) : (
+                            <>
+                                <Button className="mx-2" variant="outline-success"><Link to="/login">Login</Link></Button>
+                                <Button variant="outline-success"><Link to="/register">Register</Link></Button>
+                            </>
+                        )}
                     </Nav>
                 </Navbar.Collapse>
                 

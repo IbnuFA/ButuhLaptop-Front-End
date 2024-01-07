@@ -1,9 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../../features/authSlice";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Nav, Navbar, Form, NavDropdown, Offcanvas, Col, Row } from "react-bootstrap";
 
 export default function NavHome () {
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const {user} = useSelector((state => state.auth));
+    const logout = () => {
+        dispatch(LogOut());
+        dispatch(reset());
+        navigate("/login")
+    }
+
     return(
         <>
         {['xl'].map((expand) => (
@@ -23,13 +36,22 @@ export default function NavHome () {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-center flex-grow-1 pe-3">
-                        <Nav.Link href="#action1">Produk</Nav.Link>
-                        <Nav.Link href="#action2">About</Nav.Link>
-                        <Nav.Link href="#action2">Feedback</Nav.Link>
+                        <Nav.Link href="#">Produk</Nav.Link>
+                        <Nav.Link href="#">About</Nav.Link>
+                        <Nav.Link href="#">Feedback</Nav.Link>
                     </Nav>
                     <Nav className="d-flex">
-                        <Nav.Link href="#action1">Login</Nav.Link>
-                        <Nav.Link href="#action2">Register</Nav.Link>
+                        {user ? (
+                          <>
+                            <Nav.Link href="#"><Link to="/user">Profil</Link></Nav.Link>
+                            <Nav.Link href="#" onClick={logout}>Logout</Nav.Link>
+                          </>
+                        ) : (
+                          <>
+                            <Nav.Link href="#"><Link to="/login">Login</Link></Nav.Link>
+                            <Nav.Link href="#"><Link to="/register">Register</Link></Nav.Link>
+                          </>
+                        )}
                     </Nav>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>

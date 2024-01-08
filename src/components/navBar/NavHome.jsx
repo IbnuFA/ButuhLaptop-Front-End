@@ -39,6 +39,9 @@ export default function NavHome () {
                         <Nav.Link href="#">Produk</Nav.Link>
                         <Nav.Link href="#">About</Nav.Link>
                         <Nav.Link href="#">Feedback</Nav.Link>
+                        {user?.role === 'admin' && (
+                          <Nav.Link href="#"><Link to="/admin">Admin</Link></Nav.Link>
+                        )}
                     </Nav>
                     <Nav className="d-flex">
                         {user ? (

@@ -6,6 +6,7 @@ import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col, Table } from "react-bootstrap";
 import Laptop from '../../asset/img/laptopPlaceholder.png'
+import Token from '../../features/token';
 
 import Swal from "sweetalert2";
 
@@ -25,7 +26,11 @@ export default function ListAllProduct (){
 
     const getProducts = async() => {
         try {
-            const response = await axios.get(`http://localhost:5000/products`)
+            const response = await axios.get(`http://localhost:5000/products`, {
+                headers: {
+                    Authorization: `Bearer ${Token.getToken()}`
+                }
+            })
             setProducts(response.data);
         } catch (error) {
             if (error.response) {
@@ -93,7 +98,7 @@ export default function ListAllProduct (){
                             </thead>
                             <tbody>
                                 {/* Contoh Data */}
-                                <tr>
+                                {/* <tr>
                                     <td>1</td>
                                     <td>Gambar</td>
                                     <td>Tes</td>
@@ -123,14 +128,14 @@ export default function ListAllProduct (){
                                                 <BsTrash3 size={20}/>
                                         </Button>
                                     </td>
-                                </tr>
+                                </tr> */}
 
                                 {products.map((product, index)=>{
                                     return(
                                         <>
                                             <tr key={product.id}>
                                                 <td>{index + 1}</td>
-                                                <td>Gambar</td>
+                                                <td><img src={product.image} alt={product.name} /></td>
                                                 <td>{product.name}</td>
                                                 <td>{product.price}</td>
                                                 <td>{product.stock}</td>

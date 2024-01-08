@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getUserLogin } from "./features/authSlice";
 
 import ProtectedRoutes from './components/ProtectedRoutes';
+import AdminRoutes from './components/AdminRoutes';
 
 
 // import TesPage from './page/tes-page';
@@ -64,25 +65,30 @@ function App() {
           <Route path='/user/checkout' element={<UserListCheckout />} />
           <Route path='/user/detailcheckout' element={<UserDetailCheckout />} />
           {/* Produk */}
-          <Route path='produk' element={<ProductMain/>} /> 
-          {/* Admin */}
-          <Route path='/admin' element={<AdminMain />} />
-          {/* Admin User */}
-          <Route path='/admin/listuser' element={<AdminListUser/>} />
-          <Route path='/admin/detailuser' element={<AdminDetaiUser/>} />
-          <Route path='/admin/adduser' element={<AdminAddUser/>} />
-          <Route path='/admin/edituser' element={<AdminEditUser/>} />
-          {/* Admin Product */}
-          <Route path='/admin/listproduct' element={<AdminListProduct/>}/>
-          <Route path='/admin/detailproduct' element={<AdminDetailProduct/>}/>
-          <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
-          <Route path='/admin/editproduct/:id' element={<AdminEditProduct/>}/>
-          <Route path='/admin/listorder' element={<AdminListOrder/>} />
-          <Route path='/admin/editorder' element={<AdminEditOrder/>} />
-          <Route path='/adminOnly' element={<AdminOnly />} />
-          <Route path='*' element={<NotFound />} />
-          <Route path='/tes' element={<TesPage />} />
-          <Route path='/tes2' element={<TesSidebar2 />} />
+          <Route path='/produk' element={<ProductMain/>} /> 
+
+          <Route 
+            element={<AdminRoutes />}
+          >
+            {/* Admin */}
+            <Route path='/admin' element={<AdminMain />} />
+            {/* Admin User */}
+            <Route path='/admin/listuser' element={<AdminListUser/>} />
+            <Route path='/admin/detailuser' element={<AdminDetaiUser/>} />
+            <Route path='/admin/adduser' element={<AdminAddUser/>} />
+            <Route path='/admin/edituser' element={<AdminEditUser/>} />
+            {/* Admin Product */}
+            <Route path='/admin/listproduct' element={<AdminListProduct/>}/>
+            <Route path='/admin/detailproduct' element={<AdminDetailProduct/>}/>
+            <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
+            <Route path='/admin/editproduct/:id' element={<AdminEditProduct/>}/>
+            <Route path='/admin/listorder' element={<AdminListOrder/>} />
+            <Route path='/admin/editorder' element={<AdminEditOrder/>} />
+            <Route path='/adminOnly' element={<AdminOnly />} />
+            <Route path='*' element={<NotFound />} />
+            <Route path='/tes' element={<TesPage />} />
+            <Route path='/tes2' element={<TesSidebar2 />} />
+          </Route>
         </Route>
       </Routes>
     </Router>

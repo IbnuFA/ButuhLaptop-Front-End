@@ -16,37 +16,37 @@ import Swal from "sweetalert2";
 //import placeholder
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
-
-//checkout
-const checkoutProduct = async() => {
-
-}
-
-//setting sweetalert
-const handleCheckout = async() => {
-    Swal.fire({
-        title: 'Apakah anda yakin?',
-        text: "Produk yang dipilih akan dicheckout",
-        icon: 'warning',
-        showCancelButton: true,
-        cancelButtonText: 'Batal',
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Checkout'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            checkoutProduct()
-            Swal.fire(
-                'Checkout!',
-                'Hore! Produkmu telah berhasil Checkout.',
-                'success'
-            )
-        }
-    })
-}
-
 export default function ListKeranjang(){
     const Navigate = useNavigate()
+    
+    //checkout
+    const checkoutProduct = async(id) => {
+    
+    }
+
+    //setting sweetalert
+    const handleCheckout = async() => {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Produk yang dipilih akan dicheckout",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Checkout'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                checkoutProduct()
+                Swal.fire(
+                    'Checkout!',
+                    'Hore! Produkmu telah berhasil Checkout.',
+                    'success'
+                )
+            }
+        })
+    }
+
     return(
         <>
             <Card className="col-md-10 mx-auto mt-4 mb-4">

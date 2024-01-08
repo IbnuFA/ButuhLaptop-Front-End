@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 
 //import icon
 import { BsInfoCircle, BsTrash3 } from "react-icons/bs";
+import { IoMdAddCircleOutline } from "react-icons/io";
 import { RiEdit2Line } from "react-icons/ri";
 
 export default function ListAllProduct (){
@@ -72,7 +73,12 @@ export default function ListAllProduct (){
                 <Card.Header className="cardHeader">List Semua Produk</Card.Header>
                 <Card.Body>
                     <Container fluid className="mb-3">
-                        <Button className="primary me-1" onClick={() => Navigate('/admin/addproduct')}>Add Product</Button>
+                        <Button 
+                            className="primary me-1" 
+                            onClick={() => Navigate('/admin/addproduct')}
+                        >
+                            <IoMdAddCircleOutline size={20} /> Tambah Produk
+                        </Button>
                         <Table responsive>
                             <thead>
                                 <tr>
@@ -86,6 +92,39 @@ export default function ListAllProduct (){
                                 </tr>
                             </thead>
                             <tbody>
+                                {/* Contoh Data */}
+                                <tr>
+                                    <td>1</td>
+                                    <td>Gambar</td>
+                                    <td>Tes</td>
+                                    <td>Harga</td>
+                                    <td>5</td>
+                                    <td>Kategori</td>
+                                    <td>
+                                        <Button 
+                                            variant="success" 
+                                            size="sm" 
+                                            className="me-1"
+                                        >
+                                                <BsInfoCircle size={20}/>
+                                        </Button>
+                                        <Button 
+                                            variant="primary" 
+                                            size="sm" className="me-1" 
+                                            onClick={() => Navigate(`/admin/editproduct`)}
+                                        >
+                                                <RiEdit2Line size={20}/>
+                                        </Button>
+                                        <Button 
+                                            variant="outline-danger" 
+                                            size="sm" 
+                                            onClick={() => handleDelete()}
+                                        >
+                                                <BsTrash3 size={20}/>
+                                        </Button>
+                                    </td>
+                                </tr>
+
                                 {products.map((product, index)=>{
                                     return(
                                         <>

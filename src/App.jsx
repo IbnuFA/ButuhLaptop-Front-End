@@ -32,6 +32,7 @@ import AdminDetailProduct from './page/admin/AdminDetailProduct';
 import AdminAddProduk from './page/admin/AdminAddProduk';
 import AdminEditProduct from './page/admin/AdminEditProduct';
 import AdminListOrder from './page/admin/AdminListOrder';
+import AdminEditOrder from './page/admin/AdminEditOrder';
 import ProductMain from './page/product/ProductMain' 
 
 import TesPage from './page/tes-page';
@@ -77,6 +78,7 @@ function App() {
           <Route path='/admin/addproduct' element={<AdminAddProduk/>}/>
           <Route path='/admin/editproduct/:id' element={<AdminEditProduct/>}/>
           <Route path='/admin/listorder' element={<AdminListOrder/>} />
+          <Route path='/admin/editorder' element={<AdminEditOrder/>} />
           <Route path='/adminOnly' element={<AdminOnly />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/tes' element={<TesPage />} />

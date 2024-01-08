@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Form, Button, Card, Container, Table } from "react-bootstrap";
 
 //import icon
-import { BsInfoCircle, BsTrash3 } from "react-icons/bs";
+import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
-import { FaCheck } from "react-icons/fa";
+import { FaRegQuestionCircle } from "react-icons/fa";
 
 //import sweetalert
 import Swal from "sweetalert2";
@@ -28,9 +28,9 @@ export default function DetailCheckout(){
             title: "Cara Pembayaran!",
             html: `
             <ol>
-            <li align="left">Pembayaran bisa dilakukan secara Online menggunakan Barcode QRIS Diatas.</li>
-            <li align="left">Setelah pembayran, uukti pembayaran bisa di-screenshoot dan dikirim ke Admin pada nomor <a href="#">WA berikut</a></li>
-            <li align="left">Admin akan segera memproses pesanan anda segera setelah bukti telah dikonfirmasi</li>
+                <li align="left">Pembayaran bisa dilakukan secara Online menggunakan Barcode QRIS Diatas.</li>
+                <li align="left">Setelah pembayran, uukti pembayaran bisa di-screenshoot dan dikirim ke Admin pada nomor <a href="#">WA berikut</a></li>
+                <li align="left">Admin akan segera memproses pesanan anda segera setelah bukti telah dikonfirmasi</li>
             </ol> 
             `,
             imageUrl: "https://unsplash.it/400/200",
@@ -73,7 +73,7 @@ export default function DetailCheckout(){
                                 className="mb-3 ms-3 btn-md "
                                 onClick={() => handleCheckout()}
                             >
-                                <BsInfoCircle size={15}/> Cara Pembayaran
+                                <FaRegQuestionCircle size={20}/> Cara Pembayaran
                             </Button>
                         </Col>
                     </Row>  

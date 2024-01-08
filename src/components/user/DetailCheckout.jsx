@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import '../../App.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Form, Button, Table, Card, Container, Image } from "react-bootstrap";
+import { Button, Table, Card, Image } from "react-bootstrap";
 
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
-export default function DetailKeranjang(){
+export default function DetailCheckout(){
     const Navigate = useNavigate()
 
     return(

@@ -135,7 +135,7 @@ export default function ListAllProduct (){
                                         <>
                                             <tr key={product.id}>
                                                 <td>{index + 1}</td>
-                                                <td><img src={product.image} alt={product.name} /></td>
+                                                <td><img className="listProdukAdmin" src={product.image} alt={product.name} /></td>
                                                 <td>{product.name}</td>
                                                 <td>{product.price}</td>
                                                 <td>{product.stock}</td>

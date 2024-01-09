@@ -1,7 +1,11 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
+import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col } from "react-bootstrap";
+import Token from "../../features/token";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,10 +25,33 @@ import Laptop from '../../asset/img/laptopPlaceholder.png'
 
 
 export default function CarouselProduk (){
+    const Navigate = useNavigate();
+    const [product, setProducts] = useState([]);
+    const [msg, setMsg] = useState("");
+
+    useEffect(()=> {
+        getProducts();
+    },[])
+
+    const getProducts = async() => {
+        try {
+            const response = await axios.get(`http://localhost:5000/products`, {
+                headers: {
+                    Authorization: `Bearer ${Token.getToken()}`
+                }
+            })
+            setProducts(response.data);
+        } catch (error) {
+            if (error.response) {
+                setMsg(error.response.data.msg);
+            }
+        }
+    }
+
     return(
         <>
             {/* Segmen 1 */}
-            <h3 style={{textAlignVertical: 'center',textAlign: 'center',}}>SEGMEN 1</h3>
+            <h3 style={{textAlignVertical: 'center',textAlign: 'center',}}>Laptop Unggulan Kami!!</h3>
             <Swiper
             
                 slidesPerView={3}
@@ -38,13 +65,31 @@ export default function CarouselProduk (){
                 modules={[Pagination, Navigation]}
                 className="mySwiper1"
             >
+                
+                {product.map((product)=>{
+                    return(
+                        <>
+                            <SwiperSlide key={product.id}>
+                                <div className="d-flex flex-column py-4">
+                                    <img  src={product.image} alt={product.name} style ={{width: '300', height: '300'}}  fluid />
+                                        <h5>{product.name}</h5>
+                                        <h6>{product.description}</h6>
+
+                                        <Container className="d-flex justify-content-center">
+                                            <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
+                                        </Container>
+                                </div>
+                            </SwiperSlide>
+                        </>
+                    )
+                })}
                 <SwiperSlide>
                     <div className="d-flex flex-column py-4">
-                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
-                            <h5>Kerja</h5>
+                        <img  src={Laptop} alt="Laptop" style ={{width: '300', height: '300'}}  fluid />
+                            <h5>Cek Semua Disini!</h5>
                             <h6>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
+                                Cek semua Produk
+                                Dsini
                             </h6>
 
                             <Container className="d-flex justify-content-center">
@@ -53,174 +98,7 @@ export default function CarouselProduk (){
                     </div>
                 </SwiperSlide>
 
-                <SwiperSlide>
-                    <div className="d-flex flex-column py-4">
-                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
-                            <h5>Kerja</h5>
-                            <h6>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </h6>
-
-                            <Container className="d-flex justify-content-center">
-                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                            </Container>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className="d-flex flex-column py-4">
-                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
-                            <h5>Kerja</h5>
-                            <h6>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </h6>
-
-                            <Container className="d-flex justify-content-center">
-                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                            </Container>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className="d-flex flex-column py-4">
-                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
-                            <h5>Kerja</h5>
-                            <h6>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </h6>
-
-                            <Container className="d-flex justify-content-center">
-                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                            </Container>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className="d-flex flex-column py-4">
-                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
-                            <h5>Kerja</h5>
-                            <h6>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </h6>
-
-                            <Container className="d-flex justify-content-center">
-                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                            </Container>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className="d-flex flex-column py-4">
-                        <img  src={Laptop} style ={{width: '300', height: '300'}}  fluid />
-                            <h5>Kerja</h5>
-                            <h6>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </h6>
-
-                            <Container className="d-flex justify-content-center">
-                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                            </Container>
-                    </div>
-                </SwiperSlide>
-
-
-                {/* <SwiperSlide>
-                            <Card>
-                                <Card.Img variant="top" src={Laptop} />
-                                <Card.Body>
-                                    <Card.Title>Kerja</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-
-                                    <Container className="d-flex justify-content-center">
-                                        <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                    </Container>
-                                </Card.Body>
-                            </Card>
-                </SwiperSlide> */}
             </Swiper>
-
-            {/* Segmen 2 */}
-            <h3 style={{textAlignVertical: 'center',textAlign: 'center',}} className="mt-4">SEGMEN 2</h3>
-            <Swiper
-            
-                slidesPerView={3}
-                centeredSlides={true}
-                spaceBetween={30}
-                loop={true}
-                pagination={{
-                clickable: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-            >
-                <SwiperSlide>
-                        <Col md={3} sm={6}>
-                            <Card>
-                                <Card.Img variant="top" src={Laptop} />
-                                <Card.Body>
-                                    <Card.Title>Kerja</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-
-                                    <Container className="d-flex justify-content-center">
-                                        <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                    </Container>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                        <Col md={3} sm={6}>
-                            <Card>
-                                <Card.Img variant="top" src={Laptop} />
-                                <Card.Body>
-                                    <Card.Title>Kerja</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-
-                                    <Container className="d-flex justify-content-center">
-                                        <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                    </Container>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                        <Col md={3} sm={6}>
-                            <Card>
-                                <Card.Img variant="top" src={Laptop} />
-                                <Card.Body>
-                                    <Card.Title>Kerja</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-
-                                    <Container className="d-flex justify-content-center">
-                                        <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                    </Container>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                </SwiperSlide>
-            </Swiper>
-
-          
         </>
     )
 }

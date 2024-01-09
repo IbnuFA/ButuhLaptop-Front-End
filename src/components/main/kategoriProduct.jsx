@@ -60,6 +60,7 @@ export default function KategoriProduct (){
                         </Card.Body>
                     </Card>
                 </Col>
+
                 
             </Row>
            

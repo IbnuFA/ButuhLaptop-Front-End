@@ -4,8 +4,7 @@ import axios from "axios";
 
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Button, Card, Row, Col, Table } from "react-bootstrap";
-import Laptop from '../../asset/img/laptopPlaceholder.png'
+import { Container, Button, Card, Table } from "react-bootstrap";
 import Token from '../../features/token';
 
 import Swal from "sweetalert2";

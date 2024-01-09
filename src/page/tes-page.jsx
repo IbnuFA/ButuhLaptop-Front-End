@@ -10,13 +10,19 @@ import CarouselMain from "../components/main/carouselMain";
 import CarouselProduk from "../components/main/carouselProduk";
 import NavAdmin from "../components/admin/NavAdmin";
 
+import CatalogProduct from "../components/main/CatalogProduct";
+import SearchProduct from "../components/main/SearchProduct";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function TesPage() {
     return(
         <>
-            <CarouselMain className="mb-4"/>
-            <NavAdmin className="mb-4"/>
+            {/* <CarouselMain className="mb-4"/>
+            <NavAdmin className="mb-4"/> */}
+            <SearchProduct className="mb-4" />
+            <CatalogProduct className="mb-4"/>
+
             <KategoriProduct className="mb-4"/>
             <KategoriHarga className="mb-4"/>
             <CarouselProduk className="mb-4"/>

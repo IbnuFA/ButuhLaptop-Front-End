@@ -6,8 +6,9 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import AdminRoutes from './components/AdminRoutes';
 
 
-// import TesPage from './page/tes-page';
+// import Main Page
 import Home from './page/home/Home';
+import ProductCatalog from './page/home/ProductCatalog';
 import Login from './page/home/Login';
 import Register from './page/home/Register';
 import About from './page/home/About';
@@ -50,6 +51,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/product' element={<ProductCatalog />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />

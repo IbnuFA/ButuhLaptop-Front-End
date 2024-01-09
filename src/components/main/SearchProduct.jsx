@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Form, Button, Card, Container} from "react-bootstrap";
@@ -10,6 +11,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 
 export default function SearchProduct (){
+    const Navigate = useNavigate()
     return(
         <>
             <Container className="cardHeader mx-auto mt-4 pt-3 pb-3" fluid>
@@ -30,7 +32,11 @@ export default function SearchProduct (){
                                 </Form.Group>
 
                                 <Form.Group as={Col} md="2" controlId="exampleForm.ControlInput1">
-                                    <Button type="submit" variant="primary">
+                                    <Button 
+                                        type="submit" 
+                                        variant="primary"
+                                        onClick={() => Navigate(`/user`)}
+                                    >
                                         <IoSearchOutline  size={20}/> Cari Barang
                                     </Button>
                                 </Form.Group>

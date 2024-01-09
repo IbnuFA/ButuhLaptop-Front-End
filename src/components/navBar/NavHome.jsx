@@ -20,7 +20,7 @@ export default function NavHome () {
     return(
         <>
         {['xl'].map((expand) => (
-          <Navbar key={expand} bg="light" expand={expand} className="bg-body-tertiary mb-3">
+          <Navbar key={expand} bg="light" expand={expand} className="bg-body-tertiary">
               <Container fluid>
                 <Navbar.Brand href="#">ButuhLaptop Logo</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

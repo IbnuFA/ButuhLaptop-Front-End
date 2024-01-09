@@ -4,7 +4,7 @@ import axios from "axios";
 
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Button, Card, Row, Col } from "react-bootstrap";
+import { Container, Button, Card, Row, Col, Table, Form } from "react-bootstrap";
 import Token from "../../features/token";
 
 export default function CatalogProduct (){
@@ -33,6 +33,44 @@ export default function CatalogProduct (){
 
     return(
         <Container className="mt-3 mb-3">
+            <h2 className="searchEngineHeader">Katalog Produk</h2>
+
+            <Table>
+                <tbody>
+                    <tr>
+                        <td className="textTable">Sortir Kategori Harga</td>
+                        <td> : </td>
+                        <td>
+                            <Form >
+                            <Form.Group as={Col} md="4">
+                                <Form.Select 
+                                    aria-label ="Default select example" 
+                                    className="form-control input bg-light"
+                                    size="sm"
+                                >
+                                    <option>Plilih Status</option>
+                                    <option value="lunas">Duit Pas</option>
+                                    <option value="belumDibayar">Ada Modal</option>
+                                    <option value="dikirim">Modal Banyak</option>
+                                    <option value="selesai">Sultan</option>
+                                </Form.Select>
+                            </Form.Group>
+                            </Form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="textTable">Sortir Kategori Penggunaan</td>
+                        <td> : </td>
+                        <td>
+                            <Button variant="success" size="sm" className="me-1">Kerja</Button>
+                            <Button variant="primary" size="sm" className="me-1">Gaming</Button>
+                            <Button variant="outline-danger" size="sm">Daily Use</Button>
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+             
+
             <Row className="justify-content-between">
                 {/* Segmen Asli */}
                 {products.map((products)=>{

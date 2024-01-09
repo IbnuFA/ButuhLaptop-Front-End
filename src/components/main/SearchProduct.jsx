@@ -37,7 +37,7 @@ export default function SearchProduct (){
                             </Row>
                         </Form>
                     </Col>
-                    </Row>
+                </Row>
             </Container>
         </>
     )

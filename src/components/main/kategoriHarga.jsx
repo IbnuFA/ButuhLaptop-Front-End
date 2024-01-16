@@ -7,7 +7,9 @@ import Laptop from '../../asset/img/laptopPlaceholder.png'
 
 export default function KategoriHarga (){
     return(
-        <Container className="mt-3 mb-3">
+        <Container className="mt-3 mb-3" fluid>
+            <h2 className="kategoriText">Cari yang Kamu Butuh!</h2>
+            <h5 className="kategoriText">Yuk, cari Produk yang kamu butuhkan disini</h5>
             <Row className="justify-content-between">
 
                 <Col md={3} sm={6}>

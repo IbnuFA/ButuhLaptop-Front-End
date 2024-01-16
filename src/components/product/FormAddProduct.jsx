@@ -20,18 +20,20 @@ export default function FormAddProduct(){
     const [price,setPrice] = useState("");
     const [stock, setStock] = useState("");
     const [image, setImage] = useState("");
+    const [weight, setWeight] = useState("")
     const [description, setDescription] = useState("");
     const [msg, setMsg] = useState("");
 
     const addProduct = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/products", {
+            await axios.post("http://localhost:5000/product", {
                 name : name,
                 category: category,
                 price : price,
                 stock : stock,
                 image : image,
+                weight : weight,
                 description : description
             })
             navigate("/admin/listproduct")
@@ -90,16 +92,16 @@ export default function FormAddProduct(){
                                             />
                                             </Form.Group>
                                             
-                                            {/* <Form.Group as={Col} md="4">
-                                                <Form.Label>Kategori Harga</Form.Label>
-                                                <Form.Select aria-label="Default select example" className="form-control bg-light">
-                                                    <option>Plilih Kategori</option>
-                                                    <option value="pas">Duit Pas</option>
-                                                    <option value="modal_dikit">Ada Modal Dikit</option>
-                                                    <option value="modal_banyak">Modal Banyak</option>
-                                                    <option value="sultan">Sultan</option>    
-                                                </Form.Select>
-                                            </Form.Group> */}
+                                            <Form.Group as={Col} md="4">
+                                                <Form.Label>Berat Barang</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    placeholder=""
+                                                    className="form-control input bg-light fs-6"
+                                                    value={weight}
+                                                    onChange={(e) => setWeight(e.target.value)}
+                                            />
+                                            </Form.Group>
                                         </Row>
 
                                         <Row className="mb-3">

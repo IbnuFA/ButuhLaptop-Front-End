@@ -57,6 +57,9 @@ export const getUserLogin = createAsyncThunk(
       return response.data;
     } catch (error) {
       if (error.response) {
+        if (error.response.status === 401) {
+          Token.removeToken();
+        }
         const message = error.response.data.msg;
         return thunkAPI.rejectWithValue(message);
       }

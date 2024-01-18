@@ -1,6 +1,7 @@
 import React , {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Token from '../../features/token';
 
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,14 +28,19 @@ export default function FormAddProduct(){
     const addProduct = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/admin/product", {
-                name : name,
-                description : description,
-                category: category,
-                price : price,
-                stock : stock,
-                image : image,
-                weight : weight,
+            const form = new FormData();
+            form.append('name', name);
+            form.append('description', description);
+            form.append('category', category);
+            form.append('price', price);
+            form.append('stock', stock);
+            form.append('image', image[0]);
+            form.append('weight', weight);
+
+            await axios.post("http://localhost:5000/admin/product", form, {
+                headers: {
+                    Authorization: `Bearer ${Token.getToken()}`
+                }
             })
             navigate("/admin/listproduct")
         } catch (error) {
@@ -110,8 +116,7 @@ export default function FormAddProduct(){
                                                 <Form.Control 
                                                     type="file" 
                                                     className="form-control input bg-light fs-6"
-                                                    value={image}
-                                                    onChange={(e) => setImage(e.target.value)}
+                                                    onChange={(e) => setImage(e.target.files)}
                                                 />
                                             </Form.Group>
                                             

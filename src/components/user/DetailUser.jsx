@@ -47,15 +47,15 @@ export default function DetailUser (){
                                         <h5>Level : Emas</h5>
                                     </div>
                                     <Form>
-                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6">
+                                        {/* <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6">
                                             <RiLockPasswordLine size={20} className="me-2"/> Ganti Password
-                                        </Button>
+                                        </Button> */}
 
-                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/listkeranjang')}>
+                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/keranjang')}>
                                             <BiCart size={20} className="me-2"/> Keranjangmu
                                         </Button>
 
-                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/listcheckout')}>
+                                        <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={()=> navigate('/user/checkout')}>
                                             <IoBagHandleOutline size={20} className="me-2"/> Pesananmu
                                         </Button>
 

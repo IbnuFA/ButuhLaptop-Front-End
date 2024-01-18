@@ -52,7 +52,7 @@ export default function DetailKeranjang() {
                                 <Button type="submit" variant="outline-danger" className="mb-3 btn-lg w-100 fs-6">
                                     Hapus
                                 </Button>
-                                <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={() => Navigate('/user/listkeranjang')}>
+                                <Button type="submit" variant="primary" className="mb-3 btn-lg w-100 fs-6" onClick={() => Navigate('/user/keranjang')}>
                                     Kembali
                                 </Button>
                             </Col>

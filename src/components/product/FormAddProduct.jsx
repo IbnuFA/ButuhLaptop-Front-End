@@ -27,14 +27,14 @@ export default function FormAddProduct(){
     const addProduct = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/product", {
+            await axios.post("http://localhost:5000/admin/product", {
                 name : name,
+                description : description,
                 category: category,
                 price : price,
                 stock : stock,
                 image : image,
                 weight : weight,
-                description : description
             })
             navigate("/admin/listproduct")
         } catch (error) {

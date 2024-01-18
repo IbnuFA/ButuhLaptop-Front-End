@@ -36,7 +36,7 @@ export default function NavHome () {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-center flex-grow-1 pe-3">
-                        <Nav.Link href="#">Produk</Nav.Link>
+                        <Nav.Link href="/product">Produk</Nav.Link>
                         <Nav.Link href="#">About</Nav.Link>
                         <Nav.Link href="#">Feedback</Nav.Link>
                         {user?.role === 'admin' && (

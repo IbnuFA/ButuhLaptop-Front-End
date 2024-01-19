@@ -1,15 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../../features/authSlice";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Nav, Navbar, Form, NavDropdown, Offcanvas, Col, Row } from "react-bootstrap";
 
 export default function NavbarAdmin () {
   const Navigate = useNavigate()
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
   const {user, isSuccess} = useSelector((state => state.auth));
-  
+  const logout = () => {
+    dispatch(LogOut());
+    dispatch(reset());
+    navigate("/login")
+  }
   return(
       <>
         {['xl'].map((expand) => (
@@ -37,7 +43,7 @@ export default function NavbarAdmin () {
 
                   </Nav>
                   <Nav className="d-flex">
-                    <Nav.Link href="#action2">Logout</Nav.Link>
+                    <Nav.Link href="#" onClick={logout}>Logout</Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

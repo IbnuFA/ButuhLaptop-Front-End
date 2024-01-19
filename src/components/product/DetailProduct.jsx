@@ -56,7 +56,7 @@ export default function DetailProduct() {
         `http://localhost:5000/cart`,
         {
           product_id: productId,
-          quantity,
+          quantity: parseInt(quantity),
         },
         {
           headers: {

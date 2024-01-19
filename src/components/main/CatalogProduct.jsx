@@ -72,13 +72,13 @@ export default function CatalogProduct (){
             </Table>
              
 
-            <Row className="justify-content-between">
+            <Row>
                 {/* Segmen Asli */}
                 {products.map((product)=>{
                     return(
                         <>
-                            <Col md={3} sm={6} key={product.id}>
-                                <Card className="col-sm-12 mb-3">
+                            <Col sm={6} md={4} lg={3} key={product.id}>
+                                <Card className="">
                                     <Card.Img variant="top" src={product.image} alt={product.name} />
                                     <Card.Body>
                                         <Card.Title>{product.name}</Card.Title>

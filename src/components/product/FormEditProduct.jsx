@@ -190,8 +190,6 @@ export default function FormEditProduct(){
                                         </Col>
                                     </Row>                       
                                 </Form>
-                                
-                                
                             </div>
                         </Col>
                     </Row>

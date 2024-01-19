@@ -41,7 +41,11 @@ export default function ListAllProduct (){
     
     const deleteProduct = async(id) => {
         try {
-            await axios.delete(`http://localhost:5000/products/${id}`);
+            await axios.delete(`http://localhost:5000/admin/product/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${Token.getToken()}`
+                }
+            });
             getProducts();
         } catch (error) {
             const message = error.message

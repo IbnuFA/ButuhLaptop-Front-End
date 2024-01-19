@@ -1,6 +1,7 @@
 import React , {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -73,29 +74,30 @@ export default function CatalogProduct (){
 
             <Row className="justify-content-between">
                 {/* Segmen Asli */}
-                {products.map((products)=>{
+                {products.map((product)=>{
                     return(
                         <>
-                            <Col md={3} sm={6} key={products.id}>
+                            <Col md={3} sm={6} key={product.id}>
                                 <Card className="col-sm-12 mb-3">
-                                    <Card.Img variant="top" src={products.image} alt={products.name} />
+                                    <Card.Img variant="top" src={product.image} alt={product.name} />
                                     <Card.Body>
-                                        <Card.Title>{products.name}</Card.Title>
+                                        <Card.Title>{product.name}</Card.Title>
                                         <Card.Text>
-                                            <h5>{products.price}</h5>
-                                            <h6>Stok Barang : {products.stock}</h6>
-                                            <h6>{products.description}</h6>
+                                            <h5>{product.price}</h5>
+                                            <h6>Stok Barang : {product.stock}</h6>
+                                            <h6>{product.description}</h6>
                                         </Card.Text>
 
                                         <Container className="d-flex justify-content-center">
-                                            <Button 
-                                                className="mx-auto" 
-                                                variant="primary" 
-                                                size="lg"
-                                                onClick={() => Navigate(`/user`)}
-                                            >
-                                                Cek Sekarang!
-                                            </Button>
+                                            <Link to={`/product/${product.id}`}>
+                                                <Button 
+                                                    className="mx-auto" 
+                                                    variant="primary" 
+                                                    size="lg"
+                                                >
+                                                Cek Sekarang
+                                                </Button>
+                                            </Link>
                                         </Container>
                                     </Card.Body>
                                 </Card>
@@ -105,7 +107,7 @@ export default function CatalogProduct (){
                 })}
 
                 {/* Segmen Tambahan Buat Contoh */}
-                {products.map((products)=>{
+                {/* {products.map((products)=>{
                     return(
                         <>
                             <Col md={3} sm={6} key={products.id}>
@@ -127,7 +129,7 @@ export default function CatalogProduct (){
                             </Col>
                         </>
                     )
-                })}
+                })} */}
  
            </Row>
         </Container>

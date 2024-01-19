@@ -67,7 +67,7 @@ function App() {
           <Route path='/user/checkout' element={<UserListCheckout />} />
           <Route path='/user/detailcheckout' element={<UserDetailCheckout />} />
           {/* Produk */}
-          <Route path='/produk' element={<ProductMain/>} /> 
+          <Route path='/product/:productId' element={<ProductMain/>} /> 
 
           <Route 
             element={<AdminRoutes />}

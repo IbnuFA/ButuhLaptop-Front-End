@@ -22,7 +22,7 @@ export default function NavHome () {
         {['xl'].map((expand) => (
           <Navbar key={expand} bg="light" expand={expand} className="bg-body-tertiary">
               <Container fluid>
-                <Navbar.Brand href="#">ButuhLaptop Logo</Navbar.Brand>
+                <Navbar.Brand href="#"><Link to="/">ButuhLaptop Logo</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                 <Navbar.Offcanvas
                   id={`offcanvasNavbar-expand-${expand}`}
@@ -36,7 +36,8 @@ export default function NavHome () {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-center flex-grow-1 pe-3">
-                        <Nav.Link href="/product">Produk</Nav.Link>
+                        <Nav.Link href="#"><Link to="/">Home</Link></Nav.Link>
+                        <Nav.Link href="#"><Link to="/product">Products</Link></Nav.Link>
                         <Nav.Link href="#">About</Nav.Link>
                         <Nav.Link href="#">Feedback</Nav.Link>
                         {user?.role === 'admin' && (

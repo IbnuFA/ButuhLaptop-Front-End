@@ -1,12 +1,12 @@
 import React from "react";
 
-import NavUser from "../../components/navBar/NavUser";
+import NavHome from "../../components/navBar/NavHome";
 import DetailProduct from "../../components/product/DetailProduct";
 
 export default function UserMain(){
     return(
         <>
-            <NavUser/>
+            <NavHome/>
             <DetailProduct/>
         </>
     )

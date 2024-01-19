@@ -44,11 +44,11 @@ export default function ListKeranjang() {
           return {
             ...item,
             totalPrices,
-          }
+          };
         });
         setCarts(newCart);
-  
-        const prices = newCart.reduce(((a, b) => a + b.totalPrices), 0);
+
+        const prices = newCart.reduce((a, b) => a + b.totalPrices, 0);
         setCartPrice(prices);
         return;
       }
@@ -67,17 +67,21 @@ export default function ListKeranjang() {
     try {
       Swal.showLoading();
 
-      await axios.post(`http://localhost:5000/cart`, {
-        product_id: productId,
-        quantity,
-      }, {
-        headers: {
-          Authorization: `Bearer ${Token.getToken()}`,
+      await axios.post(
+        `http://localhost:5000/cart`,
+        {
+          product_id: productId,
+          quantity,
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${Token.getToken()}`,
+          },
+        }
+      );
 
       await getCarts();
-      await Swal.fire('Update Success', 'Item berhasil ditambahkan', 'success');
+      await Swal.fire("Update Success", "Item berhasil ditambahkan", "success");
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
@@ -94,7 +98,7 @@ export default function ListKeranjang() {
       });
 
       await getCarts();
-      await Swal.fire('Update Success', 'Item berhasil dihapus', 'success');
+      await Swal.fire("Update Success", "Item berhasil dihapus", "success");
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
@@ -104,11 +108,15 @@ export default function ListKeranjang() {
   const checkoutProduct = async () => {
     Swal.showLoading();
 
-    await axios.post(`http://localhost:5000/order`, {}, {
-      headers: {
-        Authorization: `Bearer ${Token.getToken()}`,
-      },
-    });
+    await axios.post(
+      `http://localhost:5000/order`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${Token.getToken()}`,
+        },
+      }
+    );
   };
 
   //setting sweetalert
@@ -124,7 +132,7 @@ export default function ListKeranjang() {
         cancelButtonColor: "#d33",
         confirmButtonText: "Checkout",
       });
-  
+
       if (isConfirmed) {
         await checkoutProduct();
         await Swal.fire(
@@ -175,16 +183,31 @@ export default function ListKeranjang() {
                             </td>
                             <td>{product?.name}</td>
                             <td>
-                              <Button variant="danger" size="sm" className="me-1" onClick={() => decreaseQuantityCart(product?.id)}><BsDashLg  size={20}/></Button>
+                              <Button
+                                variant="danger"
+                                size="sm"
+                                className="me-1"
+                                onClick={() =>
+                                  decreaseQuantityCart(product?.id)
+                                }
+                              >
+                                <BsDashLg size={20} />
+                              </Button>
                               <span className="mx-3">{cart?.quantity}</span>
-                              <Button variant="success" size="sm" className="me-1" onClick={() => addQuantityCart(product?.id)}><BsPlusLg size={20}/></Button>
+                              <Button
+                                variant="success"
+                                size="sm"
+                                className="me-1"
+                                onClick={() => addQuantityCart(product?.id)}
+                              >
+                                <BsPlusLg size={20} />
+                              </Button>
                             </td>
                             <td>{product?.price}</td>
                             <td>{cart?.totalPrices}</td>
                           </tr>
                         );
-                      })
-                    }
+                      })}
                     <tr>
                       <td colSpan={4}></td>
                       <td>Total : </td>
@@ -195,18 +218,20 @@ export default function ListKeranjang() {
               </div>
             </Row>
           </Col>
-          <Row>
-            <Col className="d-flex flex-row-reverse">
-              <Button
-                type=""
-                variant="primary"
-                className="mb-3 ms-3 btn-md "
-                onClick={() => handleCheckout()}
-              >
-                <FaCheck size={20} /> Checkout
-              </Button>
-            </Col>
-          </Row>
+          {carts.length > 0 && (
+            <Row>
+              <Col className="d-flex flex-row-reverse">
+                <Button
+                  type=""
+                  variant="primary"
+                  className="mb-3 ms-3 btn-md "
+                  onClick={() => handleCheckout()}
+                >
+                  <FaCheck size={20} /> Checkout
+                </Button>
+              </Col>
+            </Row>
+          )}
         </Card.Body>
       </Card>
     </>

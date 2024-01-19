@@ -53,6 +53,7 @@ export default function ListKeranjang() {
         return;
       }
 
+      setCarts([]);
       setCartPrice(0);
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");

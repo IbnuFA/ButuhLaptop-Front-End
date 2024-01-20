@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Card, Table, Button } from "react-bootstrap";
 
 //import icon
-import { BsCheckLg, BsXLg, BsPencilSquare } from "react-icons/bs";
+import { BsCheckLg, BsXLg, BsPencilSquare, BsInfoCircle } from "react-icons/bs";
 import { RiEdit2Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -74,8 +74,10 @@ export default function ListAllOrder() {
     try {
       Swal.showLoading();
       const orderDetail = await checkOrder(orderId);
-      
-      const orderShipping = orderDetail.shippings.services.find(({ name }) => name.toLowerCase() === 'reg');
+
+      const orderShipping = orderDetail.shippings.services.find(
+        ({ name }) => name.toLowerCase() === "reg"
+      );
 
       const swalResult = await Swal.fire({
         title: "Konfirmasi Order Shipping!",
@@ -83,7 +85,9 @@ export default function ListAllOrder() {
           <br>
           Harga total Order: ${orderDetail.products_price}
           <br>
-          Total Keseluruhan : ${orderDetail.products_price + orderShipping.cost} `,
+          Total Keseluruhan : ${
+            orderDetail.products_price + orderShipping.cost
+          } `,
         showCancelButton: true,
         confirmButtonText: "Konfirmasi",
       });
@@ -91,25 +95,57 @@ export default function ListAllOrder() {
       if (swalResult.isConfirmed) {
         Swal.showLoading();
 
-        await axios.put(`http://localhost:5000/order/shipping/info/${orderId}`, {
-          provider: 'jne',
-          provider_service: 'REG',
-          shipping_price: orderShipping.cost,
-          etd: orderShipping.etd,
-        }, {
-          headers: {
-            Authorization: `Bearer ${Token.getToken()}`,
+        await axios.put(
+          `http://localhost:5000/order/shipping/info/${orderId}`,
+          {
+            provider: "jne",
+            provider_service: "REG",
+            shipping_price: orderShipping.cost,
+            etd: orderShipping.etd,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${Token.getToken()}`,
+            },
           }
-        });
+        );
 
-        await Swal.fire('Order berhasil dibuat.', '', 'success');
+        await Swal.fire("Order berhasil dibuat.", "", "success");
         await getOrders();
       }
-
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
   };
+
+  const viewPaymentInfo = async (orderId, imageUrl) => {
+    await Swal.fire({
+      title: `Bukti pembayaran dengan id: ${orderId}`,
+      imageUrl,
+      imageAlt: "Bukti pembayaran"
+    });
+  };
+
+  const verifyPayment = async (orderId, approval = true) => {
+     try {
+      Swal.showLoading();
+      const response = await axios.put(
+        `http://localhost:5000/order/approval/payment/${orderId}`,
+        { approval },
+        {
+          headers: {
+            Authorization: `Bearer ${Token.getToken()}`,
+          },
+        }
+      );
+
+      await Swal.fire("Order telah di update", "", "success");
+      await getOrders();
+    } catch (error) {
+      await Swal.fire("Terjadi Error", error.message, "error");
+    }
+  }
+
 
   useEffect(() => {
     getOrders();
@@ -175,6 +211,27 @@ export default function ListAllOrder() {
                             onClick={() => insertShipInfo(order?.id)}
                           >
                             <BsPencilSquare size={20} />
+                          </Button>
+                        </>
+                      )}
+
+                      {order.status === 3 && (
+                        <>
+                          <Button
+                            variant="success"
+                            size="sm"
+                            className="me-1"
+                            onClick={() => verifyPayment(order?.id, true)}
+                          >
+                            <BsCheckLg size={20} />
+                          </Button>
+                          <Button
+                            variant="info"
+                            size="sm"
+                            className="me-1"
+                            onClick={() => viewPaymentInfo(order?.id, order?.payment_prove)}
+                          >
+                            <BsInfoCircle size={20} />
                           </Button>
                         </>
                       )}

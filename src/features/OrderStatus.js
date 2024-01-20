@@ -10,6 +10,8 @@ export const getOrderStatus = (statusCode) => {
       return 'waiting payment approval from admin';
     case 4:
       return 'sent';
+    case 6:
+      return 'Done';
     case 9:
       return 'expired or canceled';
     default:

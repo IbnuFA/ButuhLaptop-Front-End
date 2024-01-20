@@ -19,7 +19,6 @@ export default function ProductCatalog() {
         <>
             <NavHome/>
 
-            <SearchProduct className="mb-4" />
             <CatalogProduct className="mb-4"/>
 
             <Footer/>

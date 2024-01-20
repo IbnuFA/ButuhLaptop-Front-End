@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getUserLogin } from "../../features/authSlice";
 
-import NavUser from "../../components/navBar/NavUser";
+import NavHome from "../../components/navBar/NavHome";
 import DetailCheckout from "../../components/user/DetailCheckout";
 
 export default function UserDetailCheckout(){
@@ -24,7 +24,7 @@ export default function UserDetailCheckout(){
     
     return(
         <>
-            <NavUser/>
+            <NavHome/>
             <DetailCheckout/>
         </>
     )

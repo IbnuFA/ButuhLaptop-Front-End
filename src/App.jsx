@@ -66,7 +66,7 @@ function App() {
           <Route path='/user/keranjang' element={<UserListKeranjang />} />
           <Route path='/user/detailkeranjang' element={<UserDetailKeranjang />} />
           <Route path='/user/checkout' element={<UserListCheckout />} />
-          <Route path='/user/detailcheckout' element={<UserDetailCheckout />} />
+          <Route path='/user/detailcheckout/:id' element={<UserDetailCheckout />} />
           {/* Produk */}
           <Route path='/product/:productId' element={<ProductMain/>} /> 
 

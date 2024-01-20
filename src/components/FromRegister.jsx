@@ -138,6 +138,39 @@ export default function FormRegister() {
                     <p>Biar mempermudah kamu dalam mencari laptop impianmu.</p>
                   </div>
                   <Form onSubmit={submitHandler}>
+                    <Row>
+                      <Form.Group as={Col} md="6" className="mb-3" controlId="formBasicFirstName">
+                        <Form.Control
+                          type="text"
+                          placeholder="Nama Depan"
+                          className="form-control form-control-lg bg-light fs-6"
+                          value={formValues.first_name}
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              first_name: e.target.value,
+                            })
+                          }
+                          required
+                        />
+                      </Form.Group>
+
+                      <Form.Group as={Col} md="6" className="mb-3" controlId="formBasicLastName">
+                        <Form.Control
+                          type="text"
+                          placeholder="Nama Belakang"
+                          className="form-control form-control-lg bg-light fs-6"
+                          value={formValues.last_name}
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              last_name: e.target.value,
+                            })
+                          }
+                          required
+                        />
+                      </Form.Group>
+                    </Row>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Control
                         type="email"
@@ -189,38 +222,6 @@ export default function FormRegister() {
                       />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicFirstName">
-                      <Form.Control
-                        type="text"
-                        placeholder="Nama Depan"
-                        className="form-control form-control-lg bg-light fs-6"
-                        value={formValues.first_name}
-                        onChange={(e) =>
-                          setFormValues({
-                            ...formValues,
-                            first_name: e.target.value,
-                          })
-                        }
-                        required
-                      />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicLastName">
-                      <Form.Control
-                        type="text"
-                        placeholder="Nama Belakang"
-                        className="form-control form-control-lg bg-light fs-6"
-                        value={formValues.last_name}
-                        onChange={(e) =>
-                          setFormValues({
-                            ...formValues,
-                            last_name: e.target.value,
-                          })
-                        }
-                        required
-                      />
-                    </Form.Group>
-
                     <Form.Group className="mb-3" controlId="formBasicaddress">
                       <Form.Control
                         type="text"
@@ -237,78 +238,85 @@ export default function FormRegister() {
                       />
                     </Form.Group>
 
-                    <Form.Select
-                      aria-label="Provinces"
-                      className="mb-3"
-                      onChange={(e) => {
-                        setFormValues({
-                          ...formValues,
-                          province_id: e.target.value,
-                        });
-                      }}
-                      required
-                    >
-                      <option selected disabled>
-                        Pilih provinsi
-                      </option>
-                      {provinces.map((province) => (
-                        <option value={province.province_id}>
-                          {province.province}
-                        </option>
-                      ))}
-                    </Form.Select>
-
-                    <Form.Select
-                      aria-label="Cities"
-                      className="mb-3"
-                      onChange={(e) =>
-                        setFormValues({
-                          ...formValues,
-                          city_id: e.target.value,
-                        })
-                      }
-                      required
-                    >
-                      {formValues?.province_id ? (
-                        <>
+                    <Row>
+                      <Form.Group as={Col} md="4">
+                        <Form.Select
+                          aria-label="Provinces"
+                          className="mb-3"
+                          onChange={(e) => {
+                            setFormValues({
+                              ...formValues,
+                              province_id: e.target.value,
+                            });
+                          }}
+                          required
+                        >
                           <option selected disabled>
-                            Pilih Kota
+                            Pilih provinsi
                           </option>
-                          {cities.map((province) => (
-                            <option value={province.city_id}>
-                              {province.city_name}
+                          {provinces.map((province) => (
+                            <option value={province.province_id}>
+                              {province.province}
                             </option>
                           ))}
-                        </>
-                      ) : (
-                        <option selected disabled>
-                          Pilih provinsi terlebih dahulu
-                        </option>
-                      )}
-                    </Form.Select>
+                        </Form.Select>
+                      </Form.Group>
 
-                    <Form.Group
-                      className="mb-3"
-                      controlId="formBasicPostalCode"
-                    >
-                      <Form.Control
-                        type="text"
-                        placeholder="Kode Pos"
-                        className="form-control form-control-lg bg-light fs-6"
-                        value={formValues.postal_code}
-                        onChange={(e) =>
-                          setFormValues({
-                            ...formValues,
-                            postal_code: e.target.value,
-                          })
-                        }
-                        required
-                      />
-                    </Form.Group>
+                      <Form.Group as={Col} md="4">
+                        <Form.Select
+                          aria-label="Cities"
+                          className="mb-3"
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              city_id: e.target.value,
+                            })
+                          }
+                          required
+                        >
+                          {formValues?.province_id ? (
+                            <>
+                              <option selected disabled>
+                                Pilih Kota
+                              </option>
+                              {cities.map((province) => (
+                                <option value={province.city_id}>
+                                  {province.city_name}
+                                </option>
+                              ))}
+                            </>
+                          ) : (
+                            <option selected disabled>
+                              Pilih provinsi terlebih dahulu
+                            </option>
+                          )}
+                        </Form.Select>
+                      </Form.Group>
+
+                      <Form.Group
+                        as={Col} md="4"
+                        className="mb-3"
+                        controlId="formBasicPostalCode"
+                      >
+                        <Form.Control
+                          type="text"
+                          placeholder="Kode Pos"
+                          className="form-control form-control-lg bg-light fs-6"
+                          value={formValues.postal_code}
+                          onChange={(e) =>
+                            setFormValues({
+                              ...formValues,
+                              postal_code: e.target.value,
+                            })
+                          }
+                          required
+                        />
+                      </Form.Group>
+                    </Row>
 
                     {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                            <Form.Check type="checkbox" label="Remember me" />
-                                        </Form.Group> */}
+                            <Form.Check type="checkbox" label="Remember me" />
+                        </Form.Group> */}
 
                     <Button
                       type="submit"
@@ -319,17 +327,14 @@ export default function FormRegister() {
                     </Button>
 
                     {/* <Button type="submit" variant="light" className="mb-3 btn-lg w-100 fs-6">
-                                            Google
-                                        </Button> */}
-                  </Form>
+                            Google
+                        </Button> */}
                   <div class="input-group mb-5 d-flex justify-content-between">
-                    {/* <div class="row">
-                                            <small>Don't have account? <a href="#">Sign Up</a></small>
-                                        </div>
-                                        <div class="forgot">
-                                            <small><a href="#">Forgot Password?</a></small>
-                                        </div> */}
+                    <div class="row">
+                      <small>Sudah Punya Akun? <a href="*">Login</a></small>
+                    </div>
                   </div>
+                  </Form>
                 </div>
               </Col>
             </Row>

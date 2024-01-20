@@ -7,8 +7,6 @@ export default function Register() {
     return(
         <>
             <NavLogin/>
-            <h1>Ini Halaman Register</h1>
-
             <FormRegister/>
         </>
     )

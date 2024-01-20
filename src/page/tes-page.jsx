@@ -2,7 +2,7 @@ import React from "react";
 
 
 import DetailKeranjang from "../components/user/DetailKeranjang";
-import ListFeedback from "../components/admin/ListFeedback";
+import FormRegister from "../components/FromRegister";
 import DetailCheckout from "../components/user/DetailCheckout";
 import CarouselProduk from "../components/main/carouselProduk";
 
@@ -16,7 +16,7 @@ export default function TesPage() {
         <>
             {/* <CarouselMain className="mb-4"/>
             <NavAdmin className="mb-4"/> */}
-            <ListFeedback className="mb-4" />
+            <FormRegister className="mb-4"/>
             <CatalogProduct className="mb-4"/>
 
             <CarouselProduk className="mb-4"/>

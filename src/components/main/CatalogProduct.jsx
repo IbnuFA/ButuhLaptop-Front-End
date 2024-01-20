@@ -17,6 +17,7 @@ export default function CatalogProduct (){
     const [filterParam, setFilterParam] = useState(["All"]);
     const [msg, setMsg] = useState("");
     const [search, setSearch] = useState(products)
+    const [searchParam] = useState(["category"]);
 
     const location = useLocation();
 
@@ -91,7 +92,7 @@ export default function CatalogProduct (){
                     </Col>
                 </Row>
             </Container>
-            
+
             <Container className="mt-3 mb-3">
                 <Table>
                     <tbody>
@@ -105,7 +106,7 @@ export default function CatalogProduct (){
                                         aria-label ="Default select example" 
                                         className="form-control input bg-light"
                                         size="sm"
-                                        onChange={(e) => {setFilterParam(e.target.value)}}
+                                        // onChange={(e) => {filteredProduct(e.target.value)}}
                                     >
                                         <option value="All">Semua</option>
                                         <option value="daily">Daily</option>
@@ -134,10 +135,9 @@ export default function CatalogProduct (){
                         </tr>
                     </tbody>
                 </Table>
-                
 
+                {/* Segmen Asli */}
                 <Row>
-                    {/* Segmen Asli */}
                     {search.map((product)=>{
                         return(
                             <>
@@ -169,32 +169,6 @@ export default function CatalogProduct (){
                             </>
                         )
                     })}
-
-                    {/* Segmen Tambahan Buat Contoh */}
-                    {/* {products.map((products)=>{
-                        return(
-                            <>
-                                <Col md={3} sm={6} key={products.id}>
-                                    <Card className="col-sm-12 mb-3">
-                                        <Card.Img variant="top" src={products.image} alt={products.name} />
-                                        <Card.Body>
-                                            <Card.Title>{products.name}</Card.Title>
-                                            <Card.Text>
-                                                <h5>{products.price}</h5>
-                                                <h6>Stok Barang : {products.stock}</h6>
-                                                <h6>{products.description}</h6>
-                                            </Card.Text>
-
-                                            <Container className="d-flex justify-content-center">
-                                                <Button className="mx-auto" variant="primary" size="lg">Cek Sekarang!</Button>
-                                            </Container>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            </>
-                        )
-                    })} */}
-    
                 </Row>
             </Container>
         </>

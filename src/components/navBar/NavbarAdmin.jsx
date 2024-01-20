@@ -39,7 +39,7 @@ export default function NavbarAdmin () {
                       <Nav.Link onClick={() => Navigate('/admin/listproduct')}>Produk</Nav.Link>
                       <Nav.Link onClick={() => Navigate('/admin/listorder')}>Order Masuk</Nav.Link>
                       <Nav.Link onClick={() => Navigate('/admin/listuser')}>User</Nav.Link>
-                      <Nav.Link onClick={() => Navigate('*')}>Feedback</Nav.Link>
+                      <Nav.Link onClick={() => Navigate('/admin/listfeedback')}>Feedback</Nav.Link>
 
                   </Nav>
                   <Nav className="d-flex">

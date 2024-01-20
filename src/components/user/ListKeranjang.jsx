@@ -26,8 +26,8 @@ import Swal from "sweetalert2";
 import Laptop from "../../asset/img/laptopPlaceholder.png";
 
 export default function ListKeranjang() {
-  const Navigate = useNavigate();
   const [carts, setCarts] = useState([]);
+  const [shipPrice, setShipPrice] = useState(0);
   const [cartPrice, setCartPrice] = useState(0);
 
   const getCarts = async () => {
@@ -48,6 +48,7 @@ export default function ListKeranjang() {
         });
         setCarts(newCart);
 
+        await checkOrder()
         const prices = newCart.reduce((a, b) => a + b.totalPrices, 0);
         setCartPrice(prices);
         return;
@@ -55,6 +56,24 @@ export default function ListKeranjang() {
 
       setCarts([]);
       setCartPrice(0);
+      setShipPrice(0);
+    } catch (error) {
+      await Swal.fire("Terjadi Error", error.message, "error");
+    }
+  };
+
+  const checkOrder = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/order/check`, {
+        headers: {
+          Authorization: `Bearer ${Token.getToken()}`,
+        },
+      });
+      let order = response.data.data;
+
+      if (order) {
+        setShipPrice(order.shippings.services.find(({ name }) => name.toLowerCase() === 'reg')?.cost)
+      }
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
@@ -209,10 +228,17 @@ export default function ListKeranjang() {
                           </tr>
                         );
                       })}
+                    {carts && (
+                      <tr>
+                        <td colSpan={4}></td>
+                        <td>Harga ongkir JNE Regular : </td>
+                        <td>{shipPrice}</td>
+                      </tr>
+                    )}
                     <tr>
                       <td colSpan={4}></td>
                       <td>Total : </td>
-                      <td>{cartPrice}</td>
+                      <td>{cartPrice + shipPrice}</td>
                     </tr>
                   </tbody>
                 </Table>

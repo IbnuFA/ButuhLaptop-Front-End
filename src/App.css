@@ -43,6 +43,14 @@
   margin-right: 8px; /* Atur jarak antara ikon dan teks sesuai keinginan Anda */
 }
 
+input[type=radio]{
+  display: none;
+}
+
+.star{
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Form, Button, Card, ToggleButton, ToggleButtonGroup, FormGroup} from "react-bootstrap";
+import { Row, Col, Form, Button, Card, FormGroup} from "react-bootstrap";
+
+//import icon
+import { FaStar } from "react-icons/fa";
 
 export default function FormFeedback(){
+    const navigate = useNavigate()
+    const [rate, setRate] = useState(null)
+    const [feedback, setFeedback] = useState("")
+    const [hover, setHover] = useState(null)
+    const [msg, setMsg] = useState("");
+
+
+    const addFeedback = async (e) => {
+        e.preventDefault();
+        try {
+           
+
+            await axios.post("http://localhost:5000/feedback", {
+                rate: rate,
+                feedback: feedback
+            })
+            navigate("/")
+        } catch (error) {
+            if(error.response){
+                setMsg(error.response.data.msg)
+            }
+        }
+    }
     return(
         <>
             <Card className="col-md-10 mx-auto mt-4">
@@ -14,41 +42,38 @@ export default function FormFeedback(){
                                     <div class="header-text mb-4">
                                         <h2>Isi Feedback</h2>
                                     </div>
-                                    <Form>
+                                    <Form onSubmit={addFeedback}>
                                         <FormGroup>
                                             <Form.Label className="me-3">Rating : </Form.Label>
-                                            <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                                                <ToggleButton id="tbg-radio-1" value={1}>
-                                                    Bintang 1
-                                                </ToggleButton>
-                                                <ToggleButton id="tbg-radio-2" value={2}>
-                                                    Bintang 2
-                                                </ToggleButton>
-                                                <ToggleButton id="tbg-radio-3" value={3}>
-                                                    Bintang 3
-                                                </ToggleButton>
-                                                <ToggleButton id="tbg-radio-2" value={4}>
-                                                    Bintang 4
-                                                </ToggleButton>
-                                                <ToggleButton id="tbg-radio-3" value={5}>
-                                                    Bintang 5
-                                                </ToggleButton>
-                                            </ToggleButtonGroup>
+                                            {[...Array(5)].map((star, index) => {
+                                                const currentRating = index + 1;
+                                                return(
+                                                    <label>
+                                                        <input
+                                                            type="radio"
+                                                            name="rate"
+                                                            value={currentRating}
+                                                            onClick={()=> setRate(currentRating)}
+                                                    />
+                                                        <FaStar 
+                                                            className="star" 
+                                                            size={25}
+                                                            color={currentRating <= (hover || rate) ? "#ffc107" : "#e4e5e9"}
+                                                            onMouseEnter={() => setHover(currentRating)}
+                                                            onMouseLeave={() => setHover(null)}
+                                                        />
+                                                    </label>
+                                                )
+                                            })}
                                         </FormGroup>
-                                        
-                                        {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                            <Form.Label>Rating</Form.Label>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder=""
-                                                className="form-control bg-light fs-6"
-                                                required
-                                            />
-                                        </Form.Group> */}
 
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                                             <Form.Label>Feedback</Form.Label>
-                                            <Form.Control as="textarea" rows={4} />
+                                            <Form.Control 
+                                                as="textarea" 
+                                                rows={4}
+                                                onChange={(e) => setFeedback(e.target.value)}
+                                            />
                                         </Form.Group>
                                         
                                         <Row>

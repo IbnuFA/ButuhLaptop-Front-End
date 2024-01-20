@@ -8,7 +8,6 @@ export default function Login() {
     return(
         <>
             <NavLogin/>
-            <h1>Ini Halaman Login</h1>
             <FormLogin/>
 
             <FormFeedback/>

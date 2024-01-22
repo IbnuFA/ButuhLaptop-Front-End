@@ -19,7 +19,7 @@ export default function NavbarAdmin () {
   return(
       <>
         {['xl'].map((expand) => (
-          <Navbar key={expand} bg="light" expand={expand} className="bg-body-tertiary mb-3">
+          <Navbar key={expand} expand={expand} className="navbarStyle bg-body-tertiary mb-3">
             <Container fluid>
               <Navbar.Brand href="#">Halo, {user?.first_name}</Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -35,15 +35,15 @@ export default function NavbarAdmin () {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-center flex-grow-1 pe-3">
-                      <Nav.Link onClick={() => Navigate('/')}>Home</Nav.Link>
-                      <Nav.Link onClick={() => Navigate('/admin/listproduct')}>Produk</Nav.Link>
-                      <Nav.Link onClick={() => Navigate('/admin/listorder')}>Order Masuk</Nav.Link>
-                      <Nav.Link onClick={() => Navigate('/admin/listuser')}>User</Nav.Link>
-                      <Nav.Link onClick={() => Navigate('/admin/listfeedback')}>Feedback</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => Navigate('/')}>Home</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listproduct')}>Produk</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listorder')}>Order Masuk</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listuser')}>User</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listfeedback')}>Feedback</Nav.Link>
 
                   </Nav>
                   <Nav className="d-flex">
-                    <Nav.Link href="#" onClick={logout}>Logout</Nav.Link>
+                    <Nav.Link className="navbarText" href="#" onClick={logout}>Logout</Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

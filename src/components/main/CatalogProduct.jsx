@@ -14,8 +14,9 @@ import { IoSearchOutline } from "react-icons/io5";
 export default function CatalogProduct (){
     const Navigate = useNavigate()
     const [products, setProducts] = useState([]);
+    const [productItems, setproductItems] = useState([]);
     const [msg, setMsg] = useState("");
-    const [search, setSearch] = useState(products)
+    const [search, setSearch] = useState(products);
     const [searchParam] = useState(["category"]);
     
     const location = useLocation();
@@ -33,6 +34,8 @@ export default function CatalogProduct (){
                     Authorization: `Bearer ${Token.getToken()}`
                 }
             })
+    setproductItems([...new Set(search.map((value) => value.category))])
+
             setProducts(response.data);
             setSearch(response.data)
         } catch (error) {
@@ -76,28 +79,32 @@ export default function CatalogProduct (){
         setSearch(products.filter(e => e.name.toLowerCase().includes(event.target.value)))
     }
 
-    //filter product by daily category
+    const filteredItems = (value) => {
+        const newItems = products.filter((newFilter)=> newFilter.category === value)
+        setSearch(newItems)
+    }
 
-    // const dailyProductsFilter = (products) => {
-    //     const dailyProducts = products.filter((product) => {
-    //         return product.category.value === 'daily';
-    //     })
+    const FilterButton = ({productItems, filteredItems, setSearch}) => {
+        return(
+            <div className="d-flex justify-content-start">
+                <Button
+                    onClick={() => setSearch(products)}
+                >
+                    All
+                </Button>
+                {
+                    productItems.map(value => (
+                        <Button
+                            onClick={() => filteredItems(value)}
+                        >
+                            {value}
+                        </Button>
+                    ))
+                }
+            </div>
+        )
+    }
 
-    //     const filteredProductId = dailyProducts.map((product) => {
-    //         return product.id;
-    //     })
-
-    //     if(filteredProductId){
-    //         Navigate(`/product?daily`)
-    //     }else{
-    //         Navigate(`/`)
-    //     }
-    //     setRefreshData(true);
-    // }
-
-    //filter product by gaming category
-
-    //filter product by kerja category
 
     return(
         <>
@@ -153,15 +160,11 @@ export default function CatalogProduct (){
                             <td className="textTable">Sortir Kategori Penggunaan</td>
                             <td> : </td>
                             <td>
-                                <Button variant="success" size="sm" className="me-1">Kerja</Button>
-                                <Button variant="primary" size="sm" className="me-1">Gaming</Button>
-                                <Button 
-                                    variant="outline-danger" 
-                                    size="sm"
-                                    // onClick={()=> dailyProductsFilter(products)}
-                                >
-                                    Daily Use
-                                </Button>
+                                <FilterButton
+                                    productItems = {productItems}
+                                    filteredItems = {filteredItems}
+                                    setSearch={setSearch}
+                                />
                             </td>
                         </tr>
                     </tbody>

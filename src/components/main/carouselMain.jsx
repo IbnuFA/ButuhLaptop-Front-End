@@ -14,6 +14,7 @@ import './styles.css';
 import { Pagination, Navigation } from 'swiper/modules';
 
 //import tes carousel
+import bannerTes from '../../asset/img/banner/Banner-Tes.png'
 import imgcarol1 from '../../asset/carousel/1123013.jpg'
 import imgcarol2 from '../../asset/carousel/1123014.jpg'
 import imgcarol3 from '../../asset/carousel/1129497.jpg'
@@ -31,18 +32,18 @@ export default function CarouselMain() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper col-md-11"
       >
         <SwiperSlide>
-          <img src={imgcarol1}/>
+          <img src={bannerTes}/>
 
           {/* <img src={'./logo.jpeg'}/> */}
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgcarol2}/>
+          <img src={bannerTes}/>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgcarol3}/>
+          <img src={bannerTes}/>
         </SwiperSlide>
       </Swiper>
 

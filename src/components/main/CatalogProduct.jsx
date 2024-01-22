@@ -14,17 +14,18 @@ import { IoSearchOutline } from "react-icons/io5";
 export default function CatalogProduct (){
     const Navigate = useNavigate()
     const [products, setProducts] = useState([]);
-    const [filterParam, setFilterParam] = useState(["All"]);
     const [msg, setMsg] = useState("");
     const [search, setSearch] = useState(products)
     const [searchParam] = useState(["category"]);
-
+    
     const location = useLocation();
-
+    
+    const [filterParam, setFilterParam] = useState(["All"]);
+    
     useEffect(()=>{
         getProducts();
     },[])
-
+    
     const getProducts = async() => {
         try {
             const response = await axios.get(`http://localhost:5000/products`, {
@@ -39,6 +40,36 @@ export default function CatalogProduct (){
                 setMsg(error.response.data.msg);
             }
         }
+    }
+
+    const ReadMore = ({children}) => {
+        const text = children;
+        const [isReadMore, setIsReadmore] = useState(true);
+
+        const toggleReadMore = () => {
+            setIsReadmore(!isReadMore)
+        }
+        
+        return(
+            <p>
+                {isReadMore ? text.slice(0,15) : text}
+                <span
+                    onClick={toggleReadMore}
+                    className="read-or-hide"
+                    style={{color: "green"}}
+                >
+                    {isReadMore ? "...read more" : " show less"}
+                </span>
+            </p>
+        )
+    }
+    
+
+    const formatRupiah = (value) => {
+        return new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR"
+        }).format(value)
     }
 
     const searchProduct = (event) => {
@@ -142,14 +173,18 @@ export default function CatalogProduct (){
                         return(
                             <>
                                 <Col sm={6} md={4} lg={3} key={product.id}>
-                                    <Card className="">
+                                    <Card className="mb-3">
                                         <Card.Img variant="top" src={product.image} alt={product.name} />
                                         <Card.Body>
                                             <Card.Title>{product.name}</Card.Title>
                                             <Card.Text>
-                                                <h5>{product.price}</h5>
+                                                <h5>{formatRupiah(product.price)}</h5>
                                                 <h6>Stok Barang : {product.stock}</h6>
-                                                <h6>{product.description}</h6>
+                                                <h6>
+                                                    <ReadMore>
+                                                        {product.description}
+                                                    </ReadMore>    
+                                                </h6>
                                             </Card.Text>
 
                                             <Container className="d-flex justify-content-center">

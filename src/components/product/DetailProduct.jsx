@@ -76,6 +76,70 @@ export default function DetailProduct() {
     getProduct();
   }, []);
 
+  const checkProductOrder = async () => {
+    const response = await axios.get(`http://localhost:5000/order/check`, {
+      headers: {
+        Authorization: `Bearer ${Token.getToken()}`,
+      },
+      params: {
+        productId,
+      },
+    });
+    let order = response.data.data;
+
+    if (!order) {
+      return 0;
+    }
+
+    return (
+      order.shippings.services.find(({ name }) => name.toLowerCase() === "reg")
+        ?.cost || 0
+    );
+  };
+
+  const handleProductCheckout = async () => {
+    try {
+      Swal.showLoading();
+
+      const shipPrice = await checkProductOrder();
+
+      const swalResult = await Swal.fire({
+        title: "Konfirmasi Order Shipping!",
+        html: `Pengiriman JNE REG: ${shipPrice}
+          <br>
+          Harga total Order: ${product?.price}
+          <br>
+          Total Keseluruhan : ${product?.price + shipPrice}`,
+        showCancelButton: true,
+        confirmButtonText: "Konfirmasi",
+      });
+
+      if (swalResult.isConfirmed) {
+        await checkOutProduct();
+
+        await Swal.fire('Sukses', 'Produk Berhasil di order', 'success')
+
+        await getProduct();
+      }
+    } catch (error) {
+      await Swal.fire("Terjadi Error", error.message, "error");
+    }
+  };
+
+  const checkOutProduct = async () => {
+    await axios.post(
+      `http://localhost:5000/order/product`,
+      {
+        product_id: productId,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${Token.getToken()}`,
+        },
+      }
+    );
+  };
+
   return (
     <>
       <Card className="col-md-11 mx-auto mt-4">
@@ -143,6 +207,7 @@ export default function DetailProduct() {
                         type="submit"
                         variant="primary"
                         className="mb-3 btn-lg w-100 fs-6"
+                        onClick={handleProductCheckout}
                       >
                         Beli
                       </Button>

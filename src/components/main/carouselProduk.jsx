@@ -70,7 +70,7 @@ export default function CarouselProduk (){
                     return(
                         <>
                             <SwiperSlide key={product.id}>
-                                <div className="d-flex flex-column py-4">
+                                <div className="d-flex flex-column py-4 Swiper-Slider-Custom">
                                     <img  src={product.image} alt={product.name} style ={{width: '300', height: '300'}}  fluid />
                                         <h5>{product.name}</h5>
                                         <h6>{product.description}</h6>

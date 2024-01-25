@@ -8,9 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col, Table, Form, InputGroup } from "react-bootstrap";
 import Token from "../../features/token";
 
-import { RiAddBoxLine } from "react-icons/ri";
-import { IoSearchOutline } from "react-icons/io5";
-
 export default function CatalogProduct (){
     const Navigate = useNavigate()
     const [products, setProducts] = useState([]);
@@ -34,7 +31,7 @@ export default function CatalogProduct (){
                     Authorization: `Bearer ${Token.getToken()}`
                 }
             })
-    setproductItems([...new Set(search.map((value) => value.category))])
+        setproductItems([...new Set(search.map((value) => value.category))])
 
             setProducts(response.data);
             setSearch(response.data)
@@ -59,14 +56,13 @@ export default function CatalogProduct (){
                 <span
                     onClick={toggleReadMore}
                     className="read-or-hide"
-                    style={{color: "green"}}
+                    style={{color: "blue"}}
                 >
-                    {isReadMore ? "...read more" : " show less"}
+                    {isReadMore ? "...Read more" : " Show less"}
                 </span>
             </p>
         )
     }
-    
 
     const formatRupiah = (value) => {
         return new Intl.NumberFormat("id-ID", {
@@ -88,6 +84,7 @@ export default function CatalogProduct (){
         return(
             <div className="d-flex justify-content-start">
                 <Button
+                    className="me-1"
                     onClick={() => setSearch(products)}
                 >
                     All
@@ -95,6 +92,7 @@ export default function CatalogProduct (){
                 {
                     productItems.map(value => (
                         <Button
+                            className="me-1"
                             onClick={() => filteredItems(value)}
                         >
                             {value}
@@ -121,7 +119,6 @@ export default function CatalogProduct (){
                                         type="text"
                                         placeholder="Cari Barangmu"
                                         className="form-control bg-light fs-6"
-                                        
                                         onChange={searchProduct} 
                                     />
                                 </InputGroup>
@@ -134,28 +131,6 @@ export default function CatalogProduct (){
             <Container className="mt-3 mb-3">
                 <Table>
                     <tbody>
-                        <tr>
-                            <td className="textTable">Sortir Kategori Harga</td>
-                            <td> : </td>
-                            <td>
-                                <Form >
-                                <Form.Group as={Col} md="4">
-                                    <Form.Select 
-                                        aria-label ="Default select example" 
-                                        className="form-control input bg-light"
-                                        size="sm"
-                                        // onChange={(e) => {filteredProduct(e.target.value)}}
-                                    >
-                                        <option value="All">Semua</option>
-                                        <option value="daily">Daily</option>
-                                        <option value="belumDibayar">Ada Modal</option>
-                                        <option value="dikirim">Modal Banyak</option>
-                                        <option value="selesai">Sultan</option>
-                                    </Form.Select>
-                                </Form.Group>
-                                </Form>
-                            </td>
-                        </tr>
                         <tr>
                             <td className="textTable">Sortir Kategori Penggunaan</td>
                             <td> : </td>
@@ -177,7 +152,7 @@ export default function CatalogProduct (){
                             <>
                                 <Col sm={6} md={4} lg={3} key={product.id}>
                                     <Card className="mb-3">
-                                        <Card.Img variant="top" src={product.image} alt={product.name} />
+                                        <Card.Img variant="top" className="Catalog-Custom-Img" src={product.image} alt={product.name} />
                                         <Card.Body>
                                             <Card.Title>{product.name}</Card.Title>
                                             <Card.Text>

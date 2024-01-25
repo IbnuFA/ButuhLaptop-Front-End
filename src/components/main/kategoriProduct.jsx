@@ -2,7 +2,11 @@ import React from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col } from "react-bootstrap";
-import Laptop from '../../asset/img/laptopPlaceholder.png'
+
+//import gambar
+import Work from '../../asset/img/Work.png'
+import Gaming from '../../asset/img/Gaming.png'
+import Study from '../../asset/img/Study.png'
 
 
 export default function KategoriProduct (){
@@ -14,7 +18,7 @@ export default function KategoriProduct (){
 
                 <Col md={4} sm={6}>
                     <Card className="col-sm-12 mb-4">
-                        <Card.Img variant="top" src={Laptop} />
+                        <Card.Img variant="top" className="Custom-Category-Img"src={Work}/>
                         <Card.Body>
                             <Card.Title>Kerja</Card.Title>
                             <Card.Text>
@@ -31,7 +35,7 @@ export default function KategoriProduct (){
 
                 <Col md={4} sm={6}>
                     <Card className="col-sm-12 mb-4">
-                        <Card.Img variant="top" src={Laptop} />
+                        <Card.Img variant="top" className="Custom-Category-Img" src={Gaming} />
                         <Card.Body>
                             <Card.Title>Gaming</Card.Title>
                             <Card.Text>
@@ -48,9 +52,9 @@ export default function KategoriProduct (){
 
                 <Col md={4} sm={6}>
                     <Card className="col-sm-12 mb-4">
-                        <Card.Img variant="top" src={Laptop} />
+                        <Card.Img variant="top" className="Custom-Category-Img" src={Study} />
                         <Card.Body>
-                            <Card.Title>Daily Use</Card.Title>
+                            <Card.Title>Belajar</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the
                                 bulk of the card's content.

@@ -64,6 +64,20 @@ export default function CarouselProduk (){
                 navigation={true}
                 modules={[Pagination, Navigation]}
                 className="mySwiper1"
+                breakpoints = {{
+                    0: {
+                      slidesPerView: 1,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween: 15,
+                    },
+                    992: {
+                      slidesPerView: 3,
+                      spaceBetween: 10,
+                    },
+                }}
             >
                 
                 {product.map((product)=>{

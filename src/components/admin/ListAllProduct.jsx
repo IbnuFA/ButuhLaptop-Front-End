@@ -6,6 +6,7 @@ import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Table } from "react-bootstrap";
 import Token from '../../features/token';
+import { formatRupiah } from "../../features/utils";
 
 import Swal from "sweetalert2";
 
@@ -140,7 +141,7 @@ export default function ListAllProduct (){
                                                 <td>{index + 1}</td>
                                                 <td><img className="listProdukAdmin" src={product.image} alt={product.name} /></td>
                                                 <td>{product.name}</td>
-                                                <td>{product.price}</td>
+                                                <td>{formatRupiah(product.price)}</td>
                                                 <td>{product.stock}</td>
                                                 <td>{product.category}</td>
                                                 <td>

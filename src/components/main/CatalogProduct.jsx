@@ -7,6 +7,7 @@ import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Row, Col, Table, Form, InputGroup } from "react-bootstrap";
 import Token from "../../features/token";
+import { formatRupiah } from "../../features/utils";
 
 export default function CatalogProduct (){
     const Navigate = useNavigate()
@@ -31,10 +32,10 @@ export default function CatalogProduct (){
                     Authorization: `Bearer ${Token.getToken()}`
                 }
             })
-        setproductItems([...new Set(search.map((value) => value.category))])
 
+            setproductItems([...new Set(response.data.map((value) => value.category))])
             setProducts(response.data);
-            setSearch(response.data)
+            setSearch(response.data);
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
@@ -64,12 +65,7 @@ export default function CatalogProduct (){
         )
     }
 
-    const formatRupiah = (value) => {
-        return new Intl.NumberFormat("id-ID", {
-            style: "currency",
-            currency: "IDR"
-        }).format(value)
-    }
+    
 
     const searchProduct = (event) => {
         setSearch(products.filter(e => e.name.toLowerCase().includes(event.target.value)))

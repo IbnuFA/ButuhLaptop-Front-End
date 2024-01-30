@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -12,15 +12,18 @@ import {
   Image,
 } from "react-bootstrap";
 
-import Laptop from "../../asset/img/laptopPlaceholder.png";
+//import icon
+import { IoMdAdd  } from "react-icons/io";
+
+
 import Token from "../../features/token";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { formatRupiah } from "../../features/utils";
 
 export default function DetailProduct() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const navigate = useNavigate();
 
   const getProduct = async () => {
     try {
@@ -44,8 +47,9 @@ export default function DetailProduct() {
     try {
       const { value: quantity } = await Swal.fire({
         input: "number",
-        inputLabel: "Kuantitas",
-        inputPlaceholder: "Kuantitas",
+        title: "Masukkan Jumlah Pesananmu!",
+        inputLabel: "Masukan Jumlah Barang yang ingin kamu Masukan ke Keranjangmu",
+        inputPlaceholder: "Misal : 1",
         inputAttributes: {
           min: "1",
         },
@@ -105,11 +109,11 @@ export default function DetailProduct() {
 
       const swalResult = await Swal.fire({
         title: "Konfirmasi Order Shipping!",
-        html: `Pengiriman JNE REG: ${shipPrice}
+        html: `Pengiriman JNE REG: ${formatRupiah(shipPrice)}
           <br>
-          Harga total Order: ${product?.price}
+          Harga total Order: ${formatRupiah(product?.price)}
           <br>
-          Total Keseluruhan : ${product?.price + shipPrice}`,
+          Total Keseluruhan : ${formatRupiah(product?.price + shipPrice)}`,
         showCancelButton: true,
         confirmButtonText: "Konfirmasi",
       });
@@ -162,6 +166,7 @@ export default function DetailProduct() {
                       src={product?.image}
                       width={400}
                       height={400}
+                      roundedCircle
                       fluid
                     />
                   </div>
@@ -172,27 +177,30 @@ export default function DetailProduct() {
                   className="rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
                 >
                   <div class="row align-items-center">
-                    <div class="header-text mb-3">
-                      <h4>Nama Produk : {product?.name}</h4>
+                    <div class="header-text">
+                      <h4>{product?.name}</h4>
+                    </div>
+                    <div class="header-text mb-4">
+                      <a className="Low-Level-Text">Sisa Stock </a> <a> : {product?.stock}</a>
                     </div>
                     <div class="header-text mb-3">
-                      <h5>Harga : Rp {product?.price}</h5>
+                      <h3>{formatRupiah(product?.price)}</h3>
+                    </div>
+                    <div class="header-text">
+                      <h6>Spesifikasi Produk : </h6>
                     </div>
                     <div class="header-text mb-3">
-                      <h5>Deskripsi : {product?.description}</h5>
-                    </div>
-                    <div class="header-text mb-3">
-                      <h5>Sisa Stock : {product?.stock}</h5>
+                      <h6>{product?.description}</h6>
                     </div>
                     <div>
-                      <Button
+                      {/* <Button
                         type="submit"
                         variant="outline-danger"
                         className="mb-3 btn-lg w-100 fs-6"
                         onClick={() => navigate(-1)}
                       >
                         Kembali
-                      </Button>
+                      </Button> */}
 
                       <Button
                         type="submit"
@@ -200,7 +208,7 @@ export default function DetailProduct() {
                         className="mb-3 btn-lg w-100 fs-6"
                         onClick={addProductToChart}
                       >
-                        Keranjang
+                        <IoMdAdd  size={20}/> Keranjang
                       </Button>
 
                       <Button
@@ -209,7 +217,7 @@ export default function DetailProduct() {
                         className="mb-3 btn-lg w-100 fs-6"
                         onClick={handleProductCheckout}
                       >
-                        Beli
+                        Beli Langsung
                       </Button>
                     </div>
                   </div>

@@ -6,24 +6,67 @@ export const getOrderStatus = (statusCode) => {
     case 0:
       return (
         <>
-          <Button size="sm" variant="outline-primary" disabled>
+          <Button size="sm" variant="info" disabled>
             Menunggu Persetujuan Admin
           </Button>
         </>
       );
     case 1:
-      // return 'approved';
+      return (
+        <>
+          <Button size="sm" variant="outline-success" disabled>
+            Disetujui
+          </Button>
+        </>
+      );
     case 2:
-      return 'waiting customer payment';
+      return (
+        <>
+          <Button size="sm" variant="outline-warning" disabled>
+            Menunggu Pembayaran
+          </Button>
+        </>
+      );
     case 3:
-      return 'waiting payment approval from admin';
+      return (
+        <>
+          <Button size="sm" variant="outline-primary" disabled>
+            Pengecekan oleh Admin
+          </Button>
+        </>
+      );
     case 4:
-      return 'sent';
+      return (
+        <>
+          <Button size="sm" variant="info" disabled>
+            Barang telah Dikirim
+          </Button>
+        </>
+      );
     case 6:
-      return 'Done';
+      return (
+        <>
+          <Button size="sm" variant="success" disabled>
+            Pesanan Selesai
+          </Button>
+        </>
+      );
     case 9:
-      return 'expired or canceled';
+      return (
+        <>
+          <Button size="sm" variant="danger" disabled>
+            Batal
+          </Button>
+        </>
+      );
     default:
-      return 'Invalid';
+      return (
+        <>
+          <Button size="sm" variant="outline-danger" disabled>
+            Invalid
+          </Button>
+        </>
+      );
+
   }
 };

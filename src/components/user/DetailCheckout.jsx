@@ -23,6 +23,7 @@ export default function DetailCheckout() {
   const toggleShowToast = () => setShowToast(!showToast);
 
   const checkOrder = async () => {
+    Swal.showLoading();
     const response = await axios.get("http://localhost:5000/order/check", {
       headers: {
         Authorization: `Bearer ${Token.getToken()}`,
@@ -33,6 +34,7 @@ export default function DetailCheckout() {
     });
 
     const newOrders = response.data.data;
+    Swal.close();
 
     return newOrders;
   };
@@ -66,6 +68,7 @@ export default function DetailCheckout() {
       }
 
       setOrder(null);
+      
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }

@@ -101,39 +101,6 @@ export default function ListAllProduct (){
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* Contoh Data */}
-                                {/* <tr>
-                                    <td>1</td>
-                                    <td>Gambar</td>
-                                    <td>Tes</td>
-                                    <td>Harga</td>
-                                    <td>5</td>
-                                    <td>Kategori</td>
-                                    <td>
-                                        <Button 
-                                            variant="success" 
-                                            size="sm" 
-                                            className="me-1"
-                                        >
-                                                <BsInfoCircle size={20}/>
-                                        </Button>
-                                        <Button 
-                                            variant="primary" 
-                                            size="sm" className="me-1" 
-                                            onClick={() => Navigate(`/admin/editproduct`)}
-                                        >
-                                                <RiEdit2Line size={20}/>
-                                        </Button>
-                                        <Button 
-                                            variant="outline-danger" 
-                                            size="sm" 
-                                            onClick={() => handleDelete()}
-                                        >
-                                                <BsTrash3 size={20}/>
-                                        </Button>
-                                    </td>
-                                </tr> */}
-
                                 {products.map((product, index)=>{
                                     return(
                                         <>

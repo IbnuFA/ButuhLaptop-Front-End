@@ -1,19 +1,82 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Token from "../../features/token";
 
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Table, Button, Image } from "react-bootstrap";
+
+import Swal from "sweetalert2";
 
 //import icon
 import { BsInfoCircle, BsTrash3, BsPersonAdd, BsPersonGear } from "react-icons/bs";
 
 import Laptop from '../../asset/img/laptopPlaceholder.png'
 
-// const imagePlacdeholder = Laptop
-
 export default function ListAllUser(){
-    const Navigate = useNavigate()
+    const [users, setUsers] = useState([]);
+    const [msg, setMsg] = useState("")
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        getUser();
+    },[])
+
+    const getUser = async() => {
+        Swal.showLoading()
+        
+        try {
+            const response = await axios.get(`http://localhost:5000/admin/users`, {
+                headers: {
+                    Authorization: `Bearer ${Token.getToken()}`
+                }
+            })
+            setUsers(response.data)
+        } catch (error) {
+            if(error.response){
+                setMsg(error.response.data.msg)
+            }
+        }
+        Swal.close()
+    }
+
+    const deleteUser = async(uuid) => {
+        try {
+            await axios.delete(`http://localhost:5000/admin/users/${uuid}`, {
+                headers: {
+                    Authorization: `Bearer ${Token.getToken()}`
+                }
+            });
+            getUser();
+        } catch (error) {
+            const message = error.message
+            console.error('There was an error!', message)
+        }
+    }
+
+    const handleDelete = async(uuid) => {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Produk yang dipilih akan dihapus",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteUser(uuid)
+                Swal.fire(
+                    'Terhapus!',
+                    'Produk telah dihapus.',
+                    'success'
+                )
+            }
+        })
+    }
 
     return(
             <>
@@ -21,12 +84,10 @@ export default function ListAllUser(){
                     <Card.Header className="cardHeader">List User</Card.Header>
                     <Card.Body>
                         <Container fluid className="mb-3">
-                            <Button className="primary" onClick={() => Navigate('/admin/adduser')}><BsPersonAdd size={23}/> Tambah User</Button>
                             <Table responsive>
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Profile</th>
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Level</th>
@@ -34,51 +95,34 @@ export default function ListAllUser(){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    {users.map((user, index)=> {
+                                        return(
+                                            <>
+                                                <tr key={user.uuid}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{user.first_name} {user.last_name}</td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user.role}</td>
+                                                    <td>
+                                                        <Button variant="success" size="sm" className="me-1" onClick={() => navigate('/admin/detailuser')}><BsInfoCircle size={20}/></Button>
+                                                        <Button variant="primary" size="sm" className="me-1"><BsPersonGear size={20}/></Button>
+                                                        <Button variant="outline-danger" size="sm" onClick={() => handleDelete(user.uuid)}><BsTrash3 size={20}/></Button>
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )
+                                    })}
+                                    {/* <tr>
                                         <td>1</td>
-                                        <td><Image src={Laptop} fluid width={100} height={100}/></td>
                                         <td>Table cell</td>
                                         <td>Table cell</td>
                                         <td>Table cell</td>
                                         <td>
-                                            <Button variant="success" size="sm" className="me-1" onClick={() => Navigate('/admin/detailuser')}><BsInfoCircle size={20}/></Button>
+                                            <Button variant="success" size="sm" className="me-1" onClick={() => navigate('/admin/detailuser')}><BsInfoCircle size={20}/></Button>
                                             <Button variant="primary" size="sm" className="me-1"><BsPersonGear size={20}/></Button>
                                             <Button variant="outline-danger" size="sm"><BsTrash3 size={20}/></Button>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><Image src={Laptop} fluid width={100} height={100}/></td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <Button variant="success" size="sm" className="me-1" onClick={() => Navigate('/admin/detailuser')}>Detail</Button>
-                                            <Button variant="outline-danger" size="sm">Delete</Button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><Image src={Laptop} fluid width={100} height={100}/></td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <Button variant="success" size="sm" className="me-1" onClick={() => Navigate('/admin/detailuser')}>Detail</Button>
-                                            <Button variant="outline-danger" size="sm">Delete</Button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><Image src={Laptop} fluid width={100} height={100}/></td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>
-                                            <Button variant="success" size="sm" className="me-1" onClick={() => Navigate('/admin/detailuser')}>Detail</Button>
-                                            <Button variant="outline-danger" size="sm">Delete</Button>
-                                        </td>
-                                    </tr>
+                                    </tr> */}
                                 </tbody>
                             </Table>
                         </Container>   

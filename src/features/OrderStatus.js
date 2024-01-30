@@ -7,7 +7,7 @@ export const getOrderStatus = (statusCode) => {
       return (
         <>
           <Button size="sm" variant="info" disabled>
-            Menunggu Persetujuan Admin
+            Pengecekan Admin
           </Button>
         </>
       );

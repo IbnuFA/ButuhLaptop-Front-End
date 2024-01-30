@@ -161,8 +161,9 @@ export default function DetailProduct() {
                   sm={12}
                   className="rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
                 >
-                  <div class="featured-image mb-3">
+                  <div class="featured-image mb-3 ">
                     <Image
+                      className="border border-primary"
                       src={product?.image}
                       width={400}
                       height={400}

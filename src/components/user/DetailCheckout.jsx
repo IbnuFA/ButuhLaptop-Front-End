@@ -7,7 +7,6 @@ import { Button, Table, Card, Image, Toast } from "react-bootstrap";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 
-import Laptop from "../../asset/img/laptopPlaceholder.png";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Token from "../../features/token";

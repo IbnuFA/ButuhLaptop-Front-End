@@ -3,19 +3,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Table, Card, Image } from "react-bootstrap";
+import { Button, Table, Card, Image, Toast } from "react-bootstrap";
 import { FaRegQuestionCircle } from "react-icons/fa";
+import { BsInfoCircle } from "react-icons/bs";
 
 import Laptop from "../../asset/img/laptopPlaceholder.png";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Token from "../../features/token";
+import { formatRupiah } from "../../features/utils";
 import { getOrderStatus } from "../../features/OrderStatus";
 
 export default function DetailCheckout() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const { id: orderId } = useParams();
   const [order, setOrder] = useState(null);
+  const [showToast, setShowToast] = useState(false);
+
+  const toggleShowToast = () => setShowToast(!showToast);
 
   const checkOrder = async () => {
     const response = await axios.get("http://localhost:5000/order/check", {
@@ -199,24 +204,69 @@ export default function DetailCheckout() {
               <tr>
                 <td>Total Harga Produk</td>
                 <td> : </td>
-                <td>{order?.products_price || "-"}</td>
+                  <td>{formatRupiah(order?.products_price || "-")}</td>
               </tr>
               <tr>
                 <td>Ongkir</td>
                 <td> : </td>
                 <td>
-                  {order ? order?.total_price - order?.products_price : "-"}
+                  {formatRupiah(order ? order?.total_price - order?.products_price : "-")}
                 </td>
               </tr>
               <tr>
                 <td>Total Harga Produk</td>
                 <td> : </td>
-                <td>{order?.total_price || "-"}</td>
+                <td>
+                  {formatRupiah(order?.total_price || "-")}
+                </td>
               </tr>
             </tbody>
           </Table>
 
           <div className="d-flex flex-column align-items-center">
+            <Button onClick={toggleShowToast}>
+              Produk Pesananmu
+            </Button>
+            <Toast show={showToast} onClose={{toggleShowToast}}>
+              <Toast.Body>
+                <Table className="mt-1" responsive>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Gambar</th>
+                      <th>Nama Barang</th>
+                      <th>Jumlah</th>
+                      <th>Harga</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {order?.order_details?.map((detail, idx) => (
+                      <tr key={detail.id}>
+                        <td>{idx + 1}</td>
+                        <td>
+                          <Image
+                            src={detail?.product?.image}
+                            fluid
+                            width={100}
+                            height={100}
+                          />
+                        </td>
+                        <td>{detail?.product?.name}</td>
+                        <td>{detail?.quantity}</td>
+                        <td>Rp {detail?.quantity * detail?.product?.price}</td>
+                        <td>
+                          <Button onClick={() => navigate(`/product/${detail?.product?.id}`)}>
+                            <BsInfoCircle size={20}/>
+                          </Button>
+                          </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </Toast.Body>
+            </Toast>
+
             {order?.status === 2 && (
               <>
                 <Button
@@ -250,41 +300,6 @@ export default function DetailCheckout() {
               </>
             )}
           </div>
-        </Card.Body>
-      </Card>
-
-      <Card className="col-md-10 col-sm-11 mx-auto">
-        <Card.Header className="cardHeader">Detail Produk</Card.Header>
-        <Card.Body>
-          <Table responsive>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Gambar</th>
-                <th>Nama Barang</th>
-                <th>Jumlah</th>
-                <th>Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              {order?.order_details?.map((detail, idx) => (
-                <tr key={detail.id}>
-                  <td>{idx + 1}</td>
-                  <td>
-                    <Image
-                      src={detail?.product?.image}
-                      fluid
-                      width={100}
-                      height={100}
-                    />
-                  </td>
-                  <td>{detail?.product?.name}</td>
-                  <td>{detail?.quantity}</td>
-                  <td>Rp {detail?.quantity * detail?.product?.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
         </Card.Body>
       </Card>
     </>

@@ -1,9 +1,18 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
+
 export const getOrderStatus = (statusCode) => {
   switch(parseInt(statusCode)) {
     case 0:
-      return 'need admin input';
+      return (
+        <>
+          <Button size="sm" variant="outline-primary" disabled>
+            Menunggu Persetujuan Admin
+          </Button>
+        </>
+      );
     case 1:
-      return 'approved';
+      // return 'approved';
     case 2:
       return 'waiting customer payment';
     case 3:

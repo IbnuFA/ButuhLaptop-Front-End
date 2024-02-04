@@ -54,11 +54,10 @@ export default function DetailProduct() {
           min: "1",
         },
       });
+
       if (!quantity) return;
 
-      const response = await axios.post(
-        `http://localhost:5000/cart`,
-        {
+      const response = await axios.post(`http://localhost:5000/cart`, {
           product_id: productId,
           quantity: parseInt(quantity),
         },
@@ -68,7 +67,8 @@ export default function DetailProduct() {
           },
         }
       );
-
+      
+      await Swal.fire('Sukses', 'Produk Berhasil ditambahkan ke Keranjang', 'success')
       return response.data.data;
     } catch (error) {
       console.log(error);
@@ -182,7 +182,7 @@ export default function DetailProduct() {
                       <h4>{product?.name}</h4>
                     </div>
                     <div class="header-text mb-4">
-                      <a className="Low-Level-Text">Sisa Stock </a> <a> : {product?.stock}</a>
+                      <a className="Low-Level-Text">Sisa Stock Barang </a> <a> : {product?.stock}</a>
                     </div>
                     <div class="header-text mb-3">
                       <h3>{formatRupiah(product?.price)}</h3>

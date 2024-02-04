@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Nav, Navbar, Form, NavDropdown, Offcanvas, Col, Row } from "react-bootstrap";
 
 export default function NavbarAdmin () {
-  const Navigate = useNavigate()
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const {user, isSuccess} = useSelector((state => state.auth));
@@ -35,11 +34,11 @@ export default function NavbarAdmin () {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-center flex-grow-1 pe-3">
-                      <Nav.Link className="navbarText" onClick={() => Navigate('/')}>Home</Nav.Link>
-                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listproduct')}>Produk</Nav.Link>
-                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listorder')}>Order Masuk</Nav.Link>
-                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listuser')}>User</Nav.Link>
-                      <Nav.Link className="navbarText" onClick={() => Navigate('/admin/listfeedback')}>Feedback</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => navigate('/')}>Home</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => navigate('/admin/listproduct')}>Produk</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => navigate('/admin/listorder')}>Order Masuk</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => navigate('/admin/listuser')}>User</Nav.Link>
+                      <Nav.Link className="navbarText" onClick={() => navigate('/admin/listfeedback')}>Feedback</Nav.Link>
 
                   </Nav>
                   <Nav className="d-flex">

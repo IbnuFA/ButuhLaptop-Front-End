@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
 import Token from "../../features/token";
+import { formatRupiah } from "../../features/utils";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -32,11 +33,13 @@ export default function ListKeranjang() {
 
   const getCarts = async () => {
     try {
+      Swal.showLoading();
       const response = await axios.get(`http://localhost:5000/cart`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
       });
+      Swal.close();
       let newCart = response.data.data;
       if (newCart.length > 0) {
         newCart = newCart.map((item) => {
@@ -51,12 +54,14 @@ export default function ListKeranjang() {
         await checkOrder()
         const prices = newCart.reduce((a, b) => a + b.totalPrices, 0);
         setCartPrice(prices);
+        
         return;
       }
 
       setCarts([]);
       setCartPrice(0);
       setShipPrice(0);
+      
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
@@ -223,8 +228,8 @@ export default function ListKeranjang() {
                                 <BsPlusLg size={20} />
                               </Button>
                             </td>
-                            <td>{product?.price}</td>
-                            <td>{cart?.totalPrices}</td>
+                            <td>{formatRupiah(product?.price)}</td>
+                            <td>{formatRupiah(cart?.totalPrices)}</td>
                           </tr>
                         );
                       })}
@@ -232,13 +237,13 @@ export default function ListKeranjang() {
                       <tr>
                         <td colSpan={4}></td>
                         <td>Harga ongkir JNE Regular : </td>
-                        <td>{shipPrice}</td>
+                        <td>{formatRupiah(shipPrice)}</td>
                       </tr>
                     )}
                     <tr>
                       <td colSpan={4}></td>
                       <td>Total : </td>
-                      <td>{cartPrice + shipPrice}</td>
+                      <td>{formatRupiah(cartPrice + shipPrice)}</td>
                     </tr>
                   </tbody>
                 </Table>

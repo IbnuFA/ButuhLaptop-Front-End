@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Table, Card, Image, Toast } from "react-bootstrap";
+import { Button, Table, Card, Image, Toast, Accordion } from "react-bootstrap";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 
@@ -226,49 +226,6 @@ export default function DetailCheckout() {
           </Table>
 
           <div className="d-flex flex-column align-items-center">
-            <Button onClick={toggleShowToast}>
-              Produk Pesananmu
-            </Button>
-            <Toast show={showToast} onClose={{toggleShowToast}}>
-              <Toast.Body>
-                <Table className="mt-1" responsive>
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Gambar</th>
-                      <th>Nama Barang</th>
-                      <th>Jumlah</th>
-                      <th>Harga</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {order?.order_details?.map((detail, idx) => (
-                      <tr key={detail.id}>
-                        <td>{idx + 1}</td>
-                        <td>
-                          <Image
-                            src={detail?.product?.image}
-                            fluid
-                            width={100}
-                            height={100}
-                          />
-                        </td>
-                        <td>{detail?.product?.name}</td>
-                        <td>{detail?.quantity}</td>
-                        <td>Rp {detail?.quantity * detail?.product?.price}</td>
-                        <td>
-                          <Button onClick={() => navigate(`/product/${detail?.product?.id}`)}>
-                            <BsInfoCircle size={20}/>
-                          </Button>
-                          </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </Toast.Body>
-            </Toast>
-
             {order?.status === 2 && (
               <>
                 <Button
@@ -302,6 +259,49 @@ export default function DetailCheckout() {
               </>
             )}
           </div>
+
+          <Accordion defaultActiveKey="0" className="mb-1">
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>List Pesanan Produk</Accordion.Header>
+              <Accordion.Body>
+              <Table className="mt-1" responsive>
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Gambar</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah</th>
+                    <th>Harga</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {order?.order_details?.map((detail, idx) => (
+                    <tr key={detail.id}>
+                      <td>{idx + 1}</td>
+                      <td>
+                        <Image
+                          src={detail?.product?.image}
+                          fluid
+                          width={100}
+                          height={100}
+                        />
+                      </td>
+                      <td>{detail?.product?.name}</td>
+                      <td>{detail?.quantity}</td>
+                      <td>Rp {detail?.quantity * detail?.product?.price}</td>
+                      <td>
+                        <Button onClick={() => navigate(`/product/${detail?.product?.id}`)}>
+                          <BsInfoCircle size={20}/>
+                        </Button>
+                        </td>
+                    </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
         </Card.Body>
       </Card>
     </>

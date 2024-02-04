@@ -69,11 +69,18 @@ td {
 .Catalog-Custom-Img{
     height: 250px;
     object-fit: cover;
-}
+  }
 
 .Custom-Category-Img{
     height: 300px;
-    object-fit: cover;
+    width: 300px;
+    object-fit: fill;
+    background-color: white;
+}
+
+.custom-category {
+  background-color: #27374D;
+  color :white;
 }
 
 .Swiper-Slider-Custom{

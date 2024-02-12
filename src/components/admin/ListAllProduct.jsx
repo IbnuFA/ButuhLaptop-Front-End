@@ -27,11 +27,13 @@ export default function ListAllProduct() {
 
   const getProducts = async () => {
     try {
+      Swal.showLoading();
       const response = await axios.get(`http://localhost:5000/products`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
       });
+      Swal.close();
       setProducts(response.data);
     } catch (error) {
       if (error.response) {

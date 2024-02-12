@@ -28,21 +28,20 @@ export default function ListAllUser() {
   }, []);
 
   const getUser = async () => {
-    Swal.showLoading();
-
     try {
+      Swal.showLoading();
       const response = await axios.get(`http://localhost:5000/admin/users`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
       });
+      Swal.close();
       setUsers(response.data);
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
       }
     }
-    Swal.close();
   };
 
   const deleteUser = async (uuid) => {

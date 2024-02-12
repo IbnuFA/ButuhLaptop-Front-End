@@ -19,11 +19,13 @@ export default function ListFeedback() {
 
   const getFeedbacks = async () => {
     try {
+      Swal.showLoading();
       const response = await axios.get(`http://localhost:5000/feedbacks`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
       });
+      Swal.close();
       setFeedback(response.data);
     } catch (error) {
       if (error.response) {

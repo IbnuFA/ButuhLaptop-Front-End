@@ -18,11 +18,13 @@ export default function ListAllOrder() {
 
   const getOrders = async () => {
     try {
+      Swal.showLoading();
       const response = await axios.get("http://localhost:5000/admin/order", {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
       });
+      Swal.close();
 
       const newOrders = response.data.data;
 
@@ -30,7 +32,6 @@ export default function ListAllOrder() {
         setOrders(newOrders);
         return;
       }
-
       setOrders([]);
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Table, Card, Image, Toast, Accordion } from "react-bootstrap";
+import { Button, Table, Card, Image, Accordion } from "react-bootstrap";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 
@@ -17,9 +17,6 @@ export default function DetailCheckout() {
   const navigate = useNavigate();
   const { id: orderId } = useParams();
   const [order, setOrder] = useState(null);
-  const [showToast, setShowToast] = useState(false);
-
-  const toggleShowToast = () => setShowToast(!showToast);
 
   const checkOrder = async () => {
     Swal.showLoading();
@@ -289,7 +286,7 @@ export default function DetailCheckout() {
                       </td>
                       <td>{detail?.product?.name}</td>
                       <td>{detail?.quantity}</td>
-                      <td>Rp {detail?.quantity * detail?.product?.price}</td>
+                      <td>Rp {formatRupiah(detail?.quantity * detail?.product?.price)}</td>
                       <td>
                         <Button onClick={() => navigate(`/product/${detail?.product?.id}`)}>
                           <BsInfoCircle size={20}/>

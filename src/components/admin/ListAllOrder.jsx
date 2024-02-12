@@ -81,12 +81,12 @@ export default function ListAllOrder() {
 
       const swalResult = await Swal.fire({
         title: "Konfirmasi Order Shipping!",
-        html: `Pengiriman JNE REG: ${orderShipping.cost}
+        html: `Pengiriman JNE REG: ${formatRupiah(orderShipping.cost)}
           <br>
-          Harga total Order: ${orderDetail.products_price}
+          Harga total Order: ${formatRupiah(orderDetail.products_price)}
           <br>
           Total Keseluruhan : ${
-            orderDetail.products_price + orderShipping.cost
+            formatRupiah(orderDetail.products_price + orderShipping.cost)
           } `,
         showCancelButton: true,
         confirmButtonText: "Konfirmasi",

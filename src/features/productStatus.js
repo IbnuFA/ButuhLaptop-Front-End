@@ -6,19 +6,19 @@ export const getProductStatus = (statusValue) => {
     case "kerja":
       return (
         <>
-          <p>Kerja</p>
+          <a href="#kerja" className="white-text">Kerja</a>
         </>
       );
     case "daily":
       return (
         <>
-          <p>Belajar</p>
+          <a href="#daily" className="white-text">Belajar</a>
         </>
       );
     case "gaming":
       return (
         <>
-          <p>Gaming</p>
+          <a href="#gaming" className="white-text">Gaming</a>
         </>
       );
     default:

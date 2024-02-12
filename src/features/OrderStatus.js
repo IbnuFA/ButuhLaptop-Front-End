@@ -6,7 +6,7 @@ export const getOrderStatus = (statusCode) => {
     case 0:
       return (
         <>
-          <Button size="sm" variant="info" disabled>
+          <Button size="sm" variant="info" active>
             Pengecekan Admin
           </Button>
         </>
@@ -14,7 +14,7 @@ export const getOrderStatus = (statusCode) => {
     case 1:
       return (
         <>
-          <Button size="sm" variant="outline-success" disabled>
+          <Button size="sm" variant="outline-success" active>
             Disetujui
           </Button>
         </>
@@ -22,7 +22,7 @@ export const getOrderStatus = (statusCode) => {
     case 2:
       return (
         <>
-          <Button size="sm" variant="outline-warning" disabled>
+          <Button size="sm" variant="outline-warning" active>
             Menunggu Pembayaran
           </Button>
         </>
@@ -30,7 +30,7 @@ export const getOrderStatus = (statusCode) => {
     case 3:
       return (
         <>
-          <Button size="sm" variant="outline-primary" disabled>
+          <Button size="sm" variant="outline-primary" active>
             Pengecekan oleh Admin
           </Button>
         </>
@@ -38,7 +38,7 @@ export const getOrderStatus = (statusCode) => {
     case 4:
       return (
         <>
-          <Button size="sm" variant="info" disabled>
+          <Button size="sm" variant="info" active>
             Barang telah Dikirim
           </Button>
         </>
@@ -46,7 +46,7 @@ export const getOrderStatus = (statusCode) => {
     case 6:
       return (
         <>
-          <Button size="sm" variant="success" disabled>
+          <Button size="sm" variant="success" active>
             Pesanan Selesai
           </Button>
         </>
@@ -54,7 +54,7 @@ export const getOrderStatus = (statusCode) => {
     case 9:
       return (
         <>
-          <Button size="sm" variant="danger" disabled>
+          <Button size="sm" variant="danger" active>
             Batal
           </Button>
         </>
@@ -62,7 +62,7 @@ export const getOrderStatus = (statusCode) => {
     default:
       return (
         <>
-          <Button size="sm" variant="outline-danger" disabled>
+          <Button size="sm" variant="outline-danger" active>
             Invalid
           </Button>
         </>

@@ -11,7 +11,6 @@ import {
   Table,
   Button,
   Card,
-  Container,
   Image,
 } from "react-bootstrap";
 
@@ -233,13 +232,13 @@ export default function ListKeranjang() {
                       <tr>
                         <td colSpan={4}></td>
                         <td>Harga ongkir JNE Regular : </td>
-                        <td>{formatRupiah(shipPrice)}</td>
+                        <td className="bold-text">{formatRupiah(shipPrice)}</td>
                       </tr>
                     )}
                     <tr>
                       <td colSpan={4}></td>
                       <td>Total : </td>
-                      <td>{formatRupiah(cartPrice + shipPrice)}</td>
+                      <td className="bold-text">{formatRupiah(cartPrice + shipPrice)}</td>
                     </tr>
                   </tbody>
                 </Table>

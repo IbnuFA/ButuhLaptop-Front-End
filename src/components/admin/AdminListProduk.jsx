@@ -9,8 +9,6 @@ import { Container, Button, Card, Table } from "react-bootstrap";
 import { BsInfoCircle, BsTrash3 } from "react-icons/bs";
 import { RiEdit2Line } from "react-icons/ri";
 
-// import Laptop from '../../asset/img/laptopPlaceholder.png'
-
 export default function AdminListProduct (){
     const Navigate = useNavigate()
     const [products, setProducts] = useState([]);

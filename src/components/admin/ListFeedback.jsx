@@ -35,7 +35,7 @@ export default function ListFeedback(){
             }
         }
     }
-
+    
     const deleteFeedback = async(id) => {
         Swal.fire({
             title: 'Apakah anda yakin?',

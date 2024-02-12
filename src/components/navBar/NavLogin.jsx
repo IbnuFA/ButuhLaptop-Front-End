@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Form, Nav, Navbar} from "react-bootstrap";
 
@@ -14,19 +15,9 @@ export default function NavLogin () {
                 style={{ maxHeight: '100px', color: 'white' }}
                 navbarScroll
                 >
-                <Nav.Link href="#action1" style={{ color: 'white' }}>Home</Nav.Link>
-                <Nav.Link href="#action2" style={{ color: 'white' }}>Product</Nav.Link>
-                <Nav.Link href="#action2" style={{ color: 'white' }}>About Us</Nav.Link>
+                <Nav.Link><Link style={{ color: 'white' }} to="/">Home</Link></Nav.Link>
+                <Nav.Link><Link style={{ color: 'white' }} to="/product">Produk</Link></Nav.Link>
                 </Nav>
-                <Form className="d-flex">
-                <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-                </Form>
             </Navbar.Collapse>
             </Container>
         </Navbar>

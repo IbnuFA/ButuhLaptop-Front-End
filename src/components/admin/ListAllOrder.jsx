@@ -6,11 +6,11 @@ import { Container, Card, Table, Button } from "react-bootstrap";
 
 //import icon
 import { BsCheckLg, BsXLg, BsPencilSquare, BsInfoCircle } from "react-icons/bs";
-import { RiEdit2Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Token from "../../features/token";
 import { getOrderStatus } from "../../features/OrderStatus";
+import { formatRupiah } from "../../features/utils";
 
 export default function ListAllOrder() {
   const [orders, setOrders] = useState([]);
@@ -178,7 +178,7 @@ export default function ListAllOrder() {
                     <td>
                       {order?.user?.first_name} {order?.user?.last_name}
                     </td>
-                    <td>{order?.products_price}</td>
+                    <td>{formatRupiah(order?.products_price)}</td>
                     <td>{getOrderStatus(order?.status)}</td>
                     <td>
                       {order.status === 0 && (

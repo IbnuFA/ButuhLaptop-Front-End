@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Card, Table } from "react-bootstrap";
 import Token from '../../features/token';
 import { formatRupiah } from "../../features/utils";
+import { getProductStatus } from "../../features/productStatus";
+
 
 import Swal from "sweetalert2";
 
@@ -110,7 +112,7 @@ export default function ListAllProduct (){
                                                 <td>{product.name}</td>
                                                 <td>{formatRupiah(product.price)}</td>
                                                 <td>{product.stock}</td>
-                                                <td>{product.category}</td>
+                                                <td>{getProductStatus(product.category)}</td>
                                                 <td>
                                                     <Button 
                                                         variant="success" 

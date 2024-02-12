@@ -67,6 +67,5 @@ export const getOrderStatus = (statusCode) => {
           </Button>
         </>
       );
-
   }
 };

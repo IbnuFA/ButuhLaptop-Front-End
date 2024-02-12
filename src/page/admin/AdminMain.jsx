@@ -1,13 +1,13 @@
 import React from "react";
 
 import NavbarAdmin from "../../components/navBar/NavbarAdmin";
-import ListAllProduct from "../../components/admin/ListAllProduct";
+import AdminMainComponent from "../../components/admin/AdminMainComponent";
 
 export default function AdminMain() {
   return (
     <>
       <NavbarAdmin />
-      <ListAllProduct />
+      <AdminMainComponent />
     </>
   );
 }

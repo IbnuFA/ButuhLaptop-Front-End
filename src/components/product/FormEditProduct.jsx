@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Token from "../../features/token";
+import { formatRupiah } from "../../features/utils";
 
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -113,7 +114,7 @@ export default function FormEditProduct() {
                         <option>Ubah Kategori</option>
                         <option value="kerja">Kerja</option>
                         <option value="gaming">Gaming</option>
-                        <option value="daily">Daily Use</option>
+                        <option value="daily">Belajar</option>
                       </Form.Select>
                     </Form.Group>
                   </Row>
@@ -128,7 +129,7 @@ export default function FormEditProduct() {
                       <Form.Control
                         type="text"
                         className="form-control input bg-light fs-6"
-                        placeholder={products.price}
+                        placeholder={formatRupiah(products.price)}
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required

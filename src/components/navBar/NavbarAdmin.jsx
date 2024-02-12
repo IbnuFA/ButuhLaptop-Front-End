@@ -24,7 +24,7 @@ export default function NavbarAdmin() {
           className="navbarStyle bg-body-tertiary mb-3"
         >
           <Container fluid>
-            <Navbar.Brand href="#">Halo, {user?.first_name}</Navbar.Brand>
+            <Navbar.Brand href="#" className="text-white">Halo, {user?.first_name}</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}

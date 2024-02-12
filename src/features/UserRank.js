@@ -43,6 +43,5 @@ export const getUserRank = (statusCode) => {
           </Button>
         </>
       );
-
   }
 };

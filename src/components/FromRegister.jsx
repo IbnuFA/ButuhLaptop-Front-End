@@ -139,7 +139,12 @@ export default function FormRegister() {
                   </div>
                   <Form onSubmit={submitHandler}>
                     <Row>
-                      <Form.Group as={Col} md="6" className="mb-3" controlId="formBasicFirstName">
+                      <Form.Group
+                        as={Col}
+                        md="6"
+                        className="mb-3"
+                        controlId="formBasicFirstName"
+                      >
                         <Form.Control
                           type="text"
                           placeholder="Nama Depan"
@@ -155,7 +160,12 @@ export default function FormRegister() {
                         />
                       </Form.Group>
 
-                      <Form.Group as={Col} md="6" className="mb-3" controlId="formBasicLastName">
+                      <Form.Group
+                        as={Col}
+                        md="6"
+                        className="mb-3"
+                        controlId="formBasicLastName"
+                      >
                         <Form.Control
                           type="text"
                           placeholder="Nama Belakang"
@@ -294,7 +304,8 @@ export default function FormRegister() {
                       </Form.Group>
 
                       <Form.Group
-                        as={Col} md="4"
+                        as={Col}
+                        md="4"
                         className="mb-3"
                         controlId="formBasicPostalCode"
                       >
@@ -329,11 +340,13 @@ export default function FormRegister() {
                     {/* <Button type="submit" variant="light" className="mb-3 btn-lg w-100 fs-6">
                             Google
                         </Button> */}
-                  <div class="input-group mb-5 d-flex justify-content-between">
-                    <div class="row">
-                      <small>Sudah Punya Akun? <a href="*">Login</a></small>
+                    <div class="input-group mb-5 d-flex justify-content-between">
+                      <div class="row">
+                        <small>
+                          Sudah Punya Akun? <a href="*">Login</a>
+                        </small>
+                      </div>
                     </div>
-                  </div>
                   </Form>
                 </div>
               </Col>

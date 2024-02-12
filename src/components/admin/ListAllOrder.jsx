@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Token from "../../features/token";
+import { getOrderStatus } from "../../features/OrderStatus";
+import { formatRupiah } from "../../features/utils";
+
+import Swal from "sweetalert2";
 
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,11 +12,6 @@ import { Container, Card, Table, Button } from "react-bootstrap";
 
 //import icon
 import { BsCheckLg, BsXLg, BsPencilSquare, BsInfoCircle } from "react-icons/bs";
-import Swal from "sweetalert2";
-import axios from "axios";
-import Token from "../../features/token";
-import { getOrderStatus } from "../../features/OrderStatus";
-import { formatRupiah } from "../../features/utils";
 
 export default function ListAllOrder() {
   const [orders, setOrders] = useState([]);
@@ -85,9 +86,9 @@ export default function ListAllOrder() {
           <br>
           Harga total Order: ${formatRupiah(orderDetail.products_price)}
           <br>
-          Total Keseluruhan : ${
-            formatRupiah(orderDetail.products_price + orderShipping.cost)
-          } `,
+          Total Keseluruhan : ${formatRupiah(
+            orderDetail.products_price + orderShipping.cost
+          )} `,
         showCancelButton: true,
         confirmButtonText: "Konfirmasi",
       });
@@ -122,12 +123,12 @@ export default function ListAllOrder() {
     await Swal.fire({
       title: `Bukti pembayaran dengan id: ${orderId}`,
       imageUrl,
-      imageAlt: "Bukti pembayaran"
+      imageAlt: "Bukti pembayaran",
     });
   };
 
   const verifyPayment = async (orderId, approval = true) => {
-     try {
+    try {
       Swal.showLoading();
       const response = await axios.put(
         `http://localhost:5000/order/approval/payment/${orderId}`,
@@ -144,8 +145,7 @@ export default function ListAllOrder() {
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
-  }
-
+  };
 
   useEffect(() => {
     getOrders();
@@ -229,7 +229,9 @@ export default function ListAllOrder() {
                             variant="info"
                             size="sm"
                             className="me-1"
-                            onClick={() => viewPaymentInfo(order?.id, order?.payment_prove)}
+                            onClick={() =>
+                              viewPaymentInfo(order?.id, order?.payment_prove)
+                            }
                           >
                             <BsInfoCircle size={20} />
                           </Button>

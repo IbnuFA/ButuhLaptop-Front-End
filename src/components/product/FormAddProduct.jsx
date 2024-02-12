@@ -1,11 +1,11 @@
-import React , {useState, useEffect} from "react";
+import React , {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Token from '../../features/token';
 
 import '../../App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Row, Col, Form, Button, Card, InputGroup} from "react-bootstrap";
+import {Row, Col, Form, Button, Card} from "react-bootstrap";
 
 //import icon
 import { GiCancel } from "react-icons/gi";

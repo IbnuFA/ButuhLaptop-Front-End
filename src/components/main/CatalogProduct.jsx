@@ -39,11 +39,11 @@ export default function CatalogProduct() {
         },
       });
       setproductItems([
-          ...new Set(response.data.map((value) => value.category)),
-        ]);
-        setProducts(response.data);
-        setSearch(response.data);
-        Swal.close();
+        ...new Set(response.data.map((value) => value.category)),
+      ]);
+      setProducts(response.data);
+      setSearch(response.data);
+      Swal.close();
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
@@ -89,11 +89,19 @@ export default function CatalogProduct() {
   const FilterButton = ({ productItems, filteredItems, setSearch }) => {
     return (
       <div className="d-flex justify-content-start">
-        <Button variant="success" className="me-1" onClick={() => setSearch(products)}>
+        <Button
+          variant="success"
+          className="me-1"
+          onClick={() => setSearch(products)}
+        >
           All
         </Button>
         {productItems.map((value) => (
-          <Button variant="success" className="me-1" onClick={() => filteredItems(value)}>
+          <Button
+            variant="success"
+            className="me-1"
+            onClick={() => filteredItems(value)}
+          >
             {getProductStatus(value)}
           </Button>
         ))}

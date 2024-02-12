@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // import { Nav, Navbar, Row, Col, Form, Button, Card, Container, Image,  } from "react-bootstrap";
 
-export default function Footer(){
-    return(
-        <>
-            <footer class="bg-dark text-center text-white">
-                {/* <div class="container p-4 pb-0">
+export default function Footer() {
+  return (
+    <>
+      <footer class="bg-dark text-center text-white">
+        {/* <div class="container p-4 pb-0">
                     <section class="mb-4">
                         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
                             <i class="fab fa-facebook-f"></i >
@@ -35,12 +35,9 @@ export default function Footer(){
                         </a>
                     </section>
                 </div> */}
-                
-                <div class="text-center p-3">
-                    © 2020 Copyright:  ButuhLaptop.com
-                </div>
 
-            </footer>
-        </>
-    )
+        <div class="text-center p-3">© 2020 Copyright: ButuhLaptop.com</div>
+      </footer>
+    </>
+  );
 }

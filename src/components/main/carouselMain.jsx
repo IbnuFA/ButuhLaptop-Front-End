@@ -1,24 +1,20 @@
 import React from "react";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import './styles.css';
+import "./styles.css";
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from "swiper/modules";
 
 //import tes carousel
-import bannerTes from '../../asset/img/banner/Banner-Tes.png'
-import imgcarol1 from '../../asset/carousel/1123013.jpg'
-import imgcarol2 from '../../asset/carousel/1123014.jpg'
-import imgcarol3 from '../../asset/carousel/1129497.jpg'
-
+import bannerTes from "../../asset/img/banner/Banner-Tes.png";
 
 export default function CarouselMain() {
   return (
@@ -35,18 +31,17 @@ export default function CarouselMain() {
         className="mySwiper col-md-11"
       >
         <SwiperSlide>
-          <img src={bannerTes}/>
+          <img src={bannerTes} />
 
           {/* <img src={'./logo.jpeg'}/> */}
         </SwiperSlide>
         <SwiperSlide>
-          <img src={bannerTes}/>
+          <img src={bannerTes} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={bannerTes}/>
+          <img src={bannerTes} />
         </SwiperSlide>
       </Swiper>
-
     </>
   );
 }

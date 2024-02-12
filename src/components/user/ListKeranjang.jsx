@@ -5,14 +5,7 @@ import Token from "../../features/token";
 import { formatRupiah } from "../../features/utils";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Row,
-  Col,
-  Table,
-  Button,
-  Card,
-  Image,
-} from "react-bootstrap";
+import { Row, Col, Table, Button, Card, Image } from "react-bootstrap";
 
 //import icon
 import { BsDashLg, BsPlusLg } from "react-icons/bs";
@@ -46,17 +39,16 @@ export default function ListKeranjang() {
         });
         setCarts(newCart);
 
-        await checkOrder()
+        await checkOrder();
         const prices = newCart.reduce((a, b) => a + b.totalPrices, 0);
         setCartPrice(prices);
-        
+
         return;
       }
 
       setCarts([]);
       setCartPrice(0);
       setShipPrice(0);
-      
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
@@ -72,7 +64,11 @@ export default function ListKeranjang() {
       let order = response.data.data;
 
       if (order) {
-        setShipPrice(order.shippings.services.find(({ name }) => name.toLowerCase() === 'reg')?.cost)
+        setShipPrice(
+          order.shippings.services.find(
+            ({ name }) => name.toLowerCase() === "reg"
+          )?.cost
+        );
       }
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
@@ -238,7 +234,9 @@ export default function ListKeranjang() {
                     <tr>
                       <td colSpan={4}></td>
                       <td>Total : </td>
-                      <td className="bold-text">{formatRupiah(cartPrice + shipPrice)}</td>
+                      <td className="bold-text">
+                        {formatRupiah(cartPrice + shipPrice)}
+                      </td>
                     </tr>
                   </tbody>
                 </Table>

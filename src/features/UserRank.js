@@ -6,7 +6,7 @@ export const getUserRank = (statusCode) => {
     case 0:
       return (
         <>
-          <Button className="btn-bronze" size="sm" active>
+          <Button className="btn-bronze" size="sm">
             Bronze
           </Button>
         </>
@@ -14,23 +14,23 @@ export const getUserRank = (statusCode) => {
     case 1:
       return (
         <>
-          <Button size="sm" variant="outline-success" active>
+          <Button size="sm" variant="outline-success">
             Silver
           </Button>
         </>
       );
-      case 2:
+      case 3:
       return (
         <>
-          <Button size="sm" variant="outline-success" active>
+          <Button size="sm" variant="outline-success">
             Gold
           </Button>
         </>
       );
-      case 2:
+      case 4:
         return (
           <>
-            <Button size="sm" variant="outline-success" active>
+            <Button size="sm" variant="outline-success">
               Platinum
             </Button>
           </>
@@ -38,7 +38,7 @@ export const getUserRank = (statusCode) => {
     default:
       return (
         <>
-          <Button size="sm" variant="outline-danger" active>
+          <Button size="sm" variant="outline-danger">
             Invalid
           </Button>
         </>

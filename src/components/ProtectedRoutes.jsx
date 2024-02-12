@@ -1,13 +1,9 @@
-import {
-  useLocation,
-  Navigate,
-  Outlet
-} from "react-router-dom";
+import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ProtectedRoutes = () => {
   let location = useLocation();
-  const {user, isSuccess} = useSelector((state => state.auth));
+  const { user, isSuccess } = useSelector((state) => state.auth);
 
   if (!user && isSuccess) {
     // Redirect them to the /login page, but save the current location they were
@@ -18,6 +14,6 @@ const ProtectedRoutes = () => {
   }
 
   return <Outlet />;
-}
+};
 
 export default ProtectedRoutes;

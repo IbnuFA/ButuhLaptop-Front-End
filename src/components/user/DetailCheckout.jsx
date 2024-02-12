@@ -64,7 +64,6 @@ export default function DetailCheckout() {
       }
 
       setOrder(null);
-      
     } catch (error) {
       await Swal.fire("Terjadi Error", error.message, "error");
     }
@@ -139,7 +138,7 @@ export default function DetailCheckout() {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Ya!",
-        cancelButtonText: 'Tidak.'
+        cancelButtonText: "Tidak.",
       });
 
       if (swalResult.isConfirmed) {
@@ -203,21 +202,21 @@ export default function DetailCheckout() {
               <tr>
                 <td>Total Harga Produk</td>
                 <td> : </td>
-                  <td>{formatRupiah(order?.products_price || "-")}</td>
+                <td>{formatRupiah(order?.products_price || "-")}</td>
               </tr>
               <tr>
                 <td>Ongkir</td>
                 <td> : </td>
                 <td>
-                  {formatRupiah(order ? order?.total_price - order?.products_price : "-")}
+                  {formatRupiah(
+                    order ? order?.total_price - order?.products_price : "-"
+                  )}
                 </td>
               </tr>
               <tr>
                 <td>Total Harga Produk</td>
                 <td> : </td>
-                <td>
-                  {formatRupiah(order?.total_price || "-")}
-                </td>
+                <td>{formatRupiah(order?.total_price || "-")}</td>
               </tr>
             </tbody>
           </Table>
@@ -261,38 +260,47 @@ export default function DetailCheckout() {
             <Accordion.Item eventKey="1">
               <Accordion.Header>List Pesanan Produk</Accordion.Header>
               <Accordion.Body>
-              <Table className="mt-1" responsive>
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Gambar</th>
-                    <th>Nama Barang</th>
-                    <th>Jumlah</th>
-                    <th>Harga</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {order?.order_details?.map((detail, idx) => (
-                    <tr key={detail.id}>
-                      <td>{idx + 1}</td>
-                      <td>
-                        <Image
-                          src={detail?.product?.image}
-                          fluid
-                          width={100}
-                          height={100}
-                        />
-                      </td>
-                      <td>{detail?.product?.name}</td>
-                      <td>{detail?.quantity}</td>
-                      <td>Rp {formatRupiah(detail?.quantity * detail?.product?.price)}</td>
-                      <td>
-                        <Button onClick={() => navigate(`/product/${detail?.product?.id}`)}>
-                          <BsInfoCircle size={20}/>
-                        </Button>
-                        </td>
+                <Table className="mt-1" responsive>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Gambar</th>
+                      <th>Nama Barang</th>
+                      <th>Jumlah</th>
+                      <th>Harga</th>
+                      <th>Action</th>
                     </tr>
+                  </thead>
+                  <tbody>
+                    {order?.order_details?.map((detail, idx) => (
+                      <tr key={detail.id}>
+                        <td>{idx + 1}</td>
+                        <td>
+                          <Image
+                            src={detail?.product?.image}
+                            fluid
+                            width={100}
+                            height={100}
+                          />
+                        </td>
+                        <td>{detail?.product?.name}</td>
+                        <td>{detail?.quantity}</td>
+                        <td>
+                          Rp{" "}
+                          {formatRupiah(
+                            detail?.quantity * detail?.product?.price
+                          )}
+                        </td>
+                        <td>
+                          <Button
+                            onClick={() =>
+                              navigate(`/product/${detail?.product?.id}`)
+                            }
+                          >
+                            <BsInfoCircle size={20} />
+                          </Button>
+                        </td>
+                      </tr>
                     ))}
                   </tbody>
                 </Table>

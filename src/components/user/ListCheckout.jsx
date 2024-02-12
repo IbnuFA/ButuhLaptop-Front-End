@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Row,
   Col,
-  Form,
   Button,
   Card,
   Container,
@@ -15,7 +14,6 @@ import {
 
 //import icon
 import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineCancel } from "react-icons/md";
 import { FaRegQuestionCircle } from "react-icons/fa";
 
 //import sweetalert
@@ -25,7 +23,6 @@ import Token from "../../features/token";
 import { getOrderStatus } from "../../features/OrderStatus";
 
 export default function DetailCheckout() {
-  const Navigate = useNavigate();
   const [orders, setOrders] = useState([]);
 
   const getOrders = async () => {
@@ -77,22 +74,22 @@ export default function DetailCheckout() {
   };
 
   //setting sweetalert cancel checkout
-  const handleCancelCheckout = async (id) => {
-    Swal.fire({
-      title: "Apakah anda yakin membatalkan pesanan?",
-      icon: "warning",
-      showCancelButton: true,
-      cancelButtonText: "Batal",
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yakin",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        cancelCheckout(id);
-        Swal.fire("Pesanan kamu telah dibatalkan");
-      }
-    });
-  };
+  // const handleCancelCheckout = async (id) => {
+  //   Swal.fire({
+  //     title: "Apakah anda yakin membatalkan pesanan?",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     cancelButtonText: "Batal",
+  //     confirmButtonColor: "#d33",
+  //     cancelButtonColor: "#3085d6",
+  //     confirmButtonText: "Yakin",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       cancelCheckout(id);
+  //       Swal.fire("Pesanan kamu telah dibatalkan");
+  //     }
+  //   });
+  // };
 
   return (
     <>

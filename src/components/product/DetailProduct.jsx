@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -20,10 +20,13 @@ import Token from "../../features/token";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { formatRupiah } from "../../features/utils";
+import { useSelector } from "react-redux";
 
 export default function DetailProduct() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const {user} = useSelector((state => state.auth))
+  const navigate = useNavigate();
 
   const getProduct = async () => {
     try {
@@ -194,32 +197,38 @@ export default function DetailProduct() {
                       <h6>{product?.description}</h6>
                     </div>
                     <div>
-                      {/* <Button
-                        type="submit"
-                        variant="outline-danger"
-                        className="mb-3 btn-lg w-100 fs-6"
-                        onClick={() => navigate(-1)}
-                      >
-                        Kembali
-                      </Button> */}
+                      {user ? (
+                        <>
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            className="mb-3 btn-lg w-100 fs-6"
+                            onClick={addProductToChart}
+                          >
+                            <IoMdAdd  size={20}/> Keranjang
+                          </Button>
 
-                      <Button
-                        type="submit"
-                        variant="primary"
-                        className="mb-3 btn-lg w-100 fs-6"
-                        onClick={addProductToChart}
-                      >
-                        <IoMdAdd  size={20}/> Keranjang
-                      </Button>
-
-                      <Button
-                        type="submit"
-                        variant="primary"
-                        className="mb-3 btn-lg w-100 fs-6"
-                        onClick={handleProductCheckout}
-                      >
-                        Beli Langsung
-                      </Button>
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            className="mb-3 btn-lg w-100 fs-6"
+                            onClick={handleProductCheckout}
+                          >
+                            Beli Langsung
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            className="mb-3 btn-lg w-100 fs-6"
+                            onClick={() => navigate('/login')}
+                          >
+                            Login Untuk Membeli!
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </Col>

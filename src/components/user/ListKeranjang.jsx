@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
 import Token from "../../features/token";
@@ -22,9 +21,6 @@ import { FaCheck } from "react-icons/fa";
 
 //import sweetalert
 import Swal from "sweetalert2";
-
-//import placeholder
-import Laptop from "../../asset/img/laptopPlaceholder.png";
 
 export default function ListKeranjang() {
   const [carts, setCarts] = useState([]);

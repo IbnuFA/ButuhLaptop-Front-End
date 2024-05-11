@@ -14,6 +14,7 @@ import Register from './page/home/Register';
 import About from './page/home/About';
 import NotFound from './page/home/NotFound';
 import AdminOnly from './page/home/AdminOnly';
+import Feedback from './page/home/Feedback'
 
 // import user
 import UserMain from './page/user/UserMain';
@@ -55,6 +56,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
+        <Route path='/feedback' element={<Feedback />} />
+
 
         {/* Required Login */}
         <Route

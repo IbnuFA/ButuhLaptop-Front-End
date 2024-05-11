@@ -16,7 +16,7 @@ import {
   Image,
 } from "react-bootstrap";
 
-import IlustLogin from "../asset/img/laptopPlaceholder.png";
+import IlustLogin from "../asset/img/Register.png";
 
 export default function FormRegister() {
   const [formValues, setFormValues] = useState({

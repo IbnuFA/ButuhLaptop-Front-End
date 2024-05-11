@@ -104,12 +104,12 @@ export default function FormLogin() {
                                         </Button> */}
                   </Form>
                   <div class="input-group mb-5 d-flex justify-content-between">
-                    {/* <div class="row">
-                                            <small>Don't have account? <a href="#">Sign Up</a></small>
-                                        </div>
-                                        <div class="forgot">
-                                            <small><a href="#">Forgot Password?</a></small>
-                                        </div> */}
+                    <div class="row">
+                        <small>Belum Punya Akun? <a href="/register">Daftar Disini</a></small>
+                    </div>
+                    {/* <div class="forgot">
+                        <small><a href="#">Forgot Password?</a></small>
+                    </div> */}
                   </div>
                 </div>
               </Col>

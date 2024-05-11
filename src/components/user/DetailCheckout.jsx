@@ -256,7 +256,7 @@ export default function DetailCheckout() {
             )}
           </div>
 
-          <Accordion defaultActiveKey="0" className="mb-1">
+          <Accordion defaultActiveKey="0" className="mt-4">
             <Accordion.Item eventKey="1">
               <Accordion.Header>List Pesanan Produk</Accordion.Header>
               <Accordion.Body>
@@ -286,7 +286,7 @@ export default function DetailCheckout() {
                         <td>{detail?.product?.name}</td>
                         <td>{detail?.quantity}</td>
                         <td>
-                          Rp{" "}
+                          {" "}
                           {formatRupiah(
                             detail?.quantity * detail?.product?.price
                           )}

@@ -28,11 +28,13 @@ export default function KategoriProduct() {
                 fluid
               />
               <h3>Kerja</h3>
-              <p>
-                Some quick example text to build on the card title and make up
-                thebulk of the card's content.
-              </p>
-              <Button className="mx-auto" variant="primary" size="lg">
+              <p className="carousel-tagline">Laptop Kinerja Tinggi untuk Profesional, Menghadirkan Solusi Kerja yang Efisien dengan Laptop Berkualitas.</p>
+              <Button
+                className="mx-auto"
+                variant="primary"
+                href="/product"
+                size="lg"
+              >
                 Cek Sekarang!
               </Button>
             </div>
@@ -47,11 +49,13 @@ export default function KategoriProduct() {
                 fluid
               />
               <h3>Gaming</h3>
-              <p>
-                Some quick example text to build on the card title and make up
-                thebulk of the card's content.
-              </p>
-              <Button className="mx-auto" variant="primary" size="lg">
+              <p className="carousel-tagline">Laptop Gaming Terbaik untuk Pemain Sejati, Menghadirkan Pengalaman Gaming yang Tidak Terlupakan.</p>
+              <Button
+                className="mx-auto"
+                variant="primary"
+                href="/product"
+                size="lg"
+              >
                 Cek Sekarang!
               </Button>
             </div>
@@ -65,11 +69,13 @@ export default function KategoriProduct() {
                 fluid
               />
               <h3>Belajar</h3>
-              <p>
-                Some quick example text to build on the card title and make up
-                thebulk of the card's content.
-              </p>
-              <Button className="mx-auto" variant="primary" size="lg">
+              <p className="carousel-tagline">Laptop Pendidikan untuk Generasi Mendatang, Laptop yang Mendukung Prestasi Akademis dan terbaik untuk Pencari Ilmu.</p>
+              <Button
+                className="mx-auto"
+                variant="primary"
+                href="/product"
+                size="lg"
+              >
                 Cek Sekarang!
               </Button>
             </div>

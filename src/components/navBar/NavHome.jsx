@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../../features/authSlice";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Nav, Navbar, Offcanvas, Image } from "react-bootstrap";
 
 import Logo from "../../asset/img/Logo.png";
 
@@ -24,8 +24,8 @@ export default function NavHome() {
       {["xl"].map((expand) => (
         <Navbar key={expand} expand={expand} className="bg-body-tertiary">
           <Container fluid>
-            <Navbar.Brand href="/">
-              <img src={Logo} className="navLogo" />
+            <Navbar.Brand href="/" >
+              <Image src={Logo} className="navLogo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -35,7 +35,7 @@ export default function NavHome() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+                  <Image src={Logo} className="navLogo" />
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -51,8 +51,17 @@ export default function NavHome() {
                   <Nav.Link href="#">
                     <Link to="/product">Products</Link>
                   </Nav.Link>
-                  <Nav.Link href="#">About</Nav.Link>
-                  <Nav.Link href="#">Feedback</Nav.Link>
+                  {user?.role === "user" && (
+                    <>
+                      <Nav.Link href="#">
+                        <Link to="/user/keranjang">Keranjang</Link>
+                      </Nav.Link>
+                      <Nav.Link href="#">
+                        <Link to="/user/checkout">Checkout</Link>
+                      </Nav.Link>
+                    </>
+                  )}
+                  <Nav.Link href="/feedback">Feedback</Nav.Link>
                 </Nav>
                 <Nav className="d-flex">
                   {user ? (

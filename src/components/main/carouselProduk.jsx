@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Button, Card, Row, Col } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import Token from "../../features/token";
 
 // Import Swiper React components
@@ -24,7 +24,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import Laptop from "../../asset/img/laptopPlaceholder.png";
 
 export default function CarouselProduk() {
-  const Navigate = useNavigate();
+  // const Navigate = useNavigate();
   const [product, setProducts] = useState([]);
   const [msg, setMsg] = useState("");
 
@@ -94,7 +94,7 @@ export default function CarouselProduk() {
                   <h6>{product.description}</h6>
 
                   <Container className="d-flex justify-content-center">
-                    <Button className="mx-auto" variant="primary" size="lg">
+                    <Button className="mx-auto" variant="primary" size="lg" href="/product">
                       Cek Sekarang!
                     </Button>
                   </Container>
@@ -115,7 +115,7 @@ export default function CarouselProduk() {
             <h6>Cek semua Produk Dsini</h6>
 
             <Container className="d-flex justify-content-center">
-              <Button className="mx-auto" variant="primary" size="lg">
+              <Button className="mx-auto" variant="primary" size="lg" href="/product">
                 Cek Sekarang!
               </Button>
             </Container>

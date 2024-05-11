@@ -51,6 +51,12 @@ input[type=radio]{
   cursor: pointer;
 }
 
+.navLogo{
+  width: 150px;
+  height: 100%;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

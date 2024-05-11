@@ -37,7 +37,8 @@ export default function FormFeedback() {
             <Col md={10} sm={12} className="mx-auto">
               <div class="row align-items-center">
                 <div class="header-text mb-4">
-                  <h2>Isi Feedback</h2>
+                  <h2>Feedback</h2>
+                  <p>Feedback kamu membuat kami terus berkembang</p>
                 </div>
                 <Form onSubmit={addFeedback}>
                   <FormGroup>

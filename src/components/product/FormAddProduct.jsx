@@ -37,7 +37,7 @@ export default function FormAddProduct() {
       form.append("image", image[0]);
       form.append("weight", weight);
 
-      await axios.post("http://localhost:5000/admin/product", form, {
+      await axios.post(`${process.env.REACT_APP_SERVER}/admin/product`, form, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

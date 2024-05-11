@@ -31,7 +31,7 @@ export default function DetailUser() {
   const getUserCart = async () => {
     try {
       Swal.showLoading();
-      const response = await axios.get(`http://localhost:5000/cart`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/cart`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -58,7 +58,7 @@ export default function DetailUser() {
 
   const getUserOrder = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/order/me/list", {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/me/list`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

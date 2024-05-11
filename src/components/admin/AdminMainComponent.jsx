@@ -33,7 +33,7 @@ export default function AdminMainComponent() {
 
   const getProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/products`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/products`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -48,7 +48,7 @@ export default function AdminMainComponent() {
 
   const getOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/admin/order", {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/admin/order`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -71,7 +71,7 @@ export default function AdminMainComponent() {
     Swal.showLoading();
 
     try {
-      const response = await axios.get(`http://localhost:5000/admin/users`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/admin/users`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -87,7 +87,7 @@ export default function AdminMainComponent() {
 
   const getFeedbacks = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/feedbacks`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/feedbacks`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

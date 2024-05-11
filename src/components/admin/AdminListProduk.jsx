@@ -18,7 +18,7 @@ export default function AdminListProduct() {
   }, []);
 
   const getProducts = async () => {
-    const response = await axios.get("http://localhost:5000/products");
+    const response = await axios.get(`${process.env.REACT_APP_SERVER}/products`);
     setProducts(response.data);
   };
 

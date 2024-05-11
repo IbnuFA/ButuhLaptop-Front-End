@@ -19,7 +19,7 @@ export default function ListAllOrder() {
   const getOrders = async () => {
     try {
       Swal.showLoading();
-      const response = await axios.get("http://localhost:5000/admin/order", {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/admin/order`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -42,7 +42,7 @@ export default function ListAllOrder() {
     try {
       Swal.showLoading();
       const response = await axios.put(
-        `http://localhost:5000/order/approval/accept/${orderId}`,
+        `${process.env.REACT_APP_SERVER}/order/approval/accept/${orderId}`,
         { approval },
         {
           headers: {
@@ -59,7 +59,7 @@ export default function ListAllOrder() {
   };
 
   const checkOrder = async (orderId) => {
-    const response = await axios.get(`http://localhost:5000/order/check`, {
+    const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/check`, {
       headers: {
         Authorization: `Bearer ${Token.getToken()}`,
       },
@@ -98,7 +98,7 @@ export default function ListAllOrder() {
         Swal.showLoading();
 
         await axios.put(
-          `http://localhost:5000/order/shipping/info/${orderId}`,
+          `${process.env.REACT_APP_SERVER}/order/shipping/info/${orderId}`,
           {
             provider: "jne",
             provider_service: "REG",
@@ -132,7 +132,7 @@ export default function ListAllOrder() {
     try {
       Swal.showLoading();
       const response = await axios.put(
-        `http://localhost:5000/order/approval/payment/${orderId}`,
+        `${process.env.REACT_APP_SERVER}/order/approval/payment/${orderId}`,
         { approval },
         {
           headers: {

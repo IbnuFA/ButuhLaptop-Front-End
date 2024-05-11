@@ -20,7 +20,7 @@ export default function ListFeedback() {
   const getFeedbacks = async () => {
     try {
       Swal.showLoading();
-      const response = await axios.get(`http://localhost:5000/feedbacks`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/feedbacks`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

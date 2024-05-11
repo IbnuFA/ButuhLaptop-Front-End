@@ -22,7 +22,7 @@ export default function ListKeranjang() {
   const getCarts = async () => {
     try {
       Swal.showLoading();
-      const response = await axios.get(`http://localhost:5000/cart`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/cart`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -56,7 +56,7 @@ export default function ListKeranjang() {
 
   const checkOrder = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/order/check`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/check`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -84,7 +84,7 @@ export default function ListKeranjang() {
       Swal.showLoading();
 
       await axios.post(
-        `http://localhost:5000/cart`,
+        `${process.env.REACT_APP_SERVER}/cart`,
         {
           product_id: productId,
           quantity,
@@ -107,7 +107,7 @@ export default function ListKeranjang() {
     try {
       Swal.showLoading();
 
-      await axios.delete(`http://localhost:5000/cart/${productId}`, {
+      await axios.delete(`${process.env.REACT_APP_SERVER}/cart/${productId}`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -125,7 +125,7 @@ export default function ListKeranjang() {
     Swal.showLoading();
 
     await axios.post(
-      `http://localhost:5000/order`,
+      `${process.env.REACT_APP_SERVER}/order`,
       {},
       {
         headers: {

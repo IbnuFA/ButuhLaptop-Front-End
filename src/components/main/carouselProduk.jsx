@@ -34,7 +34,7 @@ export default function CarouselProduk() {
 
   const getProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/products`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/products`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

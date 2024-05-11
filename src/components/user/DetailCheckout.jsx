@@ -20,7 +20,7 @@ export default function DetailCheckout() {
 
   const checkOrder = async () => {
     Swal.showLoading();
-    const response = await axios.get("http://localhost:5000/order/check", {
+    const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/check`, {
       headers: {
         Authorization: `Bearer ${Token.getToken()}`,
       },
@@ -37,7 +37,7 @@ export default function DetailCheckout() {
 
   const getOrder = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/order/me/list", {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/me/list`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -90,7 +90,7 @@ export default function DetailCheckout() {
         form.append("file", swalResult.value);
 
         await axios.put(
-          `http://localhost:5000/order/payment/${orderId}`,
+          `${process.env.REACT_APP_SERVER}/order/payment/${orderId}`,
           form,
           {
             headers: {
@@ -145,7 +145,7 @@ export default function DetailCheckout() {
         Swal.showLoading();
 
         await axios.put(
-          `http://localhost:5000/order/confirmation/receive/${orderId}`,
+          `${process.env.REACT_APP_SERVER}/order/confirmation/receive/${orderId}`,
           {
             approval,
           },

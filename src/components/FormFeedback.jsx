@@ -18,7 +18,7 @@ export default function FormFeedback() {
   const addFeedback = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/feedback", {
+      await axios.post(`${process.env.REACT_APP_SERVER}/feedback`, {
         rate: rate,
         feedback: feedback,
       });

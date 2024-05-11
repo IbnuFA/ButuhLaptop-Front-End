@@ -31,7 +31,7 @@ export default function FormEditProduct() {
 
   const getProductById = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/products/${id}`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/products/${id}`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -59,7 +59,7 @@ export default function FormEditProduct() {
       }
       form.append("weight", weight);
 
-      await axios.patch(`http://localhost:5000/admin/product/${id}`, form, {
+      await axios.patch(`${process.env.REACT_APP_SERVER}/admin/product/${id}`, form, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

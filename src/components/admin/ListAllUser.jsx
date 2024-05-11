@@ -30,7 +30,7 @@ export default function ListAllUser() {
   const getUser = async () => {
     try {
       Swal.showLoading();
-      const response = await axios.get(`http://localhost:5000/admin/users`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/admin/users`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -46,7 +46,7 @@ export default function ListAllUser() {
 
   const deleteUser = async (uuid) => {
     try {
-      await axios.delete(`http://localhost:5000/admin/users/${uuid}`, {
+      await axios.delete(`${process.env.REACT_APP_SERVER}/admin/users/${uuid}`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

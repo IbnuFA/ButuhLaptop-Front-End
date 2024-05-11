@@ -28,7 +28,7 @@ export default function ListAllProduct() {
   const getProducts = async () => {
     try {
       Swal.showLoading();
-      const response = await axios.get(`http://localhost:5000/products`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/products`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },
@@ -44,7 +44,7 @@ export default function ListAllProduct() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/admin/product/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_SERVER}/admin/product/${id}`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

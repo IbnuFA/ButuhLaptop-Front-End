@@ -15,7 +15,7 @@ export const LoginUser = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/login",
+        `${process.env.REACT_APP_SERVER}/login`,
         {
           email: user.email,
           password: user.password,
@@ -49,7 +49,7 @@ export const getUserLogin = createAsyncThunk(
         return null;
       }
 
-      const response = await axios.get("http://localhost:5000/authusers", {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/authusers`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -68,7 +68,7 @@ export const getUserLogin = createAsyncThunk(
 );
 
 export const LogOut = createAsyncThunk("user/LogOut", async (_, thunkAPI) => {
-  // await axios.delete("http://localhost:5000/logout");
+  // await axios.delete(`${process.env.REACT_APP_SERVER}/logout`);
   Token.removeToken();
 });
 

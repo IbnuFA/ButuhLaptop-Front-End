@@ -27,7 +27,7 @@ export default function DetailCheckout() {
 
   const getOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/order/me/list", {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/me/list`, {
         headers: {
           Authorization: `Bearer ${Token.getToken()}`,
         },

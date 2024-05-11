@@ -30,7 +30,7 @@ export default function DetailProduct() {
   const getProduct = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/products/${productId}`,
+        `${process.env.REACT_APP_SERVER}/products/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${Token.getToken()}`,
@@ -59,7 +59,7 @@ export default function DetailProduct() {
 
       if (!quantity) return;
 
-      const response = await axios.post(`http://localhost:5000/cart`, {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER}/cart`, {
           product_id: productId,
           quantity: parseInt(quantity),
         },
@@ -83,7 +83,7 @@ export default function DetailProduct() {
   }, []);
 
   const checkProductOrder = async () => {
-    const response = await axios.get(`http://localhost:5000/order/check`, {
+    const response = await axios.get(`${process.env.REACT_APP_SERVER}/order/check`, {
       headers: {
         Authorization: `Bearer ${Token.getToken()}`,
       },
@@ -134,7 +134,7 @@ export default function DetailProduct() {
 
   const checkOutProduct = async () => {
     await axios.post(
-      `http://localhost:5000/order/product`,
+      `${process.env.REACT_APP_SERVER}/order/product`,
       {
         product_id: productId,
       },

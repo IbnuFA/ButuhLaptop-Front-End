@@ -114,7 +114,7 @@ export default function ListAllProduct() {
                         <td>{product.name}</td>
                         <td>{formatRupiah(product.price)}</td>
                         <td>{product.stock}</td>
-                        <td>{getProductStatus(product.category)}</td>
+                        <td>{product.category}</td>
                         <td>
                           <Button variant="success" size="sm" className="me-1">
                             <BsInfoCircle size={20} />

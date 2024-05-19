@@ -104,7 +104,7 @@ export default function DetailUser() {
                         {user?.first_name} {user?.last_name}
                       </b>
                     </Col>
-                    <Col>{getUserRank(0)}</Col>
+                    <Col>{getUserRank(orders.filter(({ status }) => status === 1)).length}</Col>
                   </Row>
                 </div>
               </Col>

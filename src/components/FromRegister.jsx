@@ -45,7 +45,6 @@ export default function FormRegister() {
       const response = await axios.get(
         `${process.env.REACT_APP_SERVER}/logistic/provinces`
       );
-
       const data = response.data;
       setProvinces(data);
     } catch (error) {
@@ -61,7 +60,7 @@ export default function FormRegister() {
     try {
       Swal.showLoading();
       const response = await axios.get(
-        `${process.env.REACT_APP_SERVER} /logistic/cities`,
+        `${process.env.REACT_APP_SERVER}/logistic/cities`,
         {
           params: {
             provinceId: formValues.province_id,
@@ -100,7 +99,7 @@ export default function FormRegister() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_SERVER} /register`, {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER}/register`, {
         ...formValues,
       });
 
